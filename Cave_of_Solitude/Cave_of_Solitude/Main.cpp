@@ -1,6 +1,6 @@
 #include <SFML\Graphics.hpp>
 
-int Main()
+int main()
 {
 	sf::RenderWindow window(sf::VideoMode(200,200), "SFML WORKS");
 	sf::CircleShape shape(100.f);
