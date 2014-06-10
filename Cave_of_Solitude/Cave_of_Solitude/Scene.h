@@ -2,6 +2,7 @@
 #define Scene_H
 
 #include "Map.h"
+#include "Player.h"
 
 class Scene
 {
@@ -10,5 +11,11 @@ public:
 	~Scene(void);
 
 	Map map;
+	Player *player;
+
+	Map* getMap();
+	/*{
+		return &map;
+	}*/
 };
 #endif

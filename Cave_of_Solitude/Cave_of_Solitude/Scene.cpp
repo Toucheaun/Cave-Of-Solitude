@@ -10,3 +10,8 @@ Scene::Scene()
 Scene::~Scene(void)
 {
 }
+
+Map* Scene::getMap()
+{
+	return &map;
+}

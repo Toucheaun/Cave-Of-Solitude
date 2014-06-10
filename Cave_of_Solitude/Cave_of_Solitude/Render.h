@@ -8,9 +8,16 @@
 class Render
 {
 public:
-	Render(void);
+	Render(Scene *s);
 	~Render(void);
 
+	void Update();
+private:
 	Scene *scene;
+	sf::RenderWindow window;
+
+	//Map assets
+	sf::Texture floor;
+	sf::Sprite Floor;
 };
 #endif
