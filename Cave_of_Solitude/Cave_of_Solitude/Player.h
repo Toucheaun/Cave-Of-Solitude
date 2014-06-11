@@ -9,7 +9,10 @@ public:
 	Player(sf::Vector2<int> pos);
 	~Player(void);
 
+	void Update();
+
 	float Vit, Str, Stam, Int;
+	int Hp, Hp_Max;
 	sf::Vector2<int> Position;
 };
 #endif

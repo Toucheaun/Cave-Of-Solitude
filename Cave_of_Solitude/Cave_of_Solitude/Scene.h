@@ -14,8 +14,6 @@ public:
 	Player *player;
 
 	Map* getMap();
-	/*{
-		return &map;
-	}*/
+
 };
 #endif

@@ -1,17 +1,20 @@
 #include <SFML\Graphics.hpp>
 
 #include "Render.h"
+#include "Game.h"
 
 
 int main()
 {
 	
 	Scene *scene = new Scene();
+	Game g(scene);
 	Render r(scene);
 
 	for(;;)
 	{
-	r.Update();
+		g.Update();
+		r.Update();
 	}
 
 	return 0;

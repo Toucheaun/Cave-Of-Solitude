@@ -7,6 +7,11 @@ Render::Render(Scene* s)
 	scene = s;
 	floor.loadFromFile("../Resources/StoneFloor64.png");
 	Floor.setTexture(floor);
+	wall.loadFromFile("../Resources/StoneWall64.png");
+	Wall.setTexture(wall);
+
+	player.loadFromFile("../Resources/Player.png");
+	Player.setTexture(player);
 }
 
 Render::~Render()
@@ -33,18 +38,21 @@ void Render::Update()
 						printf("Invalid tile type!");
 						break;
 					case TILE_FLOOR:
-						Floor.setPosition(x2*64/*+x*15*64*/,y2*64/*+y*15*64*/);
+						Floor.setPosition(x2*64+x*15*64-scene->player->Position.x*64,y2*64+y*15*64-scene->player->Position.y*64);
 						window.draw(Floor);
 						break;
 					case TILE_WALL:
+						Wall.setPosition(x2*64+x*15*64-scene->player->Position.x*64,y2*64+y*15*64-scene->player->Position.y*64);
+						window.draw(Wall);
 						break;
 					}
-
 				}
 			}
 		}
 	}
 
+	Player.setPosition(6*64,6*64/*scene->player->Position.x*64,scene->player->Position.y*64*/);
+	window.draw(Player);
 
 	window.display();
 	if (window.isOpen())

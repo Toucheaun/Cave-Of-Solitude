@@ -4,6 +4,7 @@
 Scene::Scene()
 {
 	map = Map(1,1);
+	player = new Player(sf::Vector2<int>(1,1));
 }
 
 

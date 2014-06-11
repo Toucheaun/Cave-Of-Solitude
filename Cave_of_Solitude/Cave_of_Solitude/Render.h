@@ -19,5 +19,12 @@ private:
 	//Map assets
 	sf::Texture floor;
 	sf::Sprite Floor;
+
+	sf::Texture wall;
+	sf::Sprite Wall;
+
+	//Player assets
+	sf::Texture player;
+	sf::Sprite Player;
 };
 #endif
