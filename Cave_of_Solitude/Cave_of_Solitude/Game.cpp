@@ -13,20 +13,34 @@ Game::~Game(void)
 
 void Game::Update()
 {
+	sf::Vector2<int> Temp = scene->player->Position;
+
 	if(sf::Keyboard::isKeyPressed(sf::Keyboard::Up) == true)
 	{
-		scene->player->Position.y--;
+		if(scene->GetTileByPos(sf::Vector2<int>(Temp.x,Temp.y-1)) != TILE_WALL)
+		{
+			scene->player->Position.y--;
+		}
 	}
 	else if(sf::Keyboard::isKeyPressed(sf::Keyboard::Down) == true)
 	{
-		scene->player->Position.y++;
+		if(scene->GetTileByPos(sf::Vector2<int>(Temp.x,Temp.y+1)) != TILE_WALL)
+		{
+			scene->player->Position.y++;
+		}	
 	}
 	else if(sf::Keyboard::isKeyPressed(sf::Keyboard::Left) == true)
 	{
-		scene->player->Position.x--;
+		if(scene->GetTileByPos(sf::Vector2<int>(Temp.x-1,Temp.y)) != TILE_WALL)
+		{
+			scene->player->Position.x--;
+		}
 	}
 	else if(sf::Keyboard::isKeyPressed(sf::Keyboard::Right) == true)
 	{
-		scene->player->Position.x++;
+		if(scene->GetTileByPos(sf::Vector2<int>(Temp.x+1,Temp.y)) != TILE_WALL)
+		{
+			scene->player->Position.x++;
+		}
 	}
 }

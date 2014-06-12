@@ -13,6 +13,7 @@ int main()
 
 	for(;;)
 	{
+		scene->Update();
 		g.Update();
 		r.Update();
 	}
