@@ -1,0 +1,51 @@
+1st Messages
+
+-After your eyes get used to dark you start your journey to the depths…
+
+-You have certain set of skills you can develop as you descend deeper towards the heart of the earth.
+
+-These skills include:
+
+--Strength: physical training that determines the severity of injuries inflicted by your sword…
+
+--Dexterity: sharpness of your sight that gives you the ability to aim to vital spots and inflict more damage with your bow…
+
+--Vitality: as your power grows, so does the thickness of your skin and blood enabling you to endure more blows…
+-------------------------------------------------------------------------
+
+1st Enemy encounter
+
+-Soon you discover the caves to be inhabited by ferocious beasts, undead monsters and hellish demons…
+-------------------------------------------------------------------------
+
+1st Item found
+
+-You found a/an (add item here). Maybe there’s more scattered around…
+-------------------------------------------------------------------------
+
+Item
+
+You have found a/an (add item here)…
+-------------------------------------------------------------------------
+
+Level up
+
+-You feel the power surging from inside your inner spirit…
+-Add points to skill of your desire…
+-------------------------------------------------------------------------
+
+Upgrade
+
+-The weapon in your hands vibrates briefly and now emits even more ferocious intent to kill…
+-------------------------------------------------------------------------
+
+Death
+
+-You collapse under continuous attacks of the infernal inhabitants of the cave…
+-------------------------------------------------------------------------
+
+Suicide
+
+-The burden becomes too great and you resort in the only option available…
+-------------------------------------------------------------------------
+
