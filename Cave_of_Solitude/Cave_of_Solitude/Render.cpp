@@ -10,7 +10,7 @@ Render::Render(Scene* s)
 	wall.loadFromFile("../Resources/StoneWall64.png");
 	Wall.setTexture(wall);
 
-	player.loadFromFile("../Resources/Player.png");
+	player.loadFromFile("../Resources/PlayerCharacter64.png");
 	Player.setTexture(player);
 }
 
