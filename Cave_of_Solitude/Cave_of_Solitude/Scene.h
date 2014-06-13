@@ -10,16 +10,10 @@ public:
 	Scene();
 	~Scene(void);
 
-	void Update();
-
-	TileType GetTileByPos(sf::Vector2<int> Pos);
-
 	Map map;
 	Player *player;
 
 	Map* getMap();
-
-	int CurrentBlockX,CurrentBlockY;
 
 };
 #endif

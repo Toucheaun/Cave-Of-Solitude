@@ -17,7 +17,7 @@ Block::Block()
 	}
 	for(unsigned int x = 0; x < BLOCK_WIDTH; ++x)
 	{
-		tiles[21][x] = TILE_WALL;
+		tiles[BLOCK_HEIGHT][0] = TILE_WALL;
 	}
 	for(unsigned int y = 0; y < BLOCK_HEIGHT; ++y)
 	{
@@ -25,7 +25,7 @@ Block::Block()
 	}
 	for(unsigned int y = 0; y < BLOCK_HEIGHT; ++y)
 	{
-		tiles[21][y] = TILE_WALL;
+		tiles[y][BLOCK_WIDTH] = TILE_WALL;
 	}
 }
 
