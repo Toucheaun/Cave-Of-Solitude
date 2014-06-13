@@ -2,6 +2,8 @@
 #ifndef Game_H
 #define Game_H
 
+
+#include <SFML\System.hpp>
 #include "Scene.h"
 
 class Game
@@ -13,5 +15,9 @@ public:
 	void Update();
 
 	Scene *scene;
+
+	sf::Clock clock;
+	sf::Time DeltaTime;
+	float MovementCD;
 };
 #endif

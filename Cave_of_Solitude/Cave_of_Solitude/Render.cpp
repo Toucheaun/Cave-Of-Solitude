@@ -1,5 +1,5 @@
 #include "Render.h"
-
+#include <iostream>
 
 Render::Render(Scene* s)
 {
@@ -35,18 +35,18 @@ void Render::Update()
 			{
 				for(unsigned int y2 = 0; y2 < BLOCK_HEIGHT; ++y2)
 				{
-					
+					//std::cout<<scene->map.blocks[x][y].tiles[x2][y2]<<std::endl;
 					switch(scene->getMap()->blocks[x][y].tiles[x2][y2])
 					{
 					case TILE_VOID:
 						printf("Invalid tile type!");
 						break;
 					case TILE_FLOOR:
-						Floor.setPosition(x2*64+x*15*64,y2*64+y*15*64);
+						Floor.setPosition((x2*64)+(x*15*64),(y2*64)+(y*15*64));
 						window.draw(Floor);
 						break;
 					case TILE_WALL:
-						Wall.setPosition(x2*64+x*15*64,y2*64+y*15*64);
+						Wall.setPosition((x2*64)+(x*15*64),(y2*64)+(y*15*64));
 						window.draw(Wall);
 						break;
 					}
