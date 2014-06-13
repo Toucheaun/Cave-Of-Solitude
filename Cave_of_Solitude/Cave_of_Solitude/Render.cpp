@@ -21,6 +21,10 @@ Render::~Render()
 void Render::Update()
 {
 	window.clear();
+	Player.setPosition(scene->player->Position.x*64,scene->player->Position.y*64);
+	view.reset(sf::FloatRect(0,0,800,600));
+	view.setCenter(Player.getPosition());
+	window.setView(view);
 
 	//draw here
 	for(unsigned int x = 0; x < MAX_MAP_WIDTH; ++x)
@@ -38,11 +42,11 @@ void Render::Update()
 						printf("Invalid tile type!");
 						break;
 					case TILE_FLOOR:
-						Floor.setPosition(x2*64+x*15*64-scene->player->Position.x*64,y2*64+y*15*64-scene->player->Position.y*64);
+						Floor.setPosition(x2*64+x*15*64,y2*64+y*15*64);
 						window.draw(Floor);
 						break;
 					case TILE_WALL:
-						Wall.setPosition(x2*64+x*15*64-scene->player->Position.x*64,y2*64+y*15*64-scene->player->Position.y*64);
+						Wall.setPosition(x2*64+x*15*64,y2*64+y*15*64);
 						window.draw(Wall);
 						break;
 					}
@@ -51,7 +55,7 @@ void Render::Update()
 		}
 	}
 
-	Player.setPosition(6*64,6*64/*scene->player->Position.x*64,scene->player->Position.y*64*/);
+	//Player.setPosition(scene->player->Position.x*64,scene->player->Position.y*64);
 	window.draw(Player);
 
 	window.display();

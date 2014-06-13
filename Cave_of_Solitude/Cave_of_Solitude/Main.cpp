@@ -13,6 +13,10 @@ int main()
 
 	for(;;)
 	{
+		if(sf::Keyboard::isKeyPressed(sf::Keyboard::Escape))
+		{
+			break;
+		}
 		g.Update();
 		r.Update();
 	}

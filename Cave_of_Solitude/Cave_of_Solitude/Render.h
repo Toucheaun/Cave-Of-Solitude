@@ -15,6 +15,7 @@ public:
 private:
 	Scene *scene;
 	sf::RenderWindow window;
+	sf::View view;
 
 	//Map assets
 	sf::Texture floor;
