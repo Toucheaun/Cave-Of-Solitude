@@ -13,6 +13,7 @@ class Block
 {
 public:
 	Block();
+	Block(int type);
 	~Block(void);
 
 	TileType tiles[BLOCK_WIDTH][BLOCK_HEIGHT];

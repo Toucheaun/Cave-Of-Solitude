@@ -35,18 +35,20 @@ void Render::Update()
 			{
 				for(unsigned int y2 = 0; y2 < BLOCK_HEIGHT; ++y2)
 				{
-					//std::cout<<scene->map.blocks[x][y].tiles[x2][y2]<<std::endl;
+					//std::cout<<"block:" <<x<<y<<"tile:"<<x2<<y2<<std::endl;
 					switch(scene->getMap()->blocks[x][y].tiles[x2][y2])
 					{
 					case TILE_VOID:
 						printf("Invalid tile type!");
 						break;
 					case TILE_FLOOR:
-						Floor.setPosition((x2*64)+(x*15*64),(y2*64)+(y*15*64));
+						//printf("Floor\n");
+						Floor.setPosition((x2*64)+(x*21*64),(y2*64)+(y*21*64));
 						window.draw(Floor);
 						break;
 					case TILE_WALL:
-						Wall.setPosition((x2*64)+(x*15*64),(y2*64)+(y*15*64));
+						//printf("Wall\n");
+						Wall.setPosition((x2*64)+(x*21*64),(y2*64)+(y*21*64));
 						window.draw(Wall);
 						break;
 					}
