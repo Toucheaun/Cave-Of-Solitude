@@ -24,6 +24,10 @@ private:
 	sf::Texture wall;
 	sf::Sprite Wall;
 
+	//Enemy assets
+	sf::Texture skeleton;
+	sf::Sprite Skeleton;
+
 	//Player assets
 	sf::Texture player;
 	sf::Sprite Player;

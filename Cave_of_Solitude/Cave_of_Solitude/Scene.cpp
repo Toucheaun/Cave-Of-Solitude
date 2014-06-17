@@ -5,6 +5,7 @@ Scene::Scene()
 {
 	map = Map(1,1);
 	player = new Player(sf::Vector2<int>(1,1));
+	enemies.push_back(new Enemy(SKELETON));
 	CurrentBlockX = 0;
 	CurrentBlockY = 0;
 }
@@ -24,6 +25,7 @@ void Scene::Update()
 
 	std::cout<<"Currentblock: "<<CurrentBlockX<<","<<CurrentBlockY<<std::endl;
 	std::cout<<"Playerposition: "<<player->Position.x<<","<<player->Position.y;
+	std::cout<<"Enemy hp: "<<enemies.at(0)->HP<<std::endl;
 
 	if(player->Position.x/21 > 0)
 	{

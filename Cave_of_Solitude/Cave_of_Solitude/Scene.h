@@ -2,7 +2,10 @@
 #define Scene_H
 
 #include "Map.h"
+#include "Enemy.h"
 #include "Player.h"
+
+#include <vector>;
 
 class Scene
 {
@@ -20,6 +23,8 @@ public:
 	TileType GetTileByPos(sf::Vector2<int> Pos);
 
 	int CurrentBlockX,CurrentBlockY;
+
+	std::vector<Enemy*> enemies;
 
 };
 #endif

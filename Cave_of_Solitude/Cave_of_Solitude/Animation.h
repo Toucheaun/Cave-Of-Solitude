@@ -21,7 +21,6 @@
 //
 ////////////////////////////////////////////////////////////
 
-#pragma once
 
 #ifndef ANIMATION_INCLUDE
 #define ANIMATION_INCLUDE

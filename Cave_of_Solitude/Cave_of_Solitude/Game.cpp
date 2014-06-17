@@ -24,7 +24,8 @@ void Game::Update()
 		{
 			if(scene->GetTileByPos(sf::Vector2<int>(Temp.x,Temp.y-1)) != TILE_WALL)
 			{
-			scene->player->Position.y--;
+				scene->player->Position.y--;
+				scene->player->Facing = DOWN;
 			}
 		}
 		else if(sf::Keyboard::isKeyPressed(sf::Keyboard::Down) == true)
@@ -32,6 +33,7 @@ void Game::Update()
 			if(scene->GetTileByPos(sf::Vector2<int>(Temp.x,Temp.y+1)) != TILE_WALL)
 			{
 				scene->player->Position.y++;
+				scene->player->Facing = UP;
 			}	
 
 		}
@@ -40,6 +42,7 @@ void Game::Update()
 			if(scene->GetTileByPos(sf::Vector2<int>(Temp.x-1,Temp.y)) != TILE_WALL)
 			{
 				scene->player->Position.x--;
+				scene->player->Facing = LEFT;
 			}
 
 		}
@@ -48,10 +51,24 @@ void Game::Update()
 			if(scene->GetTileByPos(sf::Vector2<int>(Temp.x+1,Temp.y)) != TILE_WALL)
 			{
 				scene->player->Position.x++;
+				scene->player->Facing = RIGHT;
 			}
 		}
 		MovementCD = 0;
 	}
 
+	if(sf::Keyboard::isKeyPressed(sf::Keyboard::J))
+	{
+		Attack(scene->enemies.at(0));
+	}
+
 	MovementCD += DeltaTime.asSeconds();
+}
+
+void Game::Attack(Enemy* e)
+{
+	if(e != NULL)
+	{
+		e->HP -= scene->player->Dam;
+	}
 }

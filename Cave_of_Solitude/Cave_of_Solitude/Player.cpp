@@ -8,8 +8,10 @@ Player::Player(sf::Vector2<int> pos)
 	Str = 10;
 	Stam = 10;
 	Int = 10;
+	Dam = Str;
 	Hp = 10;
 	Hp_Max = 10;
+	Facing = DOWN;
 }
 
 

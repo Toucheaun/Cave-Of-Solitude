@@ -10,6 +10,9 @@ Render::Render(Scene* s)
 	wall.loadFromFile("../Resources/StoneWall64.png");
 	Wall.setTexture(wall);
 
+	skeleton.loadFromFile("../Resources/Skeleton64.png");
+	Skeleton.setTexture(skeleton);
+
 	player.loadFromFile("../Resources/PlayerCharacter64.png");
 	Player.setTexture(player);
 }
@@ -21,6 +24,9 @@ Render::~Render()
 void Render::Update()
 {
 	window.clear();
+
+	std::vector<Enemy*> temp = scene->enemies;
+
 	Player.setPosition(scene->player->Position.x*64,scene->player->Position.y*64);
 	view.reset(sf::FloatRect(0,0,800,600));
 	view.setCenter(Player.getPosition());
@@ -54,6 +60,17 @@ void Render::Update()
 					}
 				}
 			}
+		}
+	}
+
+	for(unsigned int i = 0; i < temp.size(); i++)
+	{
+		switch(temp.at(i)->type)
+		{
+		case SKELETON:
+			Skeleton.setPosition(temp.at(i)->Position.x*64,temp.at(i)->Position.y*64);
+			window.draw(Skeleton);
+			break;
 		}
 	}
 

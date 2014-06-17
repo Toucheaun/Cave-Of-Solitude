@@ -13,6 +13,7 @@ public:
 	~Game(void);
 
 	void Update();
+	void Attack(Enemy* e);
 
 	Scene *scene;
 
