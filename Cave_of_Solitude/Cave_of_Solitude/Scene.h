@@ -24,6 +24,7 @@ public:
 
 	int CurrentBlockX,CurrentBlockY;
 
+	Enemy* GetEnemyByPos(sf::Vector2<int> Pos);
 	std::vector<Enemy*> enemies;
 
 };

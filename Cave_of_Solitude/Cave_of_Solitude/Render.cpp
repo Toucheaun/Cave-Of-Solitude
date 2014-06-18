@@ -10,8 +10,9 @@ Render::Render(Scene* s)
 	wall.loadFromFile("../Resources/StoneWall64.png");
 	Wall.setTexture(wall);
 
-	skeleton.loadFromFile("../Resources/Skeleton64.png");
+	skeleton.loadFromFile("../Resources/Skeleton128.png");
 	Skeleton.setTexture(skeleton);
+	Skeleton.setScale(0.5f,0.5f);
 
 	player.loadFromFile("../Resources/PlayerCharacter64.png");
 	Player.setTexture(player);
@@ -37,9 +38,9 @@ void Render::Update()
 	{
 		for(unsigned int y = 0; y < MAX_MAP_HEIGHT; ++y)
 		{
-			for(unsigned int x2 = 0; x2 < BLOCK_WIDTH; ++x2)
+			for(unsigned int x2 = 0; x2 < BLOCK_WIDTH; x2++)
 			{
-				for(unsigned int y2 = 0; y2 < BLOCK_HEIGHT; ++y2)
+				for(unsigned int y2 = 0; y2 < BLOCK_HEIGHT; y2++)
 				{
 					//std::cout<<"block:" <<x<<y<<"tile:"<<x2<<y2<<std::endl;
 					switch(scene->getMap()->blocks[x][y].tiles[x2][y2])

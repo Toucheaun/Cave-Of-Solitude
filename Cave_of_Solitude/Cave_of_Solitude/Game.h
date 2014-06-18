@@ -13,12 +13,14 @@ public:
 	~Game(void);
 
 	void Update();
+	void Move();
 	void Attack(Enemy* e);
 
 	Scene *scene;
 
 	sf::Clock clock;
 	sf::Time DeltaTime;
-	float MovementCD;
+	float MovementCD,MovementCDTimer;
+	sf::Vector2<int> Pos;
 };
 #endif
