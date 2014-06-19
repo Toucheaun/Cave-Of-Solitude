@@ -20,12 +20,15 @@ Render::Render(Scene* s)
 	Player.setTexture(player);
 
 	//Text
-	font.loadFromFile("../Resources/Gabrielle.ttf");
+	font.loadFromFile("../Resources/Alpine.ttf");
 	text.setFont(font);
 	text.setColor(sf::Color::Red);
 
 	HP.setFont(font);
 	HP.setColor(sf::Color::Red);
+
+	EXP.setFont(font);
+	EXP.setColor(sf::Color::Green);
 }
 
 Render::~Render()
@@ -90,9 +93,15 @@ void Render::Update()
 
 	HP.setPosition(Player.getPosition().x-400,Player.getPosition().y-300);
 	std::stringstream ss;
-	ss<<"hp: "<<scene->player->Hp;
+	ss<<"Hp: "<<scene->player->Hp;
 	HP.setString(ss.str());
 	window.draw(HP);
+
+	EXP.setPosition(Player.getPosition().x-250,Player.getPosition().y-300);
+	std::stringstream exp;
+	exp<<"Experience: "<<scene->player->Exp;
+	EXP.setString(exp.str());
+	window.draw(EXP);
 
 	window.display();
 	if (window.isOpen())

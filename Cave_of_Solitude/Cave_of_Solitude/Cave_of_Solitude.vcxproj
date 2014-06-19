@@ -102,6 +102,15 @@
     <ClInclude Include="StateMachine.h" />
     <ClInclude Include="Tile.h" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="..\Resources\Alpine.ttf" />
+    <None Include="..\Resources\Arneson.ttf" />
+    <None Include="..\Resources\Augusta.ttf" />
+    <None Include="..\Resources\Becker-Inline.ttf" />
+    <None Include="..\Resources\Becker.ttf" />
+    <None Include="..\Resources\GoticaBastard.ttf" />
+    <None Include="..\Resources\Livingst.ttf" />
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>

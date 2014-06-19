@@ -42,6 +42,12 @@
     <ClCompile Include="Enemy.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="AnimatedSprite.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Animation.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Tile.h">
@@ -71,5 +77,34 @@
     <ClInclude Include="Enemy.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="AnimatedSprite.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Animation.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\Resources\Alpine.ttf">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\Resources\Becker-Inline.ttf">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\Resources\GoticaBastard.ttf">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\Resources\Livingst.ttf">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\Resources\Arneson.ttf">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\Resources\Augusta.ttf">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\Resources\Becker.ttf">
+      <Filter>Resource Files</Filter>
+    </None>
   </ItemGroup>
 </Project>

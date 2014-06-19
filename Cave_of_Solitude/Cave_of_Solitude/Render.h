@@ -28,6 +28,7 @@ private:
 	sf::Font font;
 	sf::Text text;
 	sf::Text HP;
+	sf::Text EXP;
 
 	//Enemy assets
 	sf::Texture skeleton;

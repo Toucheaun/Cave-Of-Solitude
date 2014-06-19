@@ -9,6 +9,7 @@ Player::Player(sf::Vector2<int> pos)
 	Stam = 10;
 	Int = 10;
 	Dam = Str;
+	Exp = 0;
 	Hp = 10;
 	Hp_Max = 10;
 	Facing = DOWN;
