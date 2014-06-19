@@ -20,7 +20,7 @@ Render::Render(Scene* s)
 	Player.setTexture(player);
 
 	//Text
-	font.loadFromFile("../Resources/Alpine.ttf");
+	font.loadFromFile("../Resources/Gabriela-Regular.ttf");
 	text.setFont(font);
 	text.setColor(sf::Color::Red);
 

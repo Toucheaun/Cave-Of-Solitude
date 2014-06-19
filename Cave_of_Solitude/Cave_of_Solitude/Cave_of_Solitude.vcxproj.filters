@@ -85,25 +85,10 @@
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <None Include="..\Resources\Alpine.ttf">
-      <Filter>Resource Files</Filter>
-    </None>
-    <None Include="..\Resources\Becker-Inline.ttf">
-      <Filter>Resource Files</Filter>
-    </None>
-    <None Include="..\Resources\GoticaBastard.ttf">
-      <Filter>Resource Files</Filter>
-    </None>
     <None Include="..\Resources\Livingst.ttf">
       <Filter>Resource Files</Filter>
     </None>
-    <None Include="..\Resources\Arneson.ttf">
-      <Filter>Resource Files</Filter>
-    </None>
-    <None Include="..\Resources\Augusta.ttf">
-      <Filter>Resource Files</Filter>
-    </None>
-    <None Include="..\Resources\Becker.ttf">
+    <None Include="..\Resources\Gabriela-Regular.ttf">
       <Filter>Resource Files</Filter>
     </None>
   </ItemGroup>
