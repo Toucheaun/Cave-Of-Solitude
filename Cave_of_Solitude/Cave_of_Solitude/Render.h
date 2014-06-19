@@ -12,6 +12,7 @@ public:
 	~Render(void);
 
 	void Update();
+	sf::RenderWindow* GetWindow();
 private:
 	Scene *scene;
 	sf::RenderWindow window;

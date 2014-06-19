@@ -114,3 +114,8 @@ void Render::Update()
 		}
 	}
 }
+
+sf::RenderWindow* Render::GetWindow()
+{
+	return &window;
+}

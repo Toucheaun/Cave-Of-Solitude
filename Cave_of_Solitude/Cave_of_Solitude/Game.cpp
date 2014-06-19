@@ -1,12 +1,13 @@
 #include "Game.h"
 #include <SFML\Window.hpp>
 
-Game::Game(Scene *s)
+Game::Game(Scene *s, sf::RenderWindow *win)
 {
 	scene = s;
 	MovementCDTimer = 1.0f;
 	MovementCD = 1.0f;
 	Pos = scene->player->Position;
+	window = win;
 }
 
 
@@ -41,6 +42,17 @@ void Game::Update()
 		}
 	}
 
+	//Ranged attack that is broken
+	if(sf::Mouse::isButtonPressed(sf::Mouse::Left))
+	{
+		sf::Vector2i WinPos = sf::Mouse::getPosition(*window);
+		if(scene->GetEnemyByPos(WinPos/64) != NULL)
+		{
+			scene->GetEnemyByPos(WinPos/64)->HP -= scene->player->Dam;
+		}
+	}
+
+
 
 	MovementCDTimer += DeltaTime.asSeconds();
 	//printf("%.0f",&MovementCDTimer);
@@ -57,7 +69,7 @@ void Game::Attack(Enemy* e)
 void Game::Move()
 {
 	
-	if(MovementCDTimer > MovementCD)
+	//if(MovementCDTimer > MovementCD)
 	{
 		if(sf::Keyboard::isKeyPressed(sf::Keyboard::Up) == true)
 		{

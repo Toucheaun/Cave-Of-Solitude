@@ -120,8 +120,8 @@ int main()
  //   }
 	
 	Scene *scene = new Scene();
-	Game g(scene);
 	Render r(scene);
+	Game g(scene,r.GetWindow());
 
 	for(;;)
 	{
