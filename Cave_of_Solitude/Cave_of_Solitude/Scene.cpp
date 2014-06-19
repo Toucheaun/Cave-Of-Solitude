@@ -31,9 +31,17 @@ void Scene::Update()
 	{
 		CurrentBlockX = player->Position.x/21;
 	}
+	else
+	{
+		CurrentBlockX = 0;
+	}
 	if(player->Position.y/21 > 0)
 	{
 		CurrentBlockY = player->Position.y/21;
+	}
+	else
+	{
+		CurrentBlockY = 0;
 	}
 }
 

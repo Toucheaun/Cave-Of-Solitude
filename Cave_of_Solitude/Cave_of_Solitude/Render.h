@@ -24,6 +24,11 @@ private:
 	sf::Texture wall;
 	sf::Sprite Wall;
 
+	//Text assets
+	sf::Font font;
+	sf::Text text;
+	sf::Text HP;
+
 	//Enemy assets
 	sf::Texture skeleton;
 	sf::Sprite Skeleton;

@@ -1,5 +1,7 @@
 #include "Render.h"
 #include <iostream>
+#include <string>
+#include <sstream>
 
 Render::Render(Scene* s)
 {
@@ -16,6 +18,14 @@ Render::Render(Scene* s)
 
 	player.loadFromFile("../Resources/PlayerCharacter64.png");
 	Player.setTexture(player);
+
+	//Text
+	font.loadFromFile("../Resources/Gabrielle.ttf");
+	text.setFont(font);
+	text.setColor(sf::Color::Red);
+
+	HP.setFont(font);
+	HP.setColor(sf::Color::Red);
 }
 
 Render::~Render()
@@ -77,6 +87,12 @@ void Render::Update()
 
 	//Player.setPosition(scene->player->Position.x*64,scene->player->Position.y*64);
 	window.draw(Player);
+
+	HP.setPosition(Player.getPosition().x-400,Player.getPosition().y-300);
+	std::stringstream ss;
+	ss<<"hp: "<<scene->player->Hp;
+	HP.setString(ss.str());
+	window.draw(HP);
 
 	window.display();
 	if (window.isOpen())
