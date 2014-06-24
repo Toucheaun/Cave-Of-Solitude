@@ -16,6 +16,8 @@ public:
 	void Update();
 	void Move();
 	void Attack(Enemy* e);
+	void EnemyAttack(Enemy* e);
+	float GetDistance(sf::Vector2<int> Playa,sf::Vector2<int> Beast);
 
 	Scene *scene;
 

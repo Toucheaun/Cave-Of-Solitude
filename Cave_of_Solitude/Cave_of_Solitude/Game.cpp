@@ -1,5 +1,6 @@
 #include "Game.h"
 #include <SFML\Window.hpp>
+#include <iostream>
 
 Game::Game(Scene *s, sf::RenderWindow *win)
 {
@@ -52,10 +53,18 @@ void Game::Update()
 		}
 	}
 
+	std::vector<Enemy*> Temp = scene->enemies;
 
+	for(unsigned int i = 0; i<Temp.size(); i++)
+	{
+		if(GetDistance(scene->player->Position,Temp.at(i)->Position) < 1)
+		{
+			EnemyAttack(Temp.at(i));
+		}
+	}
 
 	MovementCDTimer += DeltaTime.asSeconds();
-	//printf("%.0f",&MovementCDTimer);
+	//std::cout<<MovementCDTimer<<std::endl;
 }
 
 void Game::Attack(Enemy* e)
@@ -66,10 +75,21 @@ void Game::Attack(Enemy* e)
 	}
 }
 
+void Game::EnemyAttack(Enemy* e)
+{
+	scene->player->Hp -= e->DAM;
+}
+
+float Game::GetDistance(sf::Vector2<int> Playa,sf::Vector2<int> Beast)
+{
+	float result = std::sqrt(((float)Playa.x-Beast.x)*(Playa.x-Beast.x)+(Playa.y-Beast.y)*(Playa.y-Beast.y));
+	return result;
+}
+
 void Game::Move()
 {
 	
-	//if(MovementCDTimer > MovementCD)
+	if(MovementCDTimer > MovementCD)
 	{
 		if(sf::Keyboard::isKeyPressed(sf::Keyboard::Up) == true)
 		{

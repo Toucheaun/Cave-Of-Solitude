@@ -23,9 +23,10 @@ Map* Scene::getMap()
 void Scene::Update()
 {
 
-	std::cout<<"Currentblock: "<<CurrentBlockX<<","<<CurrentBlockY<<std::endl;
-	std::cout<<"Playerposition: "<<player->Position.x<<","<<player->Position.y;
-	std::cout<<"Enemy hp: "<<enemies.at(0)->HP<<"Position:"<<enemies.at(0)->Position.x<<","<<enemies.at(0)->Position.y<<std::endl;
+	//std::cout<<"Currentblock: "<<CurrentBlockX<<","<<CurrentBlockY<<std::endl;
+	//std::cout<<"Playerposition: "<<player->Position.x<<","<<player->Position.y;
+	std::cout<<"Player HP: "<<player->Hp<<std::endl;
+	//std::cout<<"Enemy hp: "<<enemies.at(0)->HP<<"Position:"<<enemies.at(0)->Position.x<<","<<enemies.at(0)->Position.y<<std::endl;
 
 	if(player->Position.x/21 > 0)
 	{
