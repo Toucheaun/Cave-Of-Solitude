@@ -15,6 +15,7 @@ public:
 	Block();
 	Block(int type);
 	~Block(void);
+	void CopyArray(TileType t[BLOCK_WIDTH][BLOCK_HEIGHT]);
 
 	TileType tiles[BLOCK_WIDTH][BLOCK_HEIGHT];
 };

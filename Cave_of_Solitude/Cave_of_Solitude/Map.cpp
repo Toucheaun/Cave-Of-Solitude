@@ -1,5 +1,7 @@
 #include "Map.h"
 
+#include <cstdlib>
+
 
 Map::Map(int x, int y)
 {
@@ -20,7 +22,8 @@ Map::Map(int x, int y)
 	{
 		for(unsigned int y = 0; y < Height; ++y)
 		{
-			blocks[x][y] = Block();
+			blocks[x][y] = Block(std::rand() % 2);
+
 		}
 	}
 }

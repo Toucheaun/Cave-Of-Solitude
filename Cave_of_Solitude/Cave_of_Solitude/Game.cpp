@@ -89,7 +89,7 @@ float Game::GetDistance(sf::Vector2<int> Playa,sf::Vector2<int> Beast)
 void Game::Move()
 {
 	
-	if(MovementCDTimer > MovementCD)
+	//if(MovementCDTimer > MovementCD)
 	{
 		if(sf::Keyboard::isKeyPressed(sf::Keyboard::Up) == true)
 		{
