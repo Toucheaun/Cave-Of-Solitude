@@ -57,7 +57,7 @@ void Game::Update()
 
 	for(unsigned int i = 0; i<Temp.size(); i++)
 	{
-		if(GetDistance(scene->player->Position,Temp.at(i)->Position) < 1)
+		if(GetDistance(scene->player->Position,Temp.at(i)->Position) < 2)
 		{
 			EnemyAttack(Temp.at(i));
 		}

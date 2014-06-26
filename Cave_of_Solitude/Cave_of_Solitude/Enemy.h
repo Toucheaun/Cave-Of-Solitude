@@ -7,7 +7,11 @@
 enum Enemy_Type
 {
 	SKELETON = 0,
-	BLEH
+	ZOMBIE,
+	WRAITH,
+	GOBLIN,
+	ORC,
+	TROLL,
 };
 
 class Enemy
@@ -15,6 +19,7 @@ class Enemy
 public:
 	Enemy(Enemy_Type t);
 	~Enemy(void);
+	void Update();
 
 	float HP,DAM;
 	Enemy_Type type;
