@@ -24,6 +24,9 @@ private:
 
 	sf::Texture wall;
 	sf::Sprite Wall;
+	
+	sf::Texture wall_H;
+	sf::Sprite Wall_H;
 
 	//Text assets
 	sf::Font font;

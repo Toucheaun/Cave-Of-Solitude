@@ -39,33 +39,37 @@ Block::Block(int type)
 	{
 #define F  TILE_FLOOR
 #define W  TILE_WALL
-
+#define H  TILE_WALL_H
+#define S  TILE_SPAWNER_S
+#define M  TILE_SPAWNER_M
+#define L  TILE_SPAWNER_L
+#define T  TILE_SPAWNER_T
 	switch(type)
 	{
 	case 0:
 		{
 		TileType t[21][21] =
 		{
-		{W,W,W,W,W,W,W,W,W,W,F,W,W,W,W,W,W,W,W,W,W},
-		{W,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,W},
-		{W,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,W},
-		{W,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,W},
-		{W,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,W},
-		{W,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,W},
-		{W,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,W},
-		{W,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,W},
-		{W,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,W},
-		{W,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,W},
-		{F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F},
-		{W,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,W},
-		{W,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,W},
-		{W,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,W},
-		{W,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,W},
-		{W,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,W},
-		{W,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,W},
-		{W,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,W},
-		{W,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,W},
-		{W,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,W},
+		{W,H,H,H,H,H,H,H,H,H,F,H,H,H,H,H,H,H,H,H,W},
+		{W,F,F,F,F,F,F,F,F,F,F,W,F,F,S,F,F,F,F,F,W},
+		{W,F,W,H,H,H,W,H,H,H,W,H,F,W,F,H,H,H,W,F,W},
+		{W,F,H,F,F,F,W,F,F,F,W,F,F,W,F,F,F,F,W,F,W},
+		{W,F,F,S,W,F,W,F,W,F,W,F,W,H,H,H,H,F,W,F,W},
+		{W,H,H,H,W,F,W,F,W,F,W,F,W,F,F,F,F,F,W,M,W},
+		{W,F,F,F,F,F,W,F,W,F,H,F,W,F,W,H,H,H,W,T,W},
+		{W,F,W,F,W,H,H,F,W,F,F,F,W,F,W,S,F,F,W,W,W},
+		{W,F,W,F,W,T,M,F,W,H,H,H,H,F,W,F,W,F,W,W,W},
+		{W,F,W,F,H,H,H,H,H,F,F,F,F,F,F,F,W,F,H,H,W},
+		{F,F,W,F,F,F,F,F,F,L,W,H,H,H,H,H,W,F,F,F,F},
+		{W,H,H,H,H,H,H,H,W,F,W,S,F,F,F,F,W,H,H,H,W},
+		{W,F,F,F,F,F,F,F,W,F,W,H,H,H,H,F,W,F,F,F,W},
+		{W,F,W,H,H,H,W,F,W,F,W,F,F,F,F,F,W,F,W,F,W},
+		{W,F,W,F,S,F,W,F,W,F,H,F,H,H,H,H,H,F,W,F,W},
+		{W,F,W,F,W,F,F,F,W,F,F,F,F,F,S,F,F,F,W,F,W},
+		{W,F,W,F,H,H,H,H,H,F,H,H,H,W,F,H,H,H,W,F,W},
+		{W,F,W,F,F,F,F,F,F,F,F,F,F,W,F,F,F,F,W,F,W},
+		{W,F,H,H,H,H,H,H,H,H,H,W,F,W,H,H,H,F,H,F,W},
+		{W,F,F,F,F,F,F,F,F,F,F,W,F,F,F,F,F,F,F,F,W},
 		{W,W,W,W,W,W,W,W,W,W,F,W,W,W,W,W,W,W,W,W,W}
 		};
 		CopyArray(t);
@@ -75,7 +79,7 @@ Block::Block(int type)
 		{
 		TileType c[21][21] =
 		{
-		{W,W,W,W,W,W,W,W,W,W,F,W,W,W,W,W,W,W,W,W,W},
+		{W,H,H,H,H,H,H,H,H,H,F,H,H,H,H,H,H,H,H,H,W},
 		{W,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,W},
 		{W,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,W},
 		{W,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,W},
@@ -104,7 +108,7 @@ Block::Block(int type)
 		{
 		TileType v[21][21] =
 		{
-		{W,W,W,W,W,W,W,W,W,W,F,W,W,W,W,W,W,W,W,W,W},
+		{W,H,H,H,H,H,H,H,H,H,F,H,H,H,H,H,H,H,H,H,W},
 		{W,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,W},
 		{W,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,W},
 		{W,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,W},

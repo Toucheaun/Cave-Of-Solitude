@@ -11,6 +11,9 @@ Render::Render(Scene* s)
 	Floor.setTexture(floor);
 	wall.loadFromFile("../Resources/StoneWall64.png");
 	Wall.setTexture(wall);
+	wall_H.loadFromFile("../Resources/StoneWallHorizontal_v2_128.png");
+	Wall_H.setTexture(wall);
+
 
 	player.loadFromFile("../Resources/Player128.png");
 	Player.setTexture(player);
@@ -93,6 +96,10 @@ void Render::Update()
 						//printf("Wall\n");
 						Wall.setPosition((x2*64)+(x*21*64),(y2*64)+(y*21*64));
 						window.draw(Wall);
+						break;
+					case TILE_WALL_H:
+						Wall_H.setPosition((x2*64)+(x*21*64),(y2*64)+(y*21*64));
+						window.draw(Wall_H);
 						break;
 					}
 				}
