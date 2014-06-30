@@ -7,24 +7,39 @@ Enemy::Enemy(Enemy_Type t)
 	type = t;
 	switch(t)
 	{
-	case SKELETON:
-		break;
 	case ZOMBIE:
+		HP = 25;
+		DAM = 1;
+		ATTACK_CD = 1.0f;
+		break;
+	case SKELETON:
+		HP = 40;
+		DAM = 3;
+		ATTACK_CD = 1.2f;
 		break;
 	case WRAITH:
+		HP = 55;
+		DAM = 5;
+		ATTACK_CD = 0.8f;
 		break;
 	case GOBLIN:
+		HP = 10;
+		DAM = 2;
+		ATTACK_CD = 1.0f;
 		break;
 	case ORC:
+		HP = 40;
+		DAM = 4;
+		ATTACK_CD = 1.6f;
 		break;
 	case TROLL:
+		HP = 70;
+		DAM = 10;
+		ATTACK_CD = 2.5f;
 		break;
 	}
-	HP = 25;
-	DAM = 5;
 	Position = sf::Vector2<int>(5,5);
 
-	ATTACK_CD = 1.0f;
 }
 
 
