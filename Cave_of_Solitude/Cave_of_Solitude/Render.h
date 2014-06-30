@@ -32,8 +32,23 @@ private:
 	sf::Text EXP;
 
 	//Enemy assets
+	sf::Texture zombie;
+	sf::Sprite Zombie;
+
 	sf::Texture skeleton;
 	sf::Sprite Skeleton;
+	
+	sf::Texture wraith;
+	sf::Sprite Wraith;
+
+	sf::Texture goblin;
+	sf::Sprite Goblin;
+	
+	sf::Texture orc;
+	sf::Sprite Orc;
+	
+	sf::Texture troll;
+	sf::Sprite Troll;
 
 	//Player assets
 	sf::Texture player;

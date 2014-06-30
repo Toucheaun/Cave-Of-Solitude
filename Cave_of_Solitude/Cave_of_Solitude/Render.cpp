@@ -12,12 +12,35 @@ Render::Render(Scene* s)
 	wall.loadFromFile("../Resources/StoneWall64.png");
 	Wall.setTexture(wall);
 
+	player.loadFromFile("../Resources/Player128.png");
+	Player.setTexture(player);
+	Skeleton.setScale(0.5f,0.5f);
+
+	zombie.loadFromFile("../Resources/zombie128.png");
+	Zombie.setTexture(zombie);
+	Zombie.setScale(0.5f,0.5f);
+
 	skeleton.loadFromFile("../Resources/Skeleton128.png");
 	Skeleton.setTexture(skeleton);
 	Skeleton.setScale(0.5f,0.5f);
 
-	player.loadFromFile("../Resources/PlayerCharacter64.png");
-	Player.setTexture(player);
+	wraith.loadFromFile("../Resources/Wraith128.png");
+	Wraith.setTexture(wraith);
+	Wraith.setScale(0.5f,0.5f);
+
+	goblin.loadFromFile("../Resources/ScaledGoblinWithWeapon128.png");
+	Goblin.setTexture(goblin);
+	Goblin.setScale(0.5f,0.5f);
+
+	orc.loadFromFile("../Resources/orc128.png");
+	Orc.setTexture(orc);
+	Orc.setScale(0.5f,0.5f);
+
+	troll.loadFromFile("../Resources/TrollUnarmed128.png");
+	Troll.setTexture(troll);
+	Troll.setScale(0.5f,0.5f);
+
+
 
 	//Text
 	font.loadFromFile("../Resources/Gabriela-Regular.ttf");
@@ -82,6 +105,26 @@ void Render::Update()
 		switch(temp.at(i)->type)
 		{
 		case SKELETON:
+			Skeleton.setPosition(temp.at(i)->Position.x*64,temp.at(i)->Position.y*64);
+			window.draw(Skeleton);
+			break;
+		case ZOMBIE:
+			Skeleton.setPosition(temp.at(i)->Position.x*64,temp.at(i)->Position.y*64);
+			window.draw(Skeleton);
+			break;
+		case WRAITH:
+			Skeleton.setPosition(temp.at(i)->Position.x*64,temp.at(i)->Position.y*64);
+			window.draw(Skeleton);
+			break;
+		case GOBLIN:
+			Skeleton.setPosition(temp.at(i)->Position.x*64,temp.at(i)->Position.y*64);
+			window.draw(Skeleton);
+			break;
+		case ORC:
+			Skeleton.setPosition(temp.at(i)->Position.x*64,temp.at(i)->Position.y*64);
+			window.draw(Skeleton);
+			break;
+		case TROLL:
 			Skeleton.setPosition(temp.at(i)->Position.x*64,temp.at(i)->Position.y*64);
 			window.draw(Skeleton);
 			break;
