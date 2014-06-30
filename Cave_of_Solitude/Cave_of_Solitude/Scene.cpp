@@ -3,14 +3,14 @@
 
 Scene::Scene()
 {
-	map = Map(6,6);
+	map = Map(6,6,1);
 	player = new Player(sf::Vector2<int>(1,1));
-	enemies.push_back(new Enemy(ZOMBIE));
-	enemies.push_back(new Enemy(SKELETON));
-	enemies.push_back(new Enemy(WRAITH));
-	enemies.push_back(new Enemy(GOBLIN));
-	enemies.push_back(new Enemy(ORC));
-	enemies.push_back(new Enemy(TROLL));
+	enemies.push_back(new Enemy(ZOMBIE,sf::Vector2<int>(2,2)));
+	enemies.push_back(new Enemy(SKELETON,sf::Vector2<int>(4,4)));
+	enemies.push_back(new Enemy(WRAITH,sf::Vector2<int>(6,6)));
+	enemies.push_back(new Enemy(GOBLIN,sf::Vector2<int>(8,8)));
+	enemies.push_back(new Enemy(ORC,sf::Vector2<int>(10,10)));
+	enemies.push_back(new Enemy(TROLL,sf::Vector2<int>(12,12)));
 	CurrentBlockX = 0;
 	CurrentBlockY = 0;
 }
@@ -53,7 +53,7 @@ void Scene::Update()
 
 TileType Scene::GetTileByPos(sf::Vector2<int> Pos)
 {
-	return TILE_FLOOR;
+	//return TILE_FLOOR;
 	sf::Vector2<int> Temp = Pos;
 	if(Pos.x / 21 > 1)
 	{

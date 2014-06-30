@@ -9,10 +9,10 @@
 class Map
 {
 public:
-	Map(int x, int y);
+	Map(int x, int y, int t);
 	Map();
 	~Map(void);
-	int Width, Height;
+	int Width, Height,Type;
 	Block blocks[MAX_MAP_WIDTH][MAX_MAP_HEIGHT];
 };
 #endif

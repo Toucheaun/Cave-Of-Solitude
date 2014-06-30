@@ -13,7 +13,7 @@ public:
 	Game(Scene *s,sf::RenderWindow *win);
 	~Game(void);
 
-	void Update(Enemy* e);
+	void Update();
 	void Move();
 	void Attack(Enemy* e);
 	void EnemyAttack(Enemy* e);

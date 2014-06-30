@@ -17,7 +17,7 @@ enum Enemy_Type
 class Enemy
 {
 public:
-	Enemy(Enemy_Type t);
+	Enemy(Enemy_Type t,sf::Vector2<int> Pos);
 	~Enemy(void);
 	void Update();
 

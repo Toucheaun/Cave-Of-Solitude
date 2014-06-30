@@ -3,7 +3,7 @@
 #include <cstdlib>
 
 
-Map::Map(int x, int y)
+Map::Map(int x, int y, int t)
 {
 	Width = x;
 	Height = y;

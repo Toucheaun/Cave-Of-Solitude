@@ -16,7 +16,7 @@ Game::~Game(void)
 {
 }
 
-void Game::Update(Enemy* e)
+void Game::Update()
 {
 	DeltaTime = clock.restart();
 
@@ -59,7 +59,7 @@ void Game::Update(Enemy* e)
 	{
 		if(GetDistance(scene->player->Position,Temp.at(i)->Position) < 2)
 		{
-			if(e->ATTACK_CD_TIMER > Temp.at(i)->ATTACK_CD)
+			if(Temp.at(i)->ATTACK_CD_TIMER > Temp.at(i)->ATTACK_CD)
 			{
 				EnemyAttack(Temp.at(i));
 			}
@@ -93,23 +93,43 @@ float Game::GetDistance(sf::Vector2<int> Playa,sf::Vector2<int> Beast)
 
 void Game::Move()
 {
-	
+	std::vector<Enemy*> Temp = scene->enemies;
+	bool walkable = true;
+
 	//if(MovementCDTimer > MovementCD)
 	{
 		if(sf::Keyboard::isKeyPressed(sf::Keyboard::Up) == true)
 		{
 			if(scene->GetTileByPos(sf::Vector2<int>(Pos.x,Pos.y-1)) != TILE_WALL)
 			{
+				for(unsigned int i = 0; i < Temp.size(); i++)
+				{
+					if(Temp.at(i)->Position == sf::Vector2<int>(Pos.x,Pos.y-1))
+					{
+						walkable = false;
+					}
+				}
+				if(walkable == true)
+				{
 				scene->player->Position.y--;
-				scene->player->Facing = DOWN;
+				}
 			}
 		}
 		else if(sf::Keyboard::isKeyPressed(sf::Keyboard::Down) == true)
 		{
 			if(scene->GetTileByPos(sf::Vector2<int>(Pos.x,Pos.y+1)) != TILE_WALL)
 			{
+				for(unsigned int i = 0; i < Temp.size(); i++)
+				{
+					if(Temp.at(i)->Position == sf::Vector2<int>(Pos.x,Pos.y+1))
+					{
+						walkable = false;
+					}
+				}
+				if(walkable == true)
+				{
 				scene->player->Position.y++;
-				scene->player->Facing = UP;
+				}
 			}	
 
 		}
@@ -117,8 +137,17 @@ void Game::Move()
 		{
 			if(scene->GetTileByPos(sf::Vector2<int>(Pos.x-1,Pos.y)) != TILE_WALL)
 			{
+				for(unsigned int i = 0; i < Temp.size(); i++)
+				{
+					if(Temp.at(i)->Position == sf::Vector2<int>(Pos.x-1,Pos.y))
+					{
+						walkable = false;
+					}
+				}
+				if(walkable == true)
+				{
 				scene->player->Position.x--;
-				scene->player->Facing = LEFT;
+				}
 			}
 
 		}
@@ -126,8 +155,17 @@ void Game::Move()
 		{
 			if(scene->GetTileByPos(sf::Vector2<int>(Pos.x+1,Pos.y)) != TILE_WALL)
 			{
+				for(unsigned int i = 0; i < Temp.size(); i++)
+				{
+					if(Temp.at(i)->Position == sf::Vector2<int>(Pos.x+1,Pos.y))
+					{
+						walkable = false;
+					}
+				}
+				if(walkable == true)
+				{
 				scene->player->Position.x++;
-				scene->player->Facing = RIGHT;
+				}
 			}
 		}
 		MovementCDTimer = 0;

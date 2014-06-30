@@ -14,7 +14,7 @@ Render::Render(Scene* s)
 
 	player.loadFromFile("../Resources/Player128.png");
 	Player.setTexture(player);
-	Skeleton.setScale(0.5f,0.5f);
+	Player.setScale(0.5f,0.5f);
 
 	zombie.loadFromFile("../Resources/zombie128.png");
 	Zombie.setTexture(zombie);
@@ -105,28 +105,28 @@ void Render::Update()
 		switch(temp.at(i)->type)
 		{
 		case ZOMBIE:
-			Skeleton.setPosition(temp.at(i)->Position.x*64,temp.at(i)->Position.y*64);
-			window.draw(Skeleton);
+			Zombie.setPosition(temp.at(i)->Position.x*64,temp.at(i)->Position.y*64);
+			window.draw(Zombie);
 			break;
 		case SKELETON:
 			Skeleton.setPosition(temp.at(i)->Position.x*64,temp.at(i)->Position.y*64);
 			window.draw(Skeleton);
 			break;
 		case WRAITH:
-			Skeleton.setPosition(temp.at(i)->Position.x*64,temp.at(i)->Position.y*64);
-			window.draw(Skeleton);
+			Wraith.setPosition(temp.at(i)->Position.x*64,temp.at(i)->Position.y*64);
+			window.draw(Wraith);
 			break;
 		case GOBLIN:
-			Skeleton.setPosition(temp.at(i)->Position.x*64,temp.at(i)->Position.y*64);
-			window.draw(Skeleton);
+			Goblin.setPosition(temp.at(i)->Position.x*64,temp.at(i)->Position.y*64);
+			window.draw(Goblin);
 			break;
 		case ORC:
-			Skeleton.setPosition(temp.at(i)->Position.x*64,temp.at(i)->Position.y*64);
-			window.draw(Skeleton);
+			Orc.setPosition(temp.at(i)->Position.x*64,temp.at(i)->Position.y*64);
+			window.draw(Orc);
 			break;
 		case TROLL:
-			Skeleton.setPosition(temp.at(i)->Position.x*64,temp.at(i)->Position.y*64);
-			window.draw(Skeleton);
+			Troll.setPosition(temp.at(i)->Position.x*64,temp.at(i)->Position.y*64);
+			window.draw(Troll);
 			break;
 		}
 	}

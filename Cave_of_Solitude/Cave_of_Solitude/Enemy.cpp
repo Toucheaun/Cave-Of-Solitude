@@ -2,7 +2,7 @@
 
 #include <iostream>
 
-Enemy::Enemy(Enemy_Type t)
+Enemy::Enemy(Enemy_Type t,sf::Vector2<int> Pos)
 {
 	type = t;
 	switch(t)
@@ -38,8 +38,8 @@ Enemy::Enemy(Enemy_Type t)
 		ATTACK_CD = 2.5f;
 		break;
 	}
-	Position = sf::Vector2<int>(5,5);
-
+	Position = Pos;
+	ATTACK_CD_TIMER = 0;
 }
 
 
@@ -51,7 +51,7 @@ void Enemy::Update()
 {
 	DeltaTimeE = clockE.restart();
 
-	ATTACK_CD += DeltaTimeE.asSeconds();
+	ATTACK_CD_TIMER += DeltaTimeE.asSeconds();
 
-	std::cout<<ATTACK_CD<<std::endl;
+	//std::cout<<ATTACK_CD<<std::endl;
 }
