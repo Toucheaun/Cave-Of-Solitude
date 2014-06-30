@@ -59,8 +59,12 @@ void Game::Update()
 	{
 		if(GetDistance(scene->player->Position,Temp.at(i)->Position) < 2)
 		{
-			EnemyAttack(Temp.at(i));
+			if(Temp.at(i)->ATTACK_CD > 1)
+			{
+				EnemyAttack(Temp.at(i));
+			}
 		}
+		Temp.at(i)->Update();
 	}
 
 	MovementCDTimer += DeltaTime.asSeconds();
@@ -78,6 +82,7 @@ void Game::Attack(Enemy* e)
 void Game::EnemyAttack(Enemy* e)
 {
 	scene->player->Hp -= e->DAM;
+	e->ATTACK_CD = 0;
 }
 
 float Game::GetDistance(sf::Vector2<int> Playa,sf::Vector2<int> Beast)

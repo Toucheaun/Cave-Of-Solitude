@@ -1,5 +1,6 @@
 #include "Enemy.h"
 
+#include <iostream>
 
 Enemy::Enemy(Enemy_Type t)
 {
@@ -22,6 +23,8 @@ Enemy::Enemy(Enemy_Type t)
 	HP = 25;
 	DAM = 5;
 	Position = sf::Vector2<int>(5,5);
+
+	ATTACK_CD = 1.0f;
 }
 
 
@@ -30,4 +33,10 @@ Enemy::~Enemy(void)
 }
 
 void Enemy::Update()
-{}
+{
+	DeltaTimeE = clockE.restart();
+
+	ATTACK_CD += DeltaTimeE.asSeconds();
+
+	std::cout<<ATTACK_CD<<std::endl;
+}

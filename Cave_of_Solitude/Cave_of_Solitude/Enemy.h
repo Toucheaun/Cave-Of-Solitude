@@ -1,7 +1,7 @@
 #ifndef Enemy_H
 #define Enemy_H
 
-#include <SFML\System\Vector2.hpp>
+#include <SFML\System.hpp>
 #include "StateMachine.h"
 
 enum Enemy_Type
@@ -24,6 +24,10 @@ public:
 	float HP,DAM;
 	Enemy_Type type;
 	sf::Vector2<int> Position;
+
+	sf::Clock clockE;
+	sf::Time DeltaTimeE;
+	float ATTACK_CD;
 
 	StateMachine CurrentState;
 };
