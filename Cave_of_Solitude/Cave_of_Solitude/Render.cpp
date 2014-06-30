@@ -104,11 +104,11 @@ void Render::Update()
 	{
 		switch(temp.at(i)->type)
 		{
-		case SKELETON:
+		case ZOMBIE:
 			Skeleton.setPosition(temp.at(i)->Position.x*64,temp.at(i)->Position.y*64);
 			window.draw(Skeleton);
 			break;
-		case ZOMBIE:
+		case SKELETON:
 			Skeleton.setPosition(temp.at(i)->Position.x*64,temp.at(i)->Position.y*64);
 			window.draw(Skeleton);
 			break;

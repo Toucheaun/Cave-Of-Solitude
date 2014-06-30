@@ -5,7 +5,12 @@ Scene::Scene()
 {
 	map = Map(6,6);
 	player = new Player(sf::Vector2<int>(1,1));
+	enemies.push_back(new Enemy(ZOMBIE));
 	enemies.push_back(new Enemy(SKELETON));
+	enemies.push_back(new Enemy(WRAITH));
+	enemies.push_back(new Enemy(GOBLIN));
+	enemies.push_back(new Enemy(ORC));
+	enemies.push_back(new Enemy(TROLL));
 	CurrentBlockX = 0;
 	CurrentBlockY = 0;
 }

@@ -27,7 +27,7 @@ public:
 
 	sf::Clock clockE;
 	sf::Time DeltaTimeE;
-	float ATTACK_CD;
+	float ATTACK_CD, ATTACK_CD_TIMER;
 
 	StateMachine CurrentState;
 };

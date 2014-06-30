@@ -16,7 +16,7 @@ Game::~Game(void)
 {
 }
 
-void Game::Update()
+void Game::Update(Enemy* e)
 {
 	DeltaTime = clock.restart();
 
@@ -59,7 +59,7 @@ void Game::Update()
 	{
 		if(GetDistance(scene->player->Position,Temp.at(i)->Position) < 2)
 		{
-			if(Temp.at(i)->ATTACK_CD > 1)
+			if(e->ATTACK_CD_TIMER > Temp.at(i)->ATTACK_CD)
 			{
 				EnemyAttack(Temp.at(i));
 			}
@@ -82,7 +82,7 @@ void Game::Attack(Enemy* e)
 void Game::EnemyAttack(Enemy* e)
 {
 	scene->player->Hp -= e->DAM;
-	e->ATTACK_CD = 0;
+	e->ATTACK_CD_TIMER = 0;
 }
 
 float Game::GetDistance(sf::Vector2<int> Playa,sf::Vector2<int> Beast)
