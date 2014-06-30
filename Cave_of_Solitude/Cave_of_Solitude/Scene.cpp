@@ -13,6 +13,7 @@ Scene::Scene()
 	enemies.push_back(new Enemy(TROLL,sf::Vector2<int>(12,12)));
 	CurrentBlockX = 0;
 	CurrentBlockY = 0;
+
 }
 
 
@@ -49,6 +50,27 @@ void Scene::Update()
 	{
 		CurrentBlockY = 0;
 	}
+}
+
+void Scene::Spawn()
+{
+	for(unsigned int x = 0; x < MAX_MAP_WIDTH; ++x)
+	{
+		for(unsigned int y = 0; y < MAX_MAP_HEIGHT; ++y)
+		{
+			for(unsigned int x2 = 0; x2 < BLOCK_WIDTH; x2++)
+			{
+				for(unsigned int y2 = 0; y2 < BLOCK_HEIGHT; y2++)
+				{
+					if(map.blocks[x][y].tiles[x2][y2] == Spawner)
+					{
+						
+					}
+				}
+			}
+		}
+	}
+
 }
 
 TileType Scene::GetTileByPos(sf::Vector2<int> Pos)

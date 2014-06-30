@@ -14,6 +14,7 @@ public:
 	~Scene(void);
 
 	void Update();
+	void Spawn();
 
 	Map map;
 	Player *player;
