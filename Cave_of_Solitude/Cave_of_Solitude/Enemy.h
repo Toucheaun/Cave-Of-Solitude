@@ -22,6 +22,7 @@ public:
 	void Update();
 
 	float HP,DAM;
+	bool Alive;
 	Enemy_Type type;
 	sf::Vector2<int> Position;
 

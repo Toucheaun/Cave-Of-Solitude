@@ -101,6 +101,21 @@ void Render::Update()
 						Wall_H.setPosition((x2*64)+(x*21*64),(y2*64)+(y*21*64));
 						window.draw(Wall_H);
 						break;
+					case TILE_SPAWNER_S:
+						//printf("Floor\n");
+						Floor.setPosition((x2*64)+(x*21*64),(y2*64)+(y*21*64));
+						window.draw(Floor);
+						break;
+					case TILE_SPAWNER_M:
+						//printf("Floor\n");
+						Floor.setPosition((x2*64)+(x*21*64),(y2*64)+(y*21*64));
+						window.draw(Floor);
+						break;
+					case TILE_SPAWNER_L:
+						//printf("Floor\n");
+						Floor.setPosition((x2*64)+(x*21*64),(y2*64)+(y*21*64));
+						window.draw(Floor);
+						break;
 					}
 				}
 			}

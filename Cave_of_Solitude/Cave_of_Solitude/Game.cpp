@@ -76,6 +76,7 @@ void Game::Attack(Enemy* e)
 	if(e != NULL)
 	{
 		e->HP -= scene->player->Dam;
+		std::cout<<e->HP<<std::endl;
 	}
 }
 
@@ -100,11 +101,11 @@ void Game::Move()
 	{
 		if(sf::Keyboard::isKeyPressed(sf::Keyboard::Up) == true)
 		{
-			if(scene->GetTileByPos(sf::Vector2<int>(Pos.x,Pos.y-1)) != TILE_WALL)
+			if(scene->GetTileByPos(sf::Vector2<int>(Pos.x,Pos.y-1)) == (TILE_WALL  && TILE_WALL_H))
 			{
 				for(unsigned int i = 0; i < Temp.size(); i++)
 				{
-					if(Temp.at(i)->Position == sf::Vector2<int>(Pos.x,Pos.y-1))
+					if(Temp.at(i)->Position == sf::Vector2<int>(Pos.x,Pos.y-1) &&  Temp.at(i)->Alive != false)
 					{
 						walkable = false;
 					}
@@ -117,11 +118,11 @@ void Game::Move()
 		}
 		else if(sf::Keyboard::isKeyPressed(sf::Keyboard::Down) == true)
 		{
-			if(scene->GetTileByPos(sf::Vector2<int>(Pos.x,Pos.y+1)) != TILE_WALL)
+			if(scene->GetTileByPos(sf::Vector2<int>(Pos.x,Pos.y+1)) == (TILE_WALL && TILE_WALL_H))
 			{
 				for(unsigned int i = 0; i < Temp.size(); i++)
 				{
-					if(Temp.at(i)->Position == sf::Vector2<int>(Pos.x,Pos.y+1))
+					if(Temp.at(i)->Position == sf::Vector2<int>(Pos.x,Pos.y+1) &&  Temp.at(i)->Alive != false)
 					{
 						walkable = false;
 					}
@@ -135,11 +136,11 @@ void Game::Move()
 		}
 		else if(sf::Keyboard::isKeyPressed(sf::Keyboard::Left) == true)
 		{
-			if(scene->GetTileByPos(sf::Vector2<int>(Pos.x-1,Pos.y)) != TILE_WALL)
+			if(scene->GetTileByPos(sf::Vector2<int>(Pos.x-1,Pos.y)) == (TILE_WALL  && TILE_WALL_H))
 			{
 				for(unsigned int i = 0; i < Temp.size(); i++)
 				{
-					if(Temp.at(i)->Position == sf::Vector2<int>(Pos.x-1,Pos.y))
+					if(Temp.at(i)->Position == sf::Vector2<int>(Pos.x-1,Pos.y) &&  Temp.at(i)->Alive != false)
 					{
 						walkable = false;
 					}
@@ -153,11 +154,11 @@ void Game::Move()
 		}
 		else if(sf::Keyboard::isKeyPressed(sf::Keyboard::Right) == true)
 		{
-			if(scene->GetTileByPos(sf::Vector2<int>(Pos.x+1,Pos.y)) != TILE_WALL)
+			if(scene->GetTileByPos(sf::Vector2<int>(Pos.x+1,Pos.y)) == (TILE_WALL  && TILE_WALL_H))
 			{
 				for(unsigned int i = 0; i < Temp.size(); i++)
 				{
-					if(Temp.at(i)->Position == sf::Vector2<int>(Pos.x+1,Pos.y))
+					if(Temp.at(i)->Position == sf::Vector2<int>(Pos.x+1,Pos.y) &&  Temp.at(i)->Alive != false)
 					{
 						walkable = false;
 					}

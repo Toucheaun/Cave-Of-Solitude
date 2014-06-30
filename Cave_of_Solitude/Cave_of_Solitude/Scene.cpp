@@ -5,15 +5,16 @@ Scene::Scene()
 {
 	map = Map(6,6,1);
 	player = new Player(sf::Vector2<int>(1,1));
-	enemies.push_back(new Enemy(ZOMBIE,sf::Vector2<int>(2,2)));
-	enemies.push_back(new Enemy(SKELETON,sf::Vector2<int>(4,4)));
-	enemies.push_back(new Enemy(WRAITH,sf::Vector2<int>(6,6)));
-	enemies.push_back(new Enemy(GOBLIN,sf::Vector2<int>(8,8)));
-	enemies.push_back(new Enemy(ORC,sf::Vector2<int>(10,10)));
-	enemies.push_back(new Enemy(TROLL,sf::Vector2<int>(12,12)));
+	//enemies.push_back(new Enemy(ZOMBIE,sf::Vector2<int>(2,2)));
+	//enemies.push_back(new Enemy(SKELETON,sf::Vector2<int>(4,4)));
+	//enemies.push_back(new Enemy(WRAITH,sf::Vector2<int>(6,6)));
+	//enemies.push_back(new Enemy(GOBLIN,sf::Vector2<int>(8,8)));
+	//enemies.push_back(new Enemy(ORC,sf::Vector2<int>(10,10)));
+	//enemies.push_back(new Enemy(TROLL,sf::Vector2<int>(12,12)));
 	CurrentBlockX = 0;
 	CurrentBlockY = 0;
 
+	Spawn();
 }
 
 
@@ -62,7 +63,28 @@ void Scene::Spawn()
 			{
 				for(unsigned int y2 = 0; y2 < BLOCK_HEIGHT; y2++)
 				{
-					if(map.blocks[x][y].tiles[x2][y2] == Spawner)
+					if(map.blocks[x][y].tiles[x2][y2] == TILE_SPAWNER_S)
+					{
+						if(std::rand() % 100+1 > 50)
+						{
+							enemies.push_back(new Enemy(GOBLIN,sf::Vector2<int>(x2+x*21,y2+y*21)));
+						}
+					}
+					if(map.blocks[x][y].tiles[x2][y2] == TILE_SPAWNER_M)
+					{
+						if(std::rand() % 100+1 > 50)
+						{
+							enemies.push_back(new Enemy(ORC,sf::Vector2<int>(x2+x*21,y2+y*21)));
+						}
+					}
+					if(map.blocks[x][y].tiles[x2][y2] == TILE_SPAWNER_L)
+					{
+						if(std::rand() % 100+1 > 50)
+						{
+							enemies.push_back(new Enemy(TROLL,sf::Vector2<int>(x2+x*21,y2+y*21)));
+						}
+					}
+					if(map.blocks[x][y].tiles[x2][y2] == TILE_SPAWNER_T)
 					{
 						
 					}

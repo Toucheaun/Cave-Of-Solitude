@@ -39,6 +39,7 @@ Enemy::Enemy(Enemy_Type t,sf::Vector2<int> Pos)
 		break;
 	}
 	Position = Pos;
+	Alive = true;
 	ATTACK_CD_TIMER = 0;
 }
 
@@ -52,6 +53,11 @@ void Enemy::Update()
 	DeltaTimeE = clockE.restart();
 
 	ATTACK_CD_TIMER += DeltaTimeE.asSeconds();
+
+	if(HP <= 0)
+	{
+		Alive = false;
+	}
 
 	//std::cout<<ATTACK_CD<<std::endl;
 }
