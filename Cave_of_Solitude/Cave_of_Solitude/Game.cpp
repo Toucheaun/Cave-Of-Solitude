@@ -67,9 +67,12 @@ void Game::Update()
 	{
 		if(GetDistance(scene->player->Position,Temp.at(i)->Position) < 2)
 		{
-			if(Temp.at(i)->ATTACK_CD_TIMER > Temp.at(i)->ATTACK_CD)
+			if(Temp.at(i)->HP >= 0)
 			{
-				EnemyAttack(Temp.at(i));
+				if(Temp.at(i)->ATTACK_CD_TIMER > Temp.at(i)->ATTACK_CD)
+				{
+					EnemyAttack(Temp.at(i));
+				}
 			}
 		}
 		Temp.at(i)->Update();
