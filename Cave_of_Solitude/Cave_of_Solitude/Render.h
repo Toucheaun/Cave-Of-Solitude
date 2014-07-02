@@ -53,6 +53,9 @@ private:
 	sf::Texture troll;
 	sf::Sprite Troll;
 
+	sf::Texture dead;
+	sf::Sprite Dead;
+
 	//Player assets
 	sf::Texture player;
 	sf::Sprite Player;

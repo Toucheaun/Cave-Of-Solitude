@@ -43,6 +43,10 @@ Render::Render(Scene* s)
 	Troll.setTexture(troll);
 	Troll.setScale(0.5f,0.5f);
 
+	dead.loadFromFile("../Resources/Grave128.png");
+	Dead.setTexture(dead);
+	Dead.scale(0.5f, 0.5f);
+
 
 
 	//Text
@@ -124,33 +128,42 @@ void Render::Update()
 
 	for(unsigned int i = 0; i < temp.size(); i++)
 	{
-		switch(temp.at(i)->type)
+		if(temp.at(i)->Alive)
 		{
-		case ZOMBIE:
-			Zombie.setPosition(temp.at(i)->Position.x*64,temp.at(i)->Position.y*64);
-			window.draw(Zombie);
-			break;
-		case SKELETON:
-			Skeleton.setPosition(temp.at(i)->Position.x*64,temp.at(i)->Position.y*64);
-			window.draw(Skeleton);
-			break;
-		case WRAITH:
-			Wraith.setPosition(temp.at(i)->Position.x*64,temp.at(i)->Position.y*64);
-			window.draw(Wraith);
-			break;
-		case GOBLIN:
-			Goblin.setPosition(temp.at(i)->Position.x*64,temp.at(i)->Position.y*64);
-			window.draw(Goblin);
-			break;
-		case ORC:
-			Orc.setPosition(temp.at(i)->Position.x*64,temp.at(i)->Position.y*64);
-			window.draw(Orc);
-			break;
-		case TROLL:
-			Troll.setPosition(temp.at(i)->Position.x*64,temp.at(i)->Position.y*64);
-			window.draw(Troll);
-			break;
+			switch(temp.at(i)->type)
+			{
+			case ZOMBIE:
+				Zombie.setPosition(temp.at(i)->Position.x*64,temp.at(i)->Position.y*64);
+				window.draw(Zombie);
+				break;
+			case SKELETON:
+				Skeleton.setPosition(temp.at(i)->Position.x*64,temp.at(i)->Position.y*64);
+				window.draw(Skeleton);
+				break;
+			case WRAITH:
+				Wraith.setPosition(temp.at(i)->Position.x*64,temp.at(i)->Position.y*64);
+				window.draw(Wraith);
+				break;
+			case GOBLIN:
+				Goblin.setPosition(temp.at(i)->Position.x*64,temp.at(i)->Position.y*64);
+				window.draw(Goblin);
+				break;
+			case ORC:
+				Orc.setPosition(temp.at(i)->Position.x*64,temp.at(i)->Position.y*64);
+				window.draw(Orc);
+				break;
+			case TROLL:
+				Troll.setPosition(temp.at(i)->Position.x*64,temp.at(i)->Position.y*64);
+				window.draw(Troll);
+				break;
+			}
 		}
+		else
+		{
+			Dead.setPosition(temp.at(i)->Position.x*64,temp.at(i)->Position.y*64);
+			window.draw(Dead);
+		}
+
 	}
 
 	//Player.setPosition(scene->player->Position.x*64,scene->player->Position.y*64);
