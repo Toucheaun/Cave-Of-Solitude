@@ -47,13 +47,17 @@ void Game::Update()
 	if(sf::Mouse::isButtonPressed(sf::Mouse::Left))
 	{
 		sf::Vector2i WinPos = sf::Mouse::getPosition(*window);
+		sf::Vector2<int>P = scene->player->Position;
 		std::cout<<"X: "<<WinPos.x/64<<"Y: "<<WinPos.y/64<<std::endl;
-		if(scene->GetEnemyByPos(sf::Vector2<int>(WinPos.x/64-5,WinPos.y/64-4)) != NULL)
+		if(scene->GetEnemyByPos(sf::Vector2<int>(WinPos.x/64-6+P.x,WinPos.y/64-5+P.y)) != NULL)
 		{
-			scene->GetEnemyByPos(sf::Vector2<int>(WinPos.x/64-5,WinPos.y/64-4))->HP -= scene->player->Dam;
-			std::cout<<"HP: "<<scene->GetEnemyByPos(sf::Vector2<int>(WinPos.x/64-5,WinPos.y/64-4))->HP<<std::endl;
-			std::cout<<"X: "<<scene->GetEnemyByPos(sf::Vector2<int>(WinPos.x/64-5,WinPos.y/64-4))->Position.x<<std::endl;
-			std::cout<<"Y: "<<scene->GetEnemyByPos(sf::Vector2<int>(WinPos.x/64-5,WinPos.y/64-4))->Position.y<<std::endl;
+			if(GetDistance(P,scene->GetEnemyByPos(sf::Vector2<int>(WinPos.x/64-6+P.x,WinPos.y/64-5+P.y))->Position) < 2)
+			{
+				scene->GetEnemyByPos(sf::Vector2<int>(WinPos.x/64-6+P.x,WinPos.y/64-5+P.y))->HP -= scene->player->Dam;
+				std::cout<<"HP: "<<scene->GetEnemyByPos(sf::Vector2<int>(WinPos.x/64-6+P.x,WinPos.y/64-5+P.y))->HP<<std::endl;
+				std::cout<<"X: "<<scene->GetEnemyByPos(sf::Vector2<int>(WinPos.x/64-6+P.x,WinPos.y/64-5+P.y))->Position.x<<std::endl;
+				std::cout<<"Y: "<<scene->GetEnemyByPos(sf::Vector2<int>(WinPos.x/64-6+P.x,WinPos.y/64-5+P.y))->Position.y<<std::endl;
+			}
 		}
 	}
 
