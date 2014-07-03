@@ -22,6 +22,7 @@ public:
 	Map* getMap();
 
 	TileType GetTileByPos(sf::Vector2<int> Pos);
+	bool CheckWalkable(sf::Vector2<int> Pos);
 
 	int CurrentBlockX,CurrentBlockY;
 

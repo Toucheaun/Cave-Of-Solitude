@@ -54,11 +54,16 @@ void Game::Update()
 			if(GetDistance(P,scene->GetEnemyByPos(sf::Vector2<int>(WinPos.x/64-6+P.x,WinPos.y/64-5+P.y))->Position) < 2)
 			{
 				scene->GetEnemyByPos(sf::Vector2<int>(WinPos.x/64-6+P.x,WinPos.y/64-5+P.y))->HP -= scene->player->Dam;
-				std::cout<<"HP: "<<scene->GetEnemyByPos(sf::Vector2<int>(WinPos.x/64-6+P.x,WinPos.y/64-5+P.y))->HP<<std::endl;
-				std::cout<<"X: "<<scene->GetEnemyByPos(sf::Vector2<int>(WinPos.x/64-6+P.x,WinPos.y/64-5+P.y))->Position.x<<std::endl;
-				std::cout<<"Y: "<<scene->GetEnemyByPos(sf::Vector2<int>(WinPos.x/64-6+P.x,WinPos.y/64-5+P.y))->Position.y<<std::endl;
+				if(scene->GetEnemyByPos(sf::Vector2<int>(WinPos.x/64-6+P.x,WinPos.y/64-5+P.y))->Alive &&
+					scene->GetEnemyByPos(sf::Vector2<int>(WinPos.x/64-6+P.x,WinPos.y/64-5+P.y))->HP <= 0)
+				{
+					scene->player->Exp += scene->GetEnemyByPos(sf::Vector2<int>(WinPos.x/64-6+P.x,WinPos.y/64-5+P.y))->EXP;
+				}
 			}
-		}
+				//std::cout<<"HP: "<<scene->GetEnemyByPos(sf::Vector2<int>(WinPos.x/64-6+P.x,WinPos.y/64-5+P.y))->HP<<std::endl;
+				//std::cout<<"X: "<<scene->GetEnemyByPos(sf::Vector2<int>(WinPos.x/64-6+P.x,WinPos.y/64-5+P.y))->Position.x<<std::endl;
+				//std::cout<<"Y: "<<scene->GetEnemyByPos(sf::Vector2<int>(WinPos.x/64-6+P.x,WinPos.y/64-5+P.y))->Position.y<<std::endl;
+			}
 	}
 
 	std::vector<Enemy*> Temp = scene->enemies;
@@ -112,12 +117,14 @@ void Game::Move()
 	{
 		if(sf::Keyboard::isKeyPressed(sf::Keyboard::Up) == true)
 		{
-			if(scene->GetTileByPos(sf::Vector2<int>(Pos.x,Pos.y-1)) == (TILE_WALL  && TILE_WALL_H))
+			if(scene->CheckWalkable(sf::Vector2<int>(Pos.x,Pos.y-1)) == true)
 			{
+				//std::cout<<"Can walk"<<std::endl;
 				for(unsigned int i = 0; i < Temp.size(); i++)
 				{
 					if(Temp.at(i)->Position == sf::Vector2<int>(Pos.x,Pos.y-1) &&  Temp.at(i)->Alive != false)
 					{
+						std::cout<<"Enemy in way"<<std::endl;
 						walkable = false;
 					}
 				}
@@ -129,12 +136,15 @@ void Game::Move()
 		}
 		else if(sf::Keyboard::isKeyPressed(sf::Keyboard::Down) == true)
 		{
-			if(scene->GetTileByPos(sf::Vector2<int>(Pos.x,Pos.y+1)) == (TILE_WALL && TILE_WALL_H))
+			if(scene->CheckWalkable(sf::Vector2<int>(Pos.x,Pos.y+1)) == true)
 			{
+				//std::cout<<"Can walk"<<std::endl;
 				for(unsigned int i = 0; i < Temp.size(); i++)
 				{
 					if(Temp.at(i)->Position == sf::Vector2<int>(Pos.x,Pos.y+1) &&  Temp.at(i)->Alive != false)
 					{
+						std::cout<<"Enemy in way"<<std::endl;
+						std::cout<<Temp.at(i)->Position.x<<Temp.at(i)->Position.y;
 						walkable = false;
 					}
 				}
@@ -147,12 +157,14 @@ void Game::Move()
 		}
 		else if(sf::Keyboard::isKeyPressed(sf::Keyboard::Left) == true)
 		{
-			if(scene->GetTileByPos(sf::Vector2<int>(Pos.x-1,Pos.y)) == (TILE_WALL  && TILE_WALL_H))
+			if(scene->CheckWalkable(sf::Vector2<int>(Pos.x-1,Pos.y)) == true)
 			{
+				//std::cout<<"Can walk"<<std::endl;
 				for(unsigned int i = 0; i < Temp.size(); i++)
 				{
 					if(Temp.at(i)->Position == sf::Vector2<int>(Pos.x-1,Pos.y) &&  Temp.at(i)->Alive != false)
 					{
+						std::cout<<"Enemy in way"<<std::endl;
 						walkable = false;
 					}
 				}
@@ -165,12 +177,14 @@ void Game::Move()
 		}
 		else if(sf::Keyboard::isKeyPressed(sf::Keyboard::Right) == true)
 		{
-			if(scene->GetTileByPos(sf::Vector2<int>(Pos.x+1,Pos.y)) == (TILE_WALL  && TILE_WALL_H))
+			if(scene->CheckWalkable(sf::Vector2<int>(Pos.x+1,Pos.y)) == true)
 			{
+				//std::cout<<"Can walk"<<std::endl;
 				for(unsigned int i = 0; i < Temp.size(); i++)
 				{
 					if(Temp.at(i)->Position == sf::Vector2<int>(Pos.x+1,Pos.y) &&  Temp.at(i)->Alive != false)
 					{
+						std::cout<<"Enemy in way"<<std::endl;
 						walkable = false;
 					}
 				}

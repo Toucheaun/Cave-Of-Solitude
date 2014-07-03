@@ -6,8 +6,8 @@
 
 enum Enemy_Type
 {
-	SKELETON = 0,
-	ZOMBIE,
+	ZOMBIE = 0,
+	SKELETON,
 	WRAITH,
 	GOBLIN,
 	ORC,
@@ -21,7 +21,7 @@ public:
 	~Enemy(void);
 	void Update();
 
-	float HP,DAM;
+	float HP,DAM, EXP;
 	bool Alive;
 	Enemy_Type type;
 	sf::Vector2<int> Position;

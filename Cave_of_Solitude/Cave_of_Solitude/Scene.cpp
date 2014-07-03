@@ -30,8 +30,8 @@ Map* Scene::getMap()
 void Scene::Update()
 {
 
-	//std::cout<<"Currentblock: "<<CurrentBlockX<<","<<CurrentBlockY<<std::endl;
-	//std::cout<<"Playerposition: "<<player->Position.x<<","<<player->Position.y;
+	std::cout<<"Currentblock: "<<CurrentBlockX<<","<<CurrentBlockY<<std::endl;
+	std::cout<<"Playerposition: "<<player->Position.x<<","<<player->Position.y;
 	//std::cout<<"Player HP: "<<player->Hp<<std::endl;
 	//std::cout<<"Enemy hp: "<<enemies.at(0)->HP<<"Position:"<<enemies.at(0)->Position.x<<","<<enemies.at(0)->Position.y<<std::endl;
 
@@ -98,6 +98,7 @@ void Scene::Spawn()
 TileType Scene::GetTileByPos(sf::Vector2<int> Pos)
 {
 	//return TILE_FLOOR;
+
 	sf::Vector2<int> Temp = Pos;
 	if(Pos.x / 21 > 1)
 	{
@@ -116,6 +117,42 @@ TileType Scene::GetTileByPos(sf::Vector2<int> Pos)
 		return map.blocks[CurrentBlockX][CurrentBlockY+1].tiles[Temp.x][0];
 	}
 	return map.blocks[CurrentBlockX][CurrentBlockY].tiles[Temp.x][Temp.y];
+}
+
+bool Scene::CheckWalkable(sf::Vector2<int> Pos)
+{
+	sf::Vector2<int> Temp = Pos;
+	if(Pos.x / 21 > 1)
+	{
+		Temp.x = Pos.x/21;
+	}
+	if(Pos.y / 21 > 1)
+	{
+		Temp.y = Pos.y/21;
+	}
+	if(Temp.x == 21)
+	{
+		if(map.blocks[CurrentBlockX+1][CurrentBlockY].tiles[0][Temp.y] == TILE_WALL ||
+			map.blocks[CurrentBlockX+1][CurrentBlockY].tiles[0][Temp.y] ==TILE_WALL_H )
+		{
+			return false;
+		}
+	}
+	else if(Temp.y == 21)
+	{
+		if(map.blocks[CurrentBlockX][CurrentBlockY+1].tiles[Temp.x][0] == TILE_WALL ||
+			map.blocks[CurrentBlockX][CurrentBlockY+1].tiles[0][Temp.y] ==TILE_WALL_H )
+		{
+			return false;
+		}
+	}
+	if(map.blocks[CurrentBlockX][CurrentBlockY].tiles[Temp.x][Temp.y] == TILE_WALL ||
+		map.blocks[CurrentBlockX][CurrentBlockY].tiles[Temp.x][Temp.y] == TILE_WALL_H )
+	{
+		return false;
+	}
+
+	return true;
 }
 
 Enemy* Scene::GetEnemyByPos(sf::Vector2<int> Pos)

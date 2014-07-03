@@ -19,8 +19,8 @@ public:
 
 	void Update();
 
-	float Vit, Str, Stam, Int, Dam;
-	int Exp, Hp, Hp_Max;
+	float Vit, Str, Stam, Int, Dam, Exp;
+	int Hp, Hp_Max;
 	Direction Facing;
 	sf::Vector2<int> Position;
 };

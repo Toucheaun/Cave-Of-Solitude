@@ -12,6 +12,4 @@ enum TileType
 	TILE_SPAWNER_L,
 	TILE_SPAWNER_T = TILE_FLOOR
 };
-
-
 #endif
