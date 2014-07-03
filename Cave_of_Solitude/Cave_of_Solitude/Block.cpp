@@ -48,14 +48,14 @@ Block::Block(int type)
 	{
 	case 0:
 		{
-		TileType t[21][21] =
+		TileType b[21][21] =
 		{
 		{W,H,H,H,H,H,H,H,H,H,F,H,H,H,H,H,H,H,H,H,W},
 		{W,F,F,F,F,F,F,F,F,F,F,W,F,F,S,F,F,F,F,F,W},
 		{W,F,W,H,H,H,W,H,H,H,W,H,F,W,F,H,H,H,W,F,W},
 		{W,F,H,F,F,F,W,F,F,F,W,F,F,W,F,F,F,F,W,F,W},
 		{W,F,F,S,W,F,W,F,W,F,W,F,W,H,H,H,H,F,W,F,W},
-		{W,H,H,H,W,F,W,F,W,F,W,F,W,F,F,F,F,F,W,M,W},
+		{W,H,H,H,W,F,W,F,W,F,W,F,W,S,F,F,F,F,W,M,W},
 		{W,F,F,F,F,F,W,F,W,F,H,F,W,F,W,H,H,H,W,T,W},
 		{W,F,W,F,W,H,H,F,W,F,F,F,W,F,W,S,F,F,W,W,W},
 		{W,F,W,F,W,T,M,F,W,H,H,H,H,F,W,F,W,F,W,W,W},
@@ -66,13 +66,13 @@ Block::Block(int type)
 		{W,F,W,H,H,H,W,F,W,F,W,F,F,F,F,F,W,F,W,F,W},
 		{W,F,W,F,S,F,W,F,W,F,H,F,H,H,H,H,H,F,W,F,W},
 		{W,F,W,F,W,F,F,F,W,F,F,F,F,F,S,F,F,F,W,F,W},
-		{W,F,W,F,H,H,H,H,H,F,H,H,H,W,F,H,H,H,W,F,W},
+		{W,F,W,F,H,H,H,H,H,F,H,H,H,W,F,H,H,H,W,S,W},
 		{W,F,W,F,F,F,F,F,F,F,F,F,F,W,F,F,F,F,W,F,W},
-		{W,F,H,H,H,H,H,H,H,H,H,W,F,W,H,H,H,F,H,F,W},
+		{W,S,H,H,H,H,H,H,H,H,H,W,F,W,H,H,H,F,H,F,W},
 		{W,F,F,F,F,F,F,F,F,F,F,W,F,F,F,F,F,F,F,F,W},
 		{W,W,W,W,W,W,W,W,W,W,F,W,W,W,W,W,W,W,W,W,W}
 		};
-		CopyArray(t);
+		CopyArray(b);
 		}
 		break;
 	case 1:
@@ -117,11 +117,11 @@ Block::Block(int type)
 		{W,F,W,F,F,S,W,H,H,F,W,H,H,H,H,W,W,W,H,F,W},
 		{W,F,H,H,W,H,H,F,F,F,W,F,F,F,F,W,H,H,H,F,W},
 		{W,F,S,F,W,F,F,F,W,H,H,F,W,W,F,W,F,F,F,F,W},
-		{W,H,W,F,W,F,W,H,H,F,F,F,W,T,M,W,F,W,H,H,W},
-		{F,F,H,F,W,F,F,F,F,F,W,H,W,H,H,H,F,W,F,F,F},
+		{W,H,W,F,W,F,W,H,H,F,F,F,W,T,M,W,S,W,H,H,W},
+		{F,F,H,F,W,F,S,F,F,F,W,H,W,H,H,H,F,W,F,F,F},
 		{W,F,F,F,W,H,H,H,H,H,W,L,F,F,F,F,F,W,F,H,W},
 		{W,H,H,H,H,F,F,F,F,F,W,F,W,W,H,H,H,W,F,F,W},
-		{W,F,F,F,F,F,W,H,H,F,W,F,W,W,F,F,F,W,W,F,W},
+		{W,F,F,F,F,S,W,H,H,F,W,F,W,W,F,F,F,W,W,F,W},
 		{W,F,W,H,H,H,W,F,F,F,W,F,H,H,F,W,S,F,W,F,W},
 		{W,F,W,F,F,F,W,F,W,F,F,F,F,F,F,W,W,F,W,F,W},
 		{W,F,W,F,W,S,H,F,W,H,H,W,H,H,H,H,H,F,W,F,W},
@@ -145,16 +145,16 @@ Block::Block(int type)
 		{W,F,W,F,H,F,F,F,F,S,F,F,F,F,F,F,F,F,H,F,W},
 		{W,F,W,F,F,S,W,H,H,F,W,H,H,H,H,W,W,W,H,F,W},
 		{W,F,H,H,W,F,H,F,F,F,W,F,F,F,F,W,H,H,H,F,W},
-		{W,F,S,F,W,F,F,F,W,H,H,F,W,W,F,W,F,F,F,F,W},
+		{W,F,S,F,W,F,F,F,W,H,H,F,W,W,F,W,F,F,F,S,W},
 		{W,F,W,F,W,F,W,H,H,F,F,F,W,F,F,W,F,W,H,H,W},
 		{F,F,W,F,W,F,F,F,F,F,W,H,W,F,H,H,F,W,F,F,F},
 		{W,W,W,F,W,S,H,H,H,H,W,F,F,L,F,F,F,W,F,H,W},
 		{W,F,F,F,W,F,F,F,F,F,W,F,W,F,H,H,H,W,F,F,W},
 		{W,F,W,H,H,H,W,H,H,F,W,F,W,F,F,F,F,W,W,F,W},
 		{W,F,W,F,S,F,W,F,F,F,W,F,H,H,F,W,F,H,W,F,W},
-		{W,F,W,F,W,F,W,F,W,F,F,F,F,F,F,W,F,F,F,F,W},
+		{W,F,W,F,W,F,W,F,W,F,F,S,F,F,F,W,F,F,F,F,W},
 		{W,F,W,F,W,F,W,F,W,H,F,W,H,H,H,H,H,F,H,H,W},
-		{W,F,W,F,W,F,W,F,W,F,F,W,F,F,F,F,F,F,F,F,W},
+		{W,F,W,F,W,F,W,F,W,F,F,W,F,F,F,F,F,S,F,F,W},
 		{W,F,W,F,W,F,H,F,W,F,H,W,F,W,H,H,H,H,W,F,W},
 		{W,F,F,F,W,F,F,F,W,F,F,F,F,W,T,M,F,F,F,F,W},
 		{W,W,W,W,W,W,W,W,W,W,F,W,W,W,W,W,W,W,W,W,W}
@@ -189,6 +189,35 @@ Block::Block(int type)
 		{W,W,W,W,W,W,W,W,W,W,F,W,W,W,W,W,W,W,W,W,W}
 		};
 		CopyArray(x);
+		break;
+		}	case 5:
+		{
+		TileType n[21][21] =
+		{
+		{W,W,W,W,W,W,W,W,W,W,F,W,W,W,W,W,W,W,W,W,W},
+		{W,F,F,F,F,F,F,F,W,W,F,F,F,F,W,F,F,F,F,F,W},
+		{W,F,W,W,W,W,W,F,F,F,F,W,W,F,W,F,W,W,W,F,W},
+		{W,F,W,F,S,F,W,W,W,W,W,W,S,F,W,F,W,F,F,F,W},
+		{W,F,W,F,W,F,W,T,M,F,W,W,F,W,W,F,W,F,W,W,W},
+		{W,F,W,F,W,F,W,W,W,F,W,W,F,F,F,F,W,F,F,F,W},
+		{W,F,F,F,W,F,F,F,W,F,W,W,W,W,W,W,W,W,W,F,W},
+		{W,W,W,W,W,W,W,F,W,F,F,F,F,F,W,F,F,F,F,F,W},
+		{W,F,F,F,W,F,F,F,W,W,W,W,W,F,W,F,W,W,W,W,W},
+		{W,F,W,F,W,F,W,F,W,F,F,F,W,F,W,F,W,F,F,F,W},
+		{F,F,W,F,W,F,W,F,W,F,W,F,W,F,W,F,W,F,W,F,F},
+		{W,W,W,F,W,F,W,F,S,F,W,F,W,F,W,F,W,F,W,W,W},
+		{W,F,S,F,W,F,W,W,W,W,W,F,F,L,F,F,W,F,S,F,W},
+		{W,F,W,W,W,F,W,F,F,F,W,W,W,W,W,F,W,W,W,F,W},
+		{W,F,F,F,F,F,W,F,W,F,W,F,F,F,F,F,F,F,F,F,W},
+		{W,W,W,W,W,W,W,F,W,F,S,F,W,W,W,W,W,W,W,F,W},
+		{W,F,F,F,W,F,F,F,W,W,W,W,W,F,F,F,M,T,W,F,W},
+		{W,F,W,F,S,F,W,W,W,W,W,W,F,F,W,W,W,W,W,F,W},
+		{W,F,W,W,W,W,W,F,F,F,W,W,F,W,W,F,F,S,W,F,W},
+		{W,F,F,F,F,F,F,S,W,F,F,W,F,F,F,F,W,F,F,F,W},
+		{W,W,W,W,W,W,W,W,W,W,F,W,W,W,W,W,W,W,W,W,W}
+
+		};
+		CopyArray(n);
 		break;
 		}
 	default:

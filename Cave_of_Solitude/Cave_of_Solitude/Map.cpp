@@ -22,7 +22,7 @@ Map::Map(int x, int y, int t)
 	{
 		for(unsigned int y = 0; y < Height; ++y)
 		{
-			blocks[x][y] = Block(std::rand() % 2);
+			blocks[x][y] = Block(std::rand() % 6);
 
 		}
 	}
