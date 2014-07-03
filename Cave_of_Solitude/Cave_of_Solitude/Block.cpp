@@ -162,35 +162,35 @@ Block::Block(int type)
 		CopyArray(z);
 		break;
 		}
-	//case 4:
-	//	{
-	//	TileType x[21][21] =
-	//	{
-	//	{W,W,W,W,W,W,W,W,W,W,F,W,W,W,W,W,W,W,W,W,W},
-	//	{W,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,W},
-	//	{W,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,W},
-	//	{W,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,W},
-	//	{W,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,W},
-	//	{W,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,W},
-	//	{W,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,W},
-	//	{W,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,W},
-	//	{W,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,W},
-	//	{W,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,W},
-	//	{F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F},
-	//	{W,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,W},
-	//	{W,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,W},
-	//	{W,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,W},
-	//	{W,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,W},
-	//	{W,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,W},
-	//	{W,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,W},
-	//	{W,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,W},
-	//	{W,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,W},
-	//	{W,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,W},
-	//	{W,W,W,W,W,W,W,W,W,W,F,W,W,W,W,W,W,W,W,W,W}
-	//	};
-	//	CopyArray(x);
-	//	break;
-	//	}
+	case 4:
+		{
+		TileType x[21][21] =
+		{
+		{W,W,W,W,W,W,W,W,W,W,F,W,W,W,W,W,W,W,W,W,W},
+		{W,F,F,F,F,F,S,F,F,F,F,W,F,F,F,F,F,F,F,F,W},
+		{W,F,W,W,W,W,W,W,W,W,W,W,S,W,W,W,W,W,W,F,W},
+		{W,F,W,F,F,F,F,F,F,F,F,F,F,W,M,F,F,F,W,F,W},
+		{W,F,W,F,W,W,W,W,W,W,W,W,W,W,F,W,W,F,W,F,W},
+		{W,F,W,F,W,W,W,F,F,F,F,F,F,F,F,W,W,F,W,S,W},
+		{W,F,W,M,F,F,W,F,W,W,W,W,W,W,W,W,W,F,W,F,W},
+		{W,F,W,W,W,F,W,F,W,F,F,F,F,F,F,F,W,F,W,F,W},
+		{W,F,S,F,W,F,W,F,W,F,W,W,W,W,W,F,W,F,W,F,W},
+		{W,W,W,F,W,F,W,F,W,F,F,F,F,F,W,F,W,F,W,F,W},
+		{F,F,W,F,W,F,W,F,W,W,L,W,W,F,W,F,W,F,W,F,F},
+		{W,F,W,F,W,F,W,F,F,F,F,F,W,F,W,F,W,F,W,W,W},
+		{W,F,W,F,W,F,W,W,W,W,W,F,W,F,W,F,W,F,S,F,W},
+		{W,F,W,F,W,F,F,F,F,F,F,F,W,F,W,F,W,W,W,F,W},
+		{W,F,W,F,W,W,W,W,W,W,W,W,W,F,W,F,F,M,W,F,W},
+		{W,S,W,F,W,W,F,F,F,F,F,F,F,F,W,W,W,F,W,F,W},
+		{W,F,W,F,W,W,F,W,W,W,W,W,W,W,W,W,W,F,W,F,W},
+		{W,F,W,F,F,F,M,W,F,F,F,F,F,F,F,F,F,F,W,F,W},
+		{W,F,W,W,W,W,W,W,S,W,W,W,W,W,W,W,W,W,W,F,W},
+		{W,F,F,F,F,F,F,F,F,W,F,F,F,F,F,S,F,F,F,F,W},
+		{W,W,W,W,W,W,W,W,W,W,F,W,W,W,W,W,W,W,W,W,W}
+		};
+		CopyArray(x);
+		break;
+		}
 	default:
 		Block();
 		break;
