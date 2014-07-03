@@ -135,7 +135,7 @@ Block::Block(int type)
 		}
 	case 3:
 		{
-		TileType v[21][21] =
+		TileType z[21][21] =
 		{
 		{W,H,H,H,W,H,W,H,H,H,F,H,H,W,H,H,H,H,H,H,W},
 		{W,F,F,F,F,F,W,F,F,F,F,F,F,W,F,F,S,F,F,F,W},
@@ -146,9 +146,9 @@ Block::Block(int type)
 		{W,F,W,F,F,S,W,H,H,F,W,H,H,H,H,W,W,W,H,F,W},
 		{W,F,H,H,W,F,H,F,F,F,W,F,F,F,F,W,H,H,H,F,W},
 		{W,F,S,F,W,F,F,F,W,H,H,F,W,W,F,W,F,F,F,F,W},
-		{W,F,W,F,W,F,W,H,H,F,F,F,W,T,M,W,F,W,H,H,W},
-		{F,F,W,F,W,F,F,F,F,F,W,H,W,H,H,H,F,W,F,F,F},
-		{W,W,W,F,W,S,H,H,H,H,W,L,F,F,F,F,F,W,F,H,W},
+		{W,F,W,F,W,F,W,H,H,F,F,F,W,F,F,W,F,W,H,H,W},
+		{F,F,W,F,W,F,F,F,F,F,W,H,W,F,H,H,F,W,F,F,F},
+		{W,W,W,F,W,S,H,H,H,H,W,F,F,L,F,F,F,W,F,H,W},
 		{W,F,F,F,W,F,F,F,F,F,W,F,W,F,H,H,H,W,F,F,W},
 		{W,F,W,H,H,H,W,H,H,F,W,F,W,F,F,F,F,W,W,F,W},
 		{W,F,W,F,S,F,W,F,F,F,W,F,H,H,F,W,F,H,W,F,W},
@@ -159,9 +159,38 @@ Block::Block(int type)
 		{W,F,F,F,W,F,F,F,W,F,F,F,F,W,T,M,F,F,F,F,W},
 		{W,W,W,W,W,W,W,W,W,W,F,W,W,W,W,W,W,W,W,W,W}
 		};
-		CopyArray(v);
+		CopyArray(z);
 		break;
 		}
+	//case 4:
+	//	{
+	//	TileType x[21][21] =
+	//	{
+	//	{W,W,W,W,W,W,W,W,W,W,F,W,W,W,W,W,W,W,W,W,W},
+	//	{W,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,W},
+	//	{W,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,W},
+	//	{W,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,W},
+	//	{W,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,W},
+	//	{W,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,W},
+	//	{W,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,W},
+	//	{W,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,W},
+	//	{W,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,W},
+	//	{W,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,W},
+	//	{F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F},
+	//	{W,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,W},
+	//	{W,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,W},
+	//	{W,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,W},
+	//	{W,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,W},
+	//	{W,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,W},
+	//	{W,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,W},
+	//	{W,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,W},
+	//	{W,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,W},
+	//	{W,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,W},
+	//	{W,W,W,W,W,W,W,W,W,W,F,W,W,W,W,W,W,W,W,W,W}
+	//	};
+	//	CopyArray(x);
+	//	break;
+	//	}
 	default:
 		Block();
 		break;
