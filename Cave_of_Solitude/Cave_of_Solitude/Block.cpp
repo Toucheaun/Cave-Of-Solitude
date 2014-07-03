@@ -133,6 +133,35 @@ Block::Block(int type)
 		CopyArray(v);
 		break;
 		}
+	case 3:
+		{
+		TileType v[21][21] =
+		{
+		{W,H,H,H,W,H,W,H,H,H,F,H,H,W,H,H,H,H,H,H,W},
+		{W,F,F,F,F,F,W,F,F,F,F,F,F,W,F,F,S,F,F,F,W},
+		{W,F,W,H,H,F,W,F,W,H,H,H,F,W,F,W,H,H,W,F,W},
+		{W,F,W,F,F,F,W,F,W,F,F,F,F,W,F,F,F,F,W,F,W},
+		{W,F,W,F,W,H,H,F,W,F,H,H,H,H,H,H,H,F,W,F,W},
+		{W,F,W,F,H,F,F,F,F,S,F,F,F,F,F,F,F,F,H,F,W},
+		{W,F,W,F,F,S,W,H,H,F,W,H,H,H,H,W,W,W,H,F,W},
+		{W,F,H,H,W,F,H,F,F,F,W,F,F,F,F,W,H,H,H,F,W},
+		{W,F,S,F,W,F,F,F,W,H,H,F,W,W,F,W,F,F,F,F,W},
+		{W,F,W,F,W,F,W,H,H,F,F,F,W,T,M,W,F,W,H,H,W},
+		{F,F,W,F,W,F,F,F,F,F,W,H,W,H,H,H,F,W,F,F,F},
+		{W,W,W,F,W,S,H,H,H,H,W,L,F,F,F,F,F,W,F,H,W},
+		{W,F,F,F,W,F,F,F,F,F,W,F,W,F,H,H,H,W,F,F,W},
+		{W,F,W,H,H,H,W,H,H,F,W,F,W,F,F,F,F,W,W,F,W},
+		{W,F,W,F,S,F,W,F,F,F,W,F,H,H,F,W,F,H,W,F,W},
+		{W,F,W,F,W,F,W,F,W,F,F,F,F,F,F,W,F,F,F,F,W},
+		{W,F,W,F,W,F,W,F,W,H,F,W,H,H,H,H,H,F,H,H,W},
+		{W,F,W,F,W,F,W,F,W,F,F,W,F,F,F,F,F,F,F,F,W},
+		{W,F,W,F,W,F,H,F,W,F,H,W,F,W,H,H,H,H,W,F,W},
+		{W,F,F,F,W,F,F,F,W,F,F,F,F,W,T,M,F,F,F,F,W},
+		{W,W,W,W,W,W,W,W,W,W,F,W,W,W,W,W,W,W,W,W,W}
+		};
+		CopyArray(v);
+		break;
+		}
 	default:
 		Block();
 		break;
