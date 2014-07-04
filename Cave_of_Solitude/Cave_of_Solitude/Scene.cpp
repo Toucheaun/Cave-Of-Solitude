@@ -124,11 +124,11 @@ bool Scene::CheckWalkable(sf::Vector2<int> Pos)
 	sf::Vector2<int> Temp = Pos;
 	if(Pos.x / 21 > 1)
 	{
-		Temp.x = Pos.x/21;
+		Temp.x = (Pos.x/21);
 	}
 	if(Pos.y / 21 > 1)
 	{
-		Temp.y = Pos.y/21;
+		Temp.y = (Pos.y/21);
 	}
 	if(Temp.x == 21)
 	{
@@ -140,8 +140,8 @@ bool Scene::CheckWalkable(sf::Vector2<int> Pos)
 	}
 	else if(Temp.y == 21)
 	{
-		if(map.blocks[CurrentBlockX][CurrentBlockY+1].tiles[Temp.x][0] == TILE_WALL ||
-			map.blocks[CurrentBlockX][CurrentBlockY+1].tiles[0][Temp.y] ==TILE_WALL_H )
+		if(map.blocks[CurrentBlockX][CurrentBlockY+1].tiles[0][0] == TILE_WALL ||
+			map.blocks[CurrentBlockX][CurrentBlockY+1].tiles[Temp.x][0] ==TILE_WALL_H )
 		{
 			return false;
 		}
