@@ -1,7 +1,7 @@
 #ifndef Scene_H
 #define Scene_H
 
-#include "Map.h"
+#include "TileMap.h"
 #include "Enemy.h"
 #include "Player.h"
 
@@ -16,15 +16,13 @@ public:
 	void Update();
 	void Spawn();
 
-	Map map;
+	TileMap tilemap;
 	Player *player;
 
-	Map* getMap();
+	TileMap* getTileMap();
 
 	TileType GetTileByPos(sf::Vector2<int> Pos);
 	bool CheckWalkable(sf::Vector2<int> Pos);
-
-	int CurrentBlockX,CurrentBlockY;
 
 	Enemy* GetEnemyByPos(sf::Vector2<int> Pos);
 	std::vector<Enemy*> enemies;

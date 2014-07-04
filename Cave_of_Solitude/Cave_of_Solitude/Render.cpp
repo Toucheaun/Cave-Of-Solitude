@@ -77,51 +77,45 @@ void Render::Update()
 	window.setView(view);
 
 	//draw here
-	for(unsigned int x = 0; x < MAX_MAP_WIDTH; ++x)
+	for(unsigned int x = 0; x < TILEMAP_WIDTH; x++)
 	{
-		for(unsigned int y = 0; y < MAX_MAP_HEIGHT; ++y)
+		for(unsigned int y = 0; y < TILEMAP_HEIGHT; y++)
 		{
-			for(unsigned int x2 = 0; x2 < BLOCK_WIDTH; x2++)
+			//std::cout<<"block:" <<x<<y<<"tile:"<<x2<<y2<<std::endl;
+			switch(scene->getTileMap()->tiles[x][y])
 			{
-				for(unsigned int y2 = 0; y2 < BLOCK_HEIGHT; y2++)
-				{
-					//std::cout<<"block:" <<x<<y<<"tile:"<<x2<<y2<<std::endl;
-					switch(scene->getMap()->blocks[x][y].tiles[x2][y2])
-					{
-					case TILE_VOID:
-						printf("Invalid tile type!");
-						break;
-					case TILE_FLOOR:
-						//printf("Floor\n");
-						Floor.setPosition((x2*64)+(x*21*64),(y2*64)+(y*21*64));
-						window.draw(Floor);
-						break;
-					case TILE_WALL:
-						//printf("Wall\n");
-						Wall.setPosition((x2*64)+(x*21*64),(y2*64)+(y*21*64));
-						window.draw(Wall);
-						break;
-					case TILE_WALL_H:
-						Wall_H.setPosition((x2*64)+(x*21*64),(y2*64)+(y*21*64));
-						window.draw(Wall_H);
-						break;
-					case TILE_SPAWNER_S:
-						//printf("Floor\n");
-						Floor.setPosition((x2*64)+(x*21*64),(y2*64)+(y*21*64));
-						window.draw(Floor);
-						break;
-					case TILE_SPAWNER_M:
-						//printf("Floor\n");
-						Floor.setPosition((x2*64)+(x*21*64),(y2*64)+(y*21*64));
-						window.draw(Floor);
-						break;
-					case TILE_SPAWNER_L:
-						//printf("Floor\n");
-						Floor.setPosition((x2*64)+(x*21*64),(y2*64)+(y*21*64));
-						window.draw(Floor);
-						break;
-					}
-				}
+			case TILE_VOID:
+				printf("Invalid tile type!");
+				break;
+			case TILE_FLOOR:
+				//printf("Floor\n");
+				Floor.setPosition(x*64,y*64);
+				window.draw(Floor);
+				break;
+			case TILE_WALL:
+				//printf("Wall\n");
+				Wall.setPosition(x*64,y*64);
+				window.draw(Wall);
+				break;
+			case TILE_WALL_H:
+				Wall_H.setPosition(x*64,y*64);
+				window.draw(Wall_H);
+				break;
+			case TILE_SPAWNER_S:
+				//printf("Floor\n");
+				Floor.setPosition(x*64,y*64);
+				window.draw(Floor);
+				break;
+			case TILE_SPAWNER_M:
+				//printf("Floor\n");
+				Floor.setPosition(x*64,y*64);
+				window.draw(Floor);
+				break;
+			case TILE_SPAWNER_L:
+				//printf("Floor\n");
+				Floor.setPosition(x*64,y*64);
+				window.draw(Floor);
+				break;
 			}
 		}
 	}
