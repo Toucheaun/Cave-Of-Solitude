@@ -6,7 +6,7 @@ Scene::Scene()
 	tilemap = TileMap(15,15,1);
 	player = new Player(sf::Vector2<int>(1,1));
 	//enemies.push_back(new Enemy(ZOMBIE,sf::Vector2<int>(2,2)));
-	enemies.push_back(new Enemy(SKELETON,sf::Vector2<int>(4,4)));
+	//enemies.push_back(new Enemy(SKELETON,sf::Vector2<int>(4,4)));
 	//enemies.push_back(new Enemy(WRAITH,sf::Vector2<int>(6,6)));
 	//enemies.push_back(new Enemy(GOBLIN,sf::Vector2<int>(8,8)));
 	//enemies.push_back(new Enemy(ORC,sf::Vector2<int>(10,10)));
@@ -74,6 +74,7 @@ TileType Scene::GetTileByPos(sf::Vector2<int> Pos)
 
 bool Scene::CheckWalkable(sf::Vector2<int> Pos)
 {
+	return true;
 	if(tilemap.tiles[Pos.x][Pos.y] == TILE_WALL ||
 		tilemap.tiles[Pos.x][Pos.y] == TILE_WALL_H )
 	{
