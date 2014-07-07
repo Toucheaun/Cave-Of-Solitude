@@ -215,7 +215,7 @@ void Block::CopyArray(TileType t[BLOCK_WIDTH][BLOCK_HEIGHT])
 	{
 		for(unsigned int y = 0; y < BLOCK_HEIGHT; y++)
 		{
-			tiles[x][y] = t[x][y];
+			tiles[x][y] = t[y][x];
 		}
 	}
 }
