@@ -21,10 +21,12 @@ public:
 
 	Scene *scene;
 
+	sf::RenderWindow *window;
+
 	sf::Clock clock;
 	sf::Time DeltaTime;
 	float MovementCD,MovementCDTimer;
 	sf::Vector2<int> Pos;
-	sf::RenderWindow *window;
+	int level;
 };
 #endif

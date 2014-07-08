@@ -20,6 +20,7 @@ public:
 	Player *player;
 
 	TileMap* getTileMap();
+	void NewLevel();
 
 	TileType GetTileByPos(sf::Vector2<int> Pos);
 	bool CheckWalkable(sf::Vector2<int> Pos);

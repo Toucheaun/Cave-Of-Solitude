@@ -9,6 +9,7 @@ Game::Game(Scene *s, sf::RenderWindow *win)
 	MovementCD = 1.0f;
 	Pos = scene->player->Position;
 	window = win;
+	level = 1;
 }
 
 
@@ -24,26 +25,7 @@ void Game::Update()
 
 	Move();
 
-	if(sf::Keyboard::isKeyPressed(sf::Keyboard::J))
-	{
-		switch(scene->player->Facing)
-		{
-		case UP:
-			Attack(scene->GetEnemyByPos(sf::Vector2<int>(Pos.x,Pos.y+1)));
-			break;
-		case LEFT:
-			Attack(scene->GetEnemyByPos(sf::Vector2<int>(Pos.x+1,Pos.y)));
-			break;
-		case DOWN:
-			Attack(scene->GetEnemyByPos(sf::Vector2<int>(Pos.x,Pos.y-1)));
-			break;
-		case RIGHT:
-			Attack(scene->GetEnemyByPos(sf::Vector2<int>(Pos.x-1,Pos.y)));
-			break;
-		}
-	}
-
-	//Ranged attack that is broken
+	//Melee attack with mouse attack
 	if(sf::Mouse::isButtonPressed(sf::Mouse::Left))
 	{
 		sf::Vector2i WinPos = sf::Mouse::getPosition(*window);
@@ -82,6 +64,11 @@ void Game::Update()
 		}
 		Temp.at(i)->Update();
 	}
+
+	//if(Pos == End)
+	//{
+	//	//next level
+	//}
 
 	MovementCDTimer += DeltaTime.asSeconds();
 	//std::cout<<MovementCDTimer<<std::endl;

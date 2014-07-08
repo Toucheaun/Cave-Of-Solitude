@@ -67,6 +67,17 @@ void Scene::Spawn()
 	}
 }
 
+void Scene::NewLevel()
+{
+	enemies.clear();
+
+	tilemap = TileMap(15,15,1);
+	
+	//player->Position = begin position;
+
+	Spawn();
+}
+
 TileType Scene::GetTileByPos(sf::Vector2<int> Pos)
 {
 	return tilemap.tiles[Pos.x][Pos.y];
