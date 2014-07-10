@@ -23,6 +23,11 @@ void Game::Update()
 
 	Pos = scene->player->Position;
 
+	if(scene->End == Pos)
+	{
+		
+	}
+
 	Move();
 
 	//Melee attack with mouse attack
@@ -49,6 +54,7 @@ void Game::Update()
 	}
 
 	std::vector<Enemy*> Temp = scene->enemies;
+	std::vector<Item> Temp2 = scene->items;
 
 	for(unsigned int i = 0; i<Temp.size(); i++)
 	{
@@ -63,6 +69,14 @@ void Game::Update()
 			}
 		}
 		Temp.at(i)->Update();
+	}
+
+	for(unsigned int i = 0; i<Temp2.size(); i++)
+	{
+		if(Temp2[i].Position == Pos)
+		{
+			//
+		}
 	}
 
 	//if(Pos == End)

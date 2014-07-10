@@ -20,6 +20,11 @@ Player::~Player(void)
 {
 }
 
+void Player::PickItem(Item t)
+{
+	//lots of checks
+}
+
 void Player::Update()
 {
 	Hp_Max = Vit;

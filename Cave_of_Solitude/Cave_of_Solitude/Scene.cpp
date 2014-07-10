@@ -12,6 +12,17 @@ Scene::Scene()
 	//enemies.push_back(new Enemy(ORC,sf::Vector2<int>(10,10)));
 	//enemies.push_back(new Enemy(TROLL,sf::Vector2<int>(12,12)));
 
+	for(int x = 0; x < TILEMAP_WIDTH; ++x)
+	{
+		for(int y = 0; y < TILEMAP_HEIGHT; ++y)
+		{
+			/*if(tilemap.tiles[x][y] == TILE_SPAWNER_S)
+			{
+			End == sf::Vector2<int>(x,y);
+			}*/
+		}
+	}
+
 	Spawn();
 }
 

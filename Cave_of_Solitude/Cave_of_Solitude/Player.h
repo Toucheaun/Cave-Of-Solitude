@@ -2,6 +2,7 @@
 #define Player_H
 
 #include <SFML\System\Vector2.hpp>
+#include "Item.h"
 
 enum Direction
 {
@@ -18,6 +19,7 @@ public:
 	~Player(void);
 
 	void Update();
+	void PickItem(Item t);
 
 	float Vit, Str, Stam, Int, Dam, Exp;
 	int Hp, Hp_Max;

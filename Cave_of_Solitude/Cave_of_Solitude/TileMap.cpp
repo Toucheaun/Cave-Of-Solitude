@@ -30,6 +30,9 @@ TileMap::TileMap(int w, int h,int t)
 			}
 		}
 	}
+
+	//random begin and end
+
 	for(unsigned int x = 0; x < TILEMAP_WIDTH; x++)
 	{
 		tiles[x][0] = TILE_WALL;

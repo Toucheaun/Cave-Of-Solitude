@@ -19,6 +19,8 @@ public:
 	TileMap tilemap;
 	Player *player;
 
+	sf::Vector2<int> End;
+
 	TileMap* getTileMap();
 	void NewLevel();
 
@@ -27,6 +29,7 @@ public:
 
 	Enemy* GetEnemyByPos(sf::Vector2<int> Pos);
 	std::vector<Enemy*> enemies;
+	std::vector<Item> items;
 
 };
 #endif
