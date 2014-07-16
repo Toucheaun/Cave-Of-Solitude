@@ -4,13 +4,14 @@
 enum State
 {
 	GUARD = 0,
-	ATTACK
+	CHASE,
 };
 
 class StateMachine
 {
 public:
-	StateMachine(void);
+	StateMachine(State s);
+	StateMachine();
 	~StateMachine(void);
 	void SetNewState(State s);
 

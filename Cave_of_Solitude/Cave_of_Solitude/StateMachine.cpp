@@ -1,8 +1,14 @@
 #include "StateMachine.h"
 
 
-StateMachine::StateMachine(void)
+StateMachine::StateMachine(State s)
 {
+	state = s;
+}
+
+StateMachine::StateMachine()
+{
+	state = GUARD;
 }
 
 

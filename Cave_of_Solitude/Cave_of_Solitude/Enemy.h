@@ -2,6 +2,7 @@
 #define Enemy_H
 
 #include <SFML\System.hpp>
+#include <vector>
 #include "StateMachine.h"
 
 enum Enemy_Type
@@ -13,6 +14,7 @@ enum Enemy_Type
 	ORC,
 	TROLL,
 };
+
 
 class Enemy
 {
@@ -31,5 +33,12 @@ public:
 	float ATTACK_CD, ATTACK_CD_TIMER;
 
 	StateMachine CurrentState;
+
+	void Move();
+
+	void SetPath(std::vector<sf::Vector2<int>> p);
+	std::vector<sf::Vector2<int>> path;
+private:
+	std::vector<sf::Vector2<int>>::iterator it;
 };
 #endif

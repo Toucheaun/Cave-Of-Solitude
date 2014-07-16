@@ -45,6 +45,7 @@ Enemy::Enemy(Enemy_Type t,sf::Vector2<int> Pos)
 		break;
 	}
 	Position = Pos;
+	CurrentState = StateMachine(GUARD);
 	Alive = true;
 	ATTACK_CD_TIMER = 0;
 }
@@ -66,4 +67,23 @@ void Enemy::Update()
 	}
 
 	//std::cout<<ATTACK_CD<<std::endl;
+}
+
+void Enemy::SetPath(std::vector<sf::Vector2<int>> p)
+{
+	path = p;
+	//path.erase(path.end());
+	it = path.end();
+}
+
+void Enemy::Move()
+{
+	if(!path.empty())
+	{
+		if(it != path.begin())
+		{
+			it--;
+		}
+		Position = (*it);
+	}
 }
