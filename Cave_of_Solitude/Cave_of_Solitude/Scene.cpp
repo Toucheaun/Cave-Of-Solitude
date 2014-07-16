@@ -96,7 +96,7 @@ TileType Scene::GetTileByPos(sf::Vector2<int> Pos)
 
 bool Scene::CheckWalkable(sf::Vector2<int> Pos)
 {
-	return true;
+	//return true;
 	if(tilemap.tiles[Pos.x][Pos.y] == TILE_WALL ||
 		tilemap.tiles[Pos.x][Pos.y] == TILE_WALL_H )
 	{
