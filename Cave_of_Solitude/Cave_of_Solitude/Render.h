@@ -28,6 +28,17 @@ private:
 	sf::Texture wall_H;
 	sf::Sprite Wall_H;
 
+	//UI assets
+	sf::Texture ui1;
+	sf::Sprite UI1;
+
+	sf::Texture ui2;
+	sf::Sprite UI2;
+
+	sf::Texture playerMenu;
+	sf::Sprite PlayerMenu;
+
+
 	//Text assets
 	sf::Font font;
 	sf::Text text;

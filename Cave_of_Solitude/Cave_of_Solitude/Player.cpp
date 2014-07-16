@@ -10,8 +10,8 @@ Player::Player(sf::Vector2<int> pos)
 	Int = 10;
 	Dam = Str;
 	Exp = 0;
-	Hp = 10;
-	Hp_Max = 10;
+	Hp = 100;
+	Hp_Max = 100;
 	Facing = DOWN;
 }
 
@@ -27,5 +27,4 @@ void Player::PickItem(Item t)
 
 void Player::Update()
 {
-	Hp_Max = Vit;
 }

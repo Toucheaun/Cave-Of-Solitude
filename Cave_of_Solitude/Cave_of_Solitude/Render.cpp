@@ -47,7 +47,14 @@ Render::Render(Scene* s)
 	Dead.setTexture(dead);
 	Dead.scale(0.5f, 0.5f);
 
+	ui1.loadFromFile("../Resources/Frame256x128.png");
+	UI1.setTexture(ui1);
 
+	ui2.loadFromFile("../Resources/FrameExample.png");
+	UI2.setTexture(ui2);
+
+	playerMenu.loadFromFile("../Resources/MenuBase.png");
+	PlayerMenu.setTexture(playerMenu);
 
 	//Text
 	font.loadFromFile("../Resources/Gabriela-Regular.ttf");
@@ -163,15 +170,25 @@ void Render::Update()
 	//Player.setPosition(scene->player->Position.x*64,scene->player->Position.y*64);
 	window.draw(Player);
 
-	HP.setPosition(Player.getPosition().x-400,Player.getPosition().y-300);
+
+	//UI Drawn on top of playables.
+
+	UI2.setPosition(Player.getPosition().x+272,Player.getPosition().y+172);
+	window.draw(UI2);
+
+	UI1.setPosition(Player.getPosition().x-400,Player.getPosition().y+172);
+	window.draw(UI1);
+
+	//Texts writen on top
+	HP.setPosition(Player.getPosition().x-380,Player.getPosition().y+195);
 	std::stringstream ss;
 	ss<<"Hp: "<<scene->player->Hp;
 	HP.setString(ss.str());
 	window.draw(HP);
 
-	EXP.setPosition(Player.getPosition().x-250,Player.getPosition().y-300);
+	EXP.setPosition(Player.getPosition().x-380,Player.getPosition().y+235);
 	std::stringstream exp;
-	exp<<"Experience: "<<scene->player->Exp;
+	exp<<"Exp: "<<scene->player->Exp;
 	EXP.setString(exp.str());
 	window.draw(EXP);
 
