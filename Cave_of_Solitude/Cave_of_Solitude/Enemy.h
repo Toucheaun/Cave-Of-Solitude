@@ -28,11 +28,19 @@ public:
 	Enemy_Type type;
 	sf::Vector2<int> Position;
 
+	//Attack components
 	sf::Clock clockE;
 	sf::Time DeltaTimeE;
 	float ATTACK_CD, ATTACK_CD_TIMER;
 
+
+	//Movement components
 	StateMachine CurrentState;
+
+	sf::Clock clockA;
+	sf::Time DeltaTimeA;
+	float MOVE_CD, MOVE_CD_TIMER;
+
 
 	void Move();
 

@@ -64,10 +64,7 @@ void Game::Update()
 			}
 			else
 			{
-				if(Temp.at(i)->path.empty())
-				{
 				Temp.at(i)->SetPath(FindPath(Temp.at(i)->Position, Pos));
-				}
 				Temp.at(i)->Move();
 				printf("I move");
 			}
@@ -299,13 +296,13 @@ std::vector<sf::Vector2<int>> Game::FindPathReversed(sf::Vector2<int> Start,sf::
 			pathOpened(currentNode->Position + sf::Vector2<int>(0,1),currentNode->G+1,currentNode,goalNode);
 
 			//upperRight
-			pathOpened(currentNode->Position + sf::Vector2<int>(1,-1),currentNode->G+1.141f,currentNode,goalNode);
+			//pathOpened(currentNode->Position + sf::Vector2<int>(1,-1),currentNode->G+1.141f,currentNode,goalNode);
 			//upperLeft
-			pathOpened(currentNode->Position + sf::Vector2<int>(-1,-1),currentNode->G+1.141f,currentNode,goalNode);
+			//pathOpened(currentNode->Position + sf::Vector2<int>(-1,-1),currentNode->G+1.141f,currentNode,goalNode);
 			//lowerRight
-			pathOpened(currentNode->Position + sf::Vector2<int>(1,1),currentNode->G+1.141f,currentNode,goalNode);
+			//pathOpened(currentNode->Position + sf::Vector2<int>(1,1),currentNode->G+1.141f,currentNode,goalNode);
 			//loverLeft
-			pathOpened(currentNode->Position + sf::Vector2<int>(-1,1),currentNode->G+1.141f,currentNode,goalNode);
+			//pathOpened(currentNode->Position + sf::Vector2<int>(-1,1),currentNode->G+1.141f,currentNode,goalNode);
 		}
 	}
 	PathToGoal.push_back(Start);
