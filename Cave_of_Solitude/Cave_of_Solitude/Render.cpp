@@ -11,9 +11,9 @@ Render::Render(Scene* s)
 	Floor.setTexture(floor);
 	wall.loadFromFile("../Resources/StoneWall64.png");
 	Wall.setTexture(wall);
-	wall_H.loadFromFile("../Resources/StoneWallHorizontal_v2_128.png");
+	wall_H.loadFromFile("../Resources/StoneWallHorizontal.png");
 	Wall_H.setTexture(wall_H);
-	Wall_H.scale(0.5f,0.5f);
+	//Wall_H.scale(0.5f,0.5f);
 
 	player.loadFromFile("../Resources/Player128.png");
 	Player.setTexture(player);
