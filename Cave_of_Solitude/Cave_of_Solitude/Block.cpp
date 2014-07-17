@@ -183,7 +183,7 @@ Block::Block(int type)
 		{W,F,F,F,W,F,F,F,W,H,H,H,W,F,W,F,W,H,H,H,W},
 		{H,F,W,F,W,F,W,F,W,F,F,F,W,F,W,F,W,F,F,F,H},
 		{F,F,W,F,W,F,W,F,W,F,W,F,W,F,W,F,W,F,W,F,F},
-		{W,H,H,F,W,F,W,F,S,F,W,F,W,F,W,F,W,F,H,H,W},
+		{W,H,H,F,W,F,W,F,S,F,W,F,H,F,H,F,W,F,H,H,W},
 		{W,F,S,F,W,F,W,H,H,H,W,F,F,L,F,F,W,F,S,F,W},
 		{W,F,H,H,W,F,W,F,F,F,W,H,H,H,H,F,H,H,H,F,W},
 		{W,F,F,F,F,F,W,F,W,F,W,F,F,F,F,F,F,F,F,F,W},
