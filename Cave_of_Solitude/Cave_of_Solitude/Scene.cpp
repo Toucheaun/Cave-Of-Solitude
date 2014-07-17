@@ -23,6 +23,8 @@ Scene::Scene()
 		}
 	}
 
+	state = START_SCREEN;
+
 	Spawn();
 }
 
@@ -117,4 +119,9 @@ Enemy* Scene::GetEnemyByPos(sf::Vector2<int> Pos)
 		}
 	}
 	return NULL;
+}
+
+void Scene::SetNewState(Scene_State s)
+{
+	state = s;
 }

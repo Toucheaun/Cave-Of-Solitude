@@ -7,6 +7,12 @@
 
 #include <vector>;
 
+enum Scene_State
+{
+	START_SCREEN,
+	INFO,
+};
+
 class Scene
 {
 public:
@@ -31,5 +37,7 @@ public:
 	std::vector<Enemy*> enemies;
 	std::vector<Item> items;
 
+	void SetNewState(Scene_State s);
+	Scene_State state;
 };
 #endif

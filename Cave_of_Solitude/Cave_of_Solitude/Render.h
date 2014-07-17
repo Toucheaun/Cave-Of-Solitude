@@ -38,6 +38,7 @@ private:
 	sf::Texture playerMenu;
 	sf::Sprite PlayerMenu;
 
+	sf::RectangleShape StartMenu;
 
 	//Text assets
 	sf::Font font;

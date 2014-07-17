@@ -125,9 +125,12 @@ int main()
 
 	for(;;)
 	{
-		if(sf::Keyboard::isKeyPressed(sf::Keyboard::Escape))
+		if(scene->state == START_SCREEN)
 		{
-			break;
+			if(sf::Keyboard::isKeyPressed(sf::Keyboard::Escape))
+			{
+				break;
+			}
 		}
 		scene->Update();
 		g.Update();

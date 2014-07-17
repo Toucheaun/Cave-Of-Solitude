@@ -27,6 +27,8 @@ Game::~Game(void)
 
 void Game::Update()
 {
+	if(scene->state == INFO)
+	{
 	DeltaTime = clock.restart();
 
 	Pos = scene->player->Position;
@@ -49,24 +51,31 @@ void Game::Update()
 		switch(Temp.at(i)->CurrentState.state)
 		{
 		case GUARD:
+			if(GetDistance(scene->player->Position,Temp.at(i)->Position) < 10)
+			{
+				Temp.at(i)->CurrentState.SetNewState(CHASE);
+			}
 			//check if player visible
 		break;
 		case CHASE:
-			if(GetDistance(scene->player->Position,Temp.at(i)->Position) < 2)
+			if(Temp.at(i)->Alive != false)
 			{
-				if(Temp.at(i)->HP >= 0)
+				if(GetDistance(scene->player->Position,Temp.at(i)->Position) < 2)
 				{
-					if(Temp.at(i)->ATTACK_CD_TIMER > Temp.at(i)->ATTACK_CD)
+					if(Temp.at(i)->HP >= 0)
 					{
-						EnemyAttack(Temp.at(i));
+						if(Temp.at(i)->ATTACK_CD_TIMER > Temp.at(i)->ATTACK_CD)
+						{
+							EnemyAttack(Temp.at(i));
+						}
 					}
 				}
-			}
-			else
-			{
-				Temp.at(i)->SetPath(FindPath(Temp.at(i)->Position, Pos));
-				Temp.at(i)->Move();
-				printf("I move");
+				else
+				{
+					Temp.at(i)->SetPath(FindPath(Temp.at(i)->Position, Pos));
+					Temp.at(i)->Move();
+					printf("I move");
+				}
 			}
 			break;
 		}
@@ -83,6 +92,19 @@ void Game::Update()
 
 	MovementCDTimer += DeltaTime.asSeconds();
 	//std::cout<<MovementCDTimer<<std::endl;
+	}
+	else
+	{}
+
+	if(sf::Keyboard::isKeyPressed(sf::Keyboard::Space))
+	{
+		scene->SetNewState(INFO);
+	}
+
+	if(sf::Keyboard::isKeyPressed(sf::Keyboard::Escape))
+	{
+		scene->SetNewState(START_SCREEN);
+	}
 }
 
 void Game::Attack(Enemy* e)
@@ -362,9 +384,12 @@ void Game::pathOpened(sf::Vector2<int> Position, float newCost,SearchNode* nextN
 	{
 		if(Temp[i]->Position != goalNode->Position)
 		{
-			if(Temp[i]->Position == Position)
+			if(Temp.at(i)->Alive == true)
 			{
-				return;
+				if(Temp[i]->Position == Position)
+				{
+					return;
+				}
 			}
 		}
 	}
