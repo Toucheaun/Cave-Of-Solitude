@@ -96,31 +96,31 @@ void Render::Update()
 				break;
 			case TILE_FLOOR:
 				//printf("Floor\n");
-				Floor.setPosition(x*64,y*64);
+				Floor.setPosition(x*64,y*64+16);
 				window.draw(Floor);
 				break;
 			case TILE_WALL:
 				//printf("Wall\n");
-				Wall.setPosition(x*64,y*64);
+				Wall.setPosition(x*64,y*64+16);
 				window.draw(Wall);
 				break;
 			case TILE_WALL_H:
-				Wall_H.setPosition(x*64,y*64);
+				Wall_H.setPosition(x*64,y*64+16);
 				window.draw(Wall_H);
 				break;
 			case TILE_SPAWNER_S:
 				//printf("Floor\n");
-				Floor.setPosition(x*64,y*64);
+				Floor.setPosition(x*64,y*64+16);
 				window.draw(Floor);
 				break;
 			case TILE_SPAWNER_M:
 				//printf("Floor\n");
-				Floor.setPosition(x*64,y*64);
+				Floor.setPosition(x*64,y*64+16);
 				window.draw(Floor);
 				break;
 			case TILE_SPAWNER_L:
 				//printf("Floor\n");
-				Floor.setPosition(x*64,y*64);
+				Floor.setPosition(x*64,y*64+16);
 				window.draw(Floor);
 				break;
 			}
