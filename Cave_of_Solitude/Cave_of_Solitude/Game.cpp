@@ -2,8 +2,11 @@
 #include <SFML\Window.hpp>
 #include <iostream>
 
-Game::Game(Scene *s, sf::RenderWindow *win)
+#include "SoundSystem.h"
+
+Game::Game(Scene *s, sf::RenderWindow *win, SoundSystem *ss)
 {
+	soundSystem = ss;
 	scene = s;
 	MovementCDTimer = 1.0f;
 	MovementCD = 1.0f;
@@ -18,6 +21,10 @@ Game::Game(Scene *s, sf::RenderWindow *win)
 		Temp.at(i)->CurrentState.SetNewState(CHASE);
 		}
 	}
+
+	// Äänen play esimerkki
+	soundSystem->troll.play();
+
 }
 
 

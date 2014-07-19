@@ -4,6 +4,7 @@
 
 #include "Render.h"
 #include "Game.h"
+#include "SoundSystem.h"
 
 
 int main()
@@ -118,10 +119,11 @@ int main()
  //       window.draw(animatedSprite);
  //       window.display();
  //   }
-	
+	SoundSystem *soundSystem = new SoundSystem();
+
 	Scene *scene = new Scene();
 	Render r(scene);
-	Game g(scene,r.GetWindow());
+	Game g(scene,r.GetWindow(), soundSystem);
 
 	for(;;)
 	{

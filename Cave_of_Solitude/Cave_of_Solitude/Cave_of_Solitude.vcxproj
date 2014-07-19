@@ -103,6 +103,7 @@
     <ClInclude Include="Render.h" />
     <ClInclude Include="Scene.h" />
     <ClInclude Include="SearchNode.h" />
+    <ClInclude Include="SoundSystem.h" />
     <ClInclude Include="StateMachine.h" />
     <ClInclude Include="Tile.h" />
     <ClInclude Include="TileMap.h" />

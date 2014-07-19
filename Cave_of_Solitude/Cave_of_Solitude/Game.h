@@ -8,13 +8,20 @@
 #include "Scene.h"
 #include "SearchNode.h"
 
-
+class SoundSystem;
 
 class Game
 {
+
 public:
-	Game(Scene *s,sf::RenderWindow *win);
+	Game(Scene *s,sf::RenderWindow *win, SoundSystem *ss);
 	~Game(void);
+
+private:
+
+	SoundSystem *soundSystem;
+
+public:
 
 	void Update();
 	void Move();
