@@ -14,6 +14,13 @@ Render::Render(Scene* s)
 	wall_H.loadFromFile("../Resources/StoneWallHorizontal.png");
 	Wall_H.setTexture(wall_H);
 	//Wall_H.scale(0.5f,0.5f);
+	pillar.loadFromFile("../Resources/Pilar128.png");
+	Pillar.setTexture(pillar);
+	Pillar.setScale(0.5f,0.5f);
+	treasure.loadFromFile("../Resources/TreasureChest128.png");
+	Treasure.setTexture(treasure);
+	Treasure.setScale(0.5f,0.5f);
+
 
 	player.loadFromFile("../Resources/Player128.png");
 	Player.setTexture(player);
@@ -127,6 +134,13 @@ void Render::Update()
 				Floor.setPosition(x*64,y*64+16);
 				window.draw(Floor);
 				break;
+			case TILE_SPAWNER_T:
+				Treasure.setPosition(x*64,y*64+16);
+				window.draw(Treasure);
+				break;
+			case TILE_PILLAR:
+				Pillar.setPosition(x*64,y*64+16);
+				window.draw(Pillar);
 			}
 		}
 	}

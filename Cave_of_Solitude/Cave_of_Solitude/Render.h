@@ -28,6 +28,12 @@ private:
 	sf::Texture wall_H;
 	sf::Sprite Wall_H;
 
+	sf::Texture pillar;
+	sf::Sprite Pillar;
+
+	sf::Texture treasure;
+	sf::Sprite Treasure;
+
 	//UI assets
 	sf::Texture ui1;
 	sf::Sprite UI1;

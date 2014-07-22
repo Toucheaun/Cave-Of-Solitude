@@ -22,6 +22,7 @@ Block::Block(int type)
 #define M  TILE_SPAWNER_M
 #define L  TILE_SPAWNER_L
 #define T  TILE_SPAWNER_T
+#define P  TILE_PILLAR
 	switch(type)
 	{
 	case 0:
