@@ -26,6 +26,28 @@ Map::Map(int x, int y, int t)
 
 		}
 	}
+
+	int R = std::rand() % 4;
+
+	switch(R)
+	{
+	case 0:
+		blocks[0][0].tiles[1][1] = TILE_BEGIN;
+		blocks[Width-1][Height-1].tiles[1][1] = TILE_END;
+		break;
+	case 1:
+		blocks[0][Height-1].tiles[1][1] = TILE_BEGIN;
+		blocks[Width-1][0].tiles[1][1] = TILE_END;
+		break;
+	case 2:
+		blocks[Width-1][0].tiles[1][1] = TILE_BEGIN;
+		blocks[0][Height-1].tiles[1][1] = TILE_END;
+		break;
+	case 3:
+		blocks[Width-1][Height-1].tiles[1][1] = TILE_BEGIN;
+		blocks[0][0].tiles[1][1] = TILE_END;
+		break;
+	}
 }
 
 Map::Map()

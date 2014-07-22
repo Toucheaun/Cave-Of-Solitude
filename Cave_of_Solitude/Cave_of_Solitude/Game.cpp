@@ -18,7 +18,7 @@ Game::Game(Scene *s, sf::RenderWindow *win, SoundSystem *ss)
 	{
 		if(Temp.at(i)->Position == sf::Vector2<int>(4,3))
 		{
-		Temp.at(i)->CurrentState.SetNewState(CHASE);
+			Temp.at(i)->CurrentState.SetNewState(CHASE);
 		}
 	}
 
@@ -42,7 +42,7 @@ void Game::Update()
 
 	if(scene->End == Pos)
 	{
-		
+		scene->NewLevel();
 	}
 
 	Move();

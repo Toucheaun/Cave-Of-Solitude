@@ -3,7 +3,7 @@
 
 Scene::Scene()
 {
-	tilemap = TileMap(15,15,1);
+	tilemap = TileMap(2,2,1);
 	player = new Player(sf::Vector2<int>(1,1));
 	//enemies.push_back(new Enemy(ZOMBIE,sf::Vector2<int>(2,2)));
 	//enemies.push_back(new Enemy(SKELETON,sf::Vector2<int>(4,4)));
@@ -12,14 +12,19 @@ Scene::Scene()
 	//enemies.push_back(new Enemy(ORC,sf::Vector2<int>(10,10)));
 	//enemies.push_back(new Enemy(TROLL,sf::Vector2<int>(12,12)));
 
+
 	for(int x = 0; x < TILEMAP_WIDTH; ++x)
 	{
 		for(int y = 0; y < TILEMAP_HEIGHT; ++y)
 		{
-			/*if(tilemap.tiles[x][y] == TILE_SPAWNER_S)
+			if(tilemap.tiles[x][y] == TILE_BEGIN)
 			{
-			End == sf::Vector2<int>(x,y);
-			}*/
+				player->Position = sf::Vector2<int>(x,y);
+			}
+			if(tilemap.tiles[x][y] == TILE_END)
+			{
+				End = sf::Vector2<int>(x,y);
+			}
 		}
 	}
 
@@ -82,11 +87,28 @@ void Scene::Spawn()
 
 void Scene::NewLevel()
 {
+	for (unsigned int i = 0; i < enemies.size(); i++)
+	{
+		delete enemies[i];
+	}
 	enemies.clear();
 
 	tilemap = TileMap(15,15,1);
 	
-	//player->Position = begin position;
+	for(int x = 0; x < TILEMAP_WIDTH; ++x)
+	{
+		for(int y = 0; y < TILEMAP_HEIGHT; ++y)
+		{
+			if(tilemap.tiles[x][y] == TILE_BEGIN)
+			{
+				player->Position = sf::Vector2<int>(x,y);
+			}
+			if(tilemap.tiles[x][y] == TILE_END)
+			{
+				End = sf::Vector2<int>(x,y);
+			}
+		}
+	}
 
 	Spawn();
 }
