@@ -127,7 +127,7 @@ bool Scene::CheckWalkable(sf::Vector2<int> Pos)
 {
 	//return true;
 	if(tilemap.tiles[Pos.x][Pos.y] == TILE_WALL ||
-		tilemap.tiles[Pos.x][Pos.y] == TILE_WALL_H )
+		tilemap.tiles[Pos.x][Pos.y] == TILE_WALL_H || tilemap.tiles[Pos.x][Pos.y] == TILE_PILLAR )
 	{
 		return false;
 	}
@@ -143,6 +143,18 @@ Enemy* Scene::GetEnemyByPos(sf::Vector2<int> Pos)
 		if(enemies.at(i)->Position == Pos)
 		{
 			return enemies.at(i);
+		}
+	}
+	return NULL;
+}
+
+Item* Scene::GetItemByPos(sf::Vector2<int> Pos)
+{
+	for(unsigned int i = 0; i < items.size();i++)
+	{
+		if(items.at(i)->Position == Pos)
+		{
+			return items.at(i);
 		}
 	}
 	return NULL;

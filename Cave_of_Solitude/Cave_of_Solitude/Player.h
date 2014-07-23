@@ -19,9 +19,9 @@ public:
 	~Player(void);
 
 	void Update();
-	void PickItem(Item t);
+	void PickItem(Item* t);
 
-	float Vit, Str, Stam, Int, Dam, Exp;
+	float Vit, Str, Dex, Dam, Exp;
 	int Hp, Hp_Max;
 	Direction Facing;
 	sf::Vector2<int> Position;

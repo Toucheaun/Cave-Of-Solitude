@@ -34,6 +34,7 @@ public:
 	bool CheckWalkable(sf::Vector2<int> Pos);
 
 	Enemy* GetEnemyByPos(sf::Vector2<int> Pos);
+	Item* GetItemByPos(sf::Vector2<int> Pos);
 	std::vector<Enemy*> enemies;
 	std::vector<Item*> items;
 

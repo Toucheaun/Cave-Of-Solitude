@@ -14,18 +14,19 @@ Render::Render(Scene* s)
 	wall_H.loadFromFile("../Resources/StoneWallHorizontal.png");
 	Wall_H.setTexture(wall_H);
 	//Wall_H.scale(0.5f,0.5f);
-	pillar.loadFromFile("../Resources/Pilar128.png");
+	pillar.loadFromFile("../Resources/Pillar128.png");
 	Pillar.setTexture(pillar);
 	Pillar.setScale(0.5f,0.5f);
 	treasure.loadFromFile("../Resources/TreasureChest128.png");
 	Treasure.setTexture(treasure);
 	Treasure.setScale(0.5f,0.5f);
 	treasureOpened.loadFromFile("../Resources/TreasureChestOpened128.png");
-	TreasureOpened.setTexture(treasure);
-	TreasureOpened.setScale(0.5f,0.5f);
 	end.loadFromFile("../Resources/StairsDown128.png");
 	End.setTexture(end);
 	End.setScale(0.5f,0.5f);
+	start.loadFromFile("../Resources/StairsUp128.png");
+	Start.setTexture(start);
+	Start.setScale(0.5f,0.5f);
 
 
 	player.loadFromFile("../Resources/Player128.png");
@@ -149,6 +150,8 @@ void Render::Update()
 				window.draw(Pillar);
 				break;
 			case TILE_BEGIN:
+				Start.setPosition(x*64,y*64+16);
+				window.draw(Start);
 				break;
 			case TILE_END:
 				End.setPosition(x*64,y*64+16);
@@ -202,7 +205,11 @@ void Render::Update()
 	{
 		if(temp2.at(i)->Open == true)
 		{
-			Treasure.setTexture();
+			Treasure.setTexture(treasureOpened);
+		}
+		else
+		{
+			Treasure.setTexture(treasure);
 		}
 		Treasure.setPosition(temp2.at(i)->Position.x*64,temp2.at(i)->Position.y*64);
 		window.draw(Treasure);

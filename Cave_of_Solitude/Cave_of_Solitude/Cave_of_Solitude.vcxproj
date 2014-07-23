@@ -88,6 +88,7 @@
     <ClCompile Include="Player.cpp" />
     <ClCompile Include="Render.cpp" />
     <ClCompile Include="Scene.cpp" />
+    <ClCompile Include="SoundSystem.cpp" />
     <ClCompile Include="StateMachine.cpp" />
     <ClCompile Include="TileMap.cpp" />
   </ItemGroup>

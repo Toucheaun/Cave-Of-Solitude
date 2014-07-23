@@ -23,7 +23,7 @@ Game::Game(Scene *s, sf::RenderWindow *win, SoundSystem *ss)
 	}
 
 	// Äänen play esimerkki
-	soundSystem->troll.play();
+	soundSystem->coin.play();
 
 }
 
@@ -51,7 +51,7 @@ void Game::Update()
 
 
 	std::vector<Enemy*> Temp = scene->enemies;
-	std::vector<Item> Temp2 = scene->items;
+	std::vector<Item*> Temp2 = scene->items;
 
 	for(unsigned int i = 0; i<Temp.size(); i++)
 	{
@@ -91,7 +91,7 @@ void Game::Update()
 
 	for(unsigned int i = 0; i<Temp2.size(); i++)
 	{
-		if(Temp2[i].Position == Pos)
+		if(Temp2.at(i)->Position == Pos)
 		{
 			//
 		}
@@ -112,6 +112,7 @@ void Game::Update()
 	{
 		scene->SetNewState(START_SCREEN);
 	}
+	scene->player->Update();
 }
 
 void Game::Attack(Enemy* e)
@@ -237,6 +238,7 @@ void Game::Attack()
 		{
 			if(GetDistance(P,scene->GetEnemyByPos(sf::Vector2<int>(WinPos.x/64-6+P.x,WinPos.y/64-5+P.y))->Position) < 2)
 			{
+				std::cout<<scene->player->Dam<<std::endl;
 				scene->GetEnemyByPos(sf::Vector2<int>(WinPos.x/64-6+P.x,WinPos.y/64-5+P.y))->HP -= scene->player->Dam;
 				if(scene->GetEnemyByPos(sf::Vector2<int>(WinPos.x/64-6+P.x,WinPos.y/64-5+P.y))->Alive &&
 					scene->GetEnemyByPos(sf::Vector2<int>(WinPos.x/64-6+P.x,WinPos.y/64-5+P.y))->HP <= 0)
@@ -247,7 +249,19 @@ void Game::Attack()
 				//std::cout<<"HP: "<<scene->GetEnemyByPos(sf::Vector2<int>(WinPos.x/64-6+P.x,WinPos.y/64-5+P.y))->HP<<std::endl;
 				//std::cout<<"X: "<<scene->GetEnemyByPos(sf::Vector2<int>(WinPos.x/64-6+P.x,WinPos.y/64-5+P.y))->Position.x<<std::endl;
 				//std::cout<<"Y: "<<scene->GetEnemyByPos(sf::Vector2<int>(WinPos.x/64-6+P.x,WinPos.y/64-5+P.y))->Position.y<<std::endl;
+		}
+		if(scene->GetItemByPos(sf::Vector2<int>(WinPos.x/64-6+P.x,WinPos.y/64-5+P.y)) != NULL)
+		{
+			if(GetDistance(P,scene->GetItemByPos(sf::Vector2<int>(WinPos.x/64-6+P.x,WinPos.y/64-5+P.y))->Position) < 2)
+			{
+				if(scene->GetItemByPos(sf::Vector2<int>(WinPos.x/64-6+P.x,WinPos.y/64-5+P.y))->Open == false)
+				{
+					scene->player->PickItem(scene->GetItemByPos(sf::Vector2<int>(WinPos.x/64-6+P.x,WinPos.y/64-5+P.y)));
+					scene->GetItemByPos(sf::Vector2<int>(WinPos.x/64-6+P.x,WinPos.y/64-5+P.y))->Open = true;
+				}
 			}
+
+		}
 	}
 }
 
