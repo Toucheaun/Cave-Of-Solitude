@@ -26,7 +26,7 @@ Enemy::Enemy(Enemy_Type t,sf::Vector2<int> Pos)
 		EXP = 1;
 		break;
 	case GOBLIN:
-		HP = 10;
+		HP = 20;
 		DAM = 2;
 		ATTACK_CD = 1.0f;
 		EXP = 1;

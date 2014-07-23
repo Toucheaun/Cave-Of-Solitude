@@ -26,6 +26,9 @@ Render::Render(Scene* s)
 	end.loadFromFile("../Resources/StairsDown128.png");
 	End.setTexture(end);
 	End.setScale(0.5f,0.5f);
+	start.loadFromFile("../Resources/StairsUp128.png");
+	Start.setTexture(start);
+	Start.setScale(0.5f,0.5f);
 
 
 	player.loadFromFile("../Resources/Player128.png");

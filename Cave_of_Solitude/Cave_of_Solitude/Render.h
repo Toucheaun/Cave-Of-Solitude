@@ -34,6 +34,9 @@ private:
 	sf::Texture end;
 	sf::Sprite End;
 
+	sf::Texture start;
+	sf::Sprite Start;
+
 	sf::Texture treasure;
 	sf::Sprite Treasure;
 
