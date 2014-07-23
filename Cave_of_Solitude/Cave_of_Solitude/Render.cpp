@@ -152,6 +152,8 @@ void Render::Update()
 				window.draw(Pillar);
 				break;
 			case TILE_BEGIN:
+				Start.setPosition(x*64,y*64+16);
+				window.draw(Start);
 				break;
 			case TILE_END:
 				End.setPosition(x*64,y*64+16);
