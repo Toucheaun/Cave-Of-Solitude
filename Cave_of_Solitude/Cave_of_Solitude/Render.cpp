@@ -206,13 +206,10 @@ void Render::Update()
 		if(temp2.at(i)->Open == true)
 		{
 			Treasure.setTexture(treasureOpened);
-<<<<<<< HEAD
 		}
 		else
 		{
 			Treasure.setTexture(treasure);
-=======
->>>>>>> cd4f80027b94d72eefb44d495b38573d1e2c8bac
 		}
 		Treasure.setPosition(temp2.at(i)->Position.x*64,temp2.at(i)->Position.y*64);
 		window.draw(Treasure);
