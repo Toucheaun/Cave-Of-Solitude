@@ -51,7 +51,7 @@ void Game::Update()
 
 
 	std::vector<Enemy*> Temp = scene->enemies;
-	std::vector<Item> Temp2 = scene->items;
+	std::vector<Item*> Temp2 = scene->items;
 
 	for(unsigned int i = 0; i<Temp.size(); i++)
 	{
@@ -91,7 +91,7 @@ void Game::Update()
 
 	for(unsigned int i = 0; i<Temp2.size(); i++)
 	{
-		if(Temp2[i].Position == Pos)
+		if(Temp2.at(i)->Position == Pos)
 		{
 			//
 		}
