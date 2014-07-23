@@ -20,6 +20,9 @@ Render::Render(Scene* s)
 	treasure.loadFromFile("../Resources/TreasureChest128.png");
 	Treasure.setTexture(treasure);
 	Treasure.setScale(0.5f,0.5f);
+	treasureOpened.loadFromFile("../Resources/TreasureChestOpened128.png");
+	TreasureOpened.setTexture(treasure);
+	TreasureOpened.setScale(0.5f,0.5f);
 	end.loadFromFile("../Resources/StairsDown128.png");
 	End.setTexture(end);
 	End.setScale(0.5f,0.5f);
@@ -66,9 +69,8 @@ Render::Render(Scene* s)
 	playerMenu.loadFromFile("../Resources/MenuBase.png");
 	PlayerMenu.setTexture(playerMenu);
 
-	StartMenu.setSize(sf::Vector2f(800,600));
-	StartMenu.setPosition(0,0);
-	StartMenu.setFillColor(sf::Color::Black);
+	startMenu.loadFromFile("../Resources/StartMenu.png");
+	StartMenu.setTexture(startMenu);
 
 	//Text
 	font.loadFromFile("../Resources/Gabriela-Regular.ttf");

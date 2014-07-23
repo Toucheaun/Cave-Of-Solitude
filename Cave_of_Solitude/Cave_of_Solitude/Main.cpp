@@ -134,6 +134,7 @@ int main()
 				break;
 			}
 		}
+
 		scene->Update();
 		g.Update();
 		r.Update();

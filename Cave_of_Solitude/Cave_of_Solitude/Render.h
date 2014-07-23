@@ -37,6 +37,9 @@ private:
 	sf::Texture treasure;
 	sf::Sprite Treasure;
 
+	sf::Texture treasureOpened;
+	sf::Sprite TreasureOpened;
+
 	//UI assets
 	sf::Texture ui1;
 	sf::Sprite UI1;
@@ -47,7 +50,8 @@ private:
 	sf::Texture playerMenu;
 	sf::Sprite PlayerMenu;
 
-	sf::RectangleShape StartMenu;
+	sf::Texture startMenu;
+	sf::Sprite StartMenu;
 
 	//Text assets
 	sf::Font font;
