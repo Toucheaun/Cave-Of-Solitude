@@ -23,7 +23,7 @@ Game::Game(Scene *s, sf::RenderWindow *win, SoundSystem *ss)
 	}
 
 	// Äänen play esimerkki
-	soundSystem->troll.play();
+	soundSystem->coin.play();
 
 }
 
