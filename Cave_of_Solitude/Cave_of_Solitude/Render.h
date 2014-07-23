@@ -31,6 +31,9 @@ private:
 	sf::Texture pillar;
 	sf::Sprite Pillar;
 
+	sf::Texture end;
+	sf::Sprite End;
+
 	sf::Texture treasure;
 	sf::Sprite Treasure;
 

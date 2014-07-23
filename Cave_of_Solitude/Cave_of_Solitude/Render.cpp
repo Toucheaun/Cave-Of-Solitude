@@ -20,6 +20,9 @@ Render::Render(Scene* s)
 	treasure.loadFromFile("../Resources/TreasureChest128.png");
 	Treasure.setTexture(treasure);
 	Treasure.setScale(0.5f,0.5f);
+	end.loadFromFile("../Resources/StairsDown128.png");
+	End.setTexture(end);
+	End.setScale(0.5f,0.5f);
 
 
 	player.loadFromFile("../Resources/Player128.png");
@@ -141,6 +144,13 @@ void Render::Update()
 			case TILE_PILLAR:
 				Pillar.setPosition(x*64,y*64+16);
 				window.draw(Pillar);
+				break;
+			case TILE_BEGIN:
+				break;
+			case TILE_END:
+				End.setPosition(x*64,y*64+16);
+				window.draw(End);
+				break;
 			}
 		}
 	}

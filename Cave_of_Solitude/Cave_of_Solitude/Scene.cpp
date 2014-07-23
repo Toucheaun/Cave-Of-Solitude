@@ -93,7 +93,9 @@ void Scene::NewLevel()
 	}
 	enemies.clear();
 
-	tilemap = TileMap(15,15,1);
+	int size = tilemap.Height;
+
+	tilemap = TileMap(size+1,size+1,1);
 	
 	for(int x = 0; x < TILEMAP_WIDTH; ++x)
 	{
