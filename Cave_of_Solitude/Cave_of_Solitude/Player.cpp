@@ -6,8 +6,7 @@ Player::Player(sf::Vector2<int> pos)
 	Position = pos;
 	Vit = 10;
 	Str = 10;
-	Stam = 10;
-	Int = 10;
+	Dex = 10;
 	Dam = 1;
 	Exp = 0;
 	Hp = 100;

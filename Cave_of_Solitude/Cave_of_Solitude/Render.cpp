@@ -14,7 +14,7 @@ Render::Render(Scene* s)
 	wall_H.loadFromFile("../Resources/StoneWallHorizontal.png");
 	Wall_H.setTexture(wall_H);
 	//Wall_H.scale(0.5f,0.5f);
-	pillar.loadFromFile("../Resources/Pilar128.png");
+	pillar.loadFromFile("../Resources/Pillar128.png");
 	Pillar.setTexture(pillar);
 	Pillar.setScale(0.5f,0.5f);
 	treasure.loadFromFile("../Resources/TreasureChest128.png");
