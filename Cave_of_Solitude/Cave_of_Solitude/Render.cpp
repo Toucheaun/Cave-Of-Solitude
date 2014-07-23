@@ -240,6 +240,7 @@ void Render::Update()
 
 	if(scene->state == START_SCREEN)
 	{
+		StartMenu.setPosition(Player.getPosition().x-400,Player.getPosition().y-300);
 		window.draw(StartMenu);
 	}
 
