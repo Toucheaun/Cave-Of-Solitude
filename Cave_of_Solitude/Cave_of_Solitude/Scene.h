@@ -35,7 +35,7 @@ public:
 
 	Enemy* GetEnemyByPos(sf::Vector2<int> Pos);
 	std::vector<Enemy*> enemies;
-	std::vector<Item> items;
+	std::vector<Item*> items;
 
 	void SetNewState(Scene_State s);
 	Scene_State state;

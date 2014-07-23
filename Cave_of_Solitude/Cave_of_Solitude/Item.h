@@ -12,10 +12,11 @@ enum Item_type
 class Item
 {
 public:
-	Item(Item_type t,sf::Vector2<int> Pos);
+	Item(int t,sf::Vector2<int> Pos);
 	~Item(void);
 
 	Item_type type;
 	sf::Vector2<int> Position;
+	bool Open;
 };
 #endif

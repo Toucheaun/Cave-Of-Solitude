@@ -79,7 +79,10 @@ void Scene::Spawn()
 				}
 			if(tilemap.tiles[x][y] == TILE_SPAWNER_T)
 				{
-						
+						if(std::rand() % 100+1 > 50)
+						{
+							items.push_back(new Item(std::rand()%2,sf::Vector2<int>(x,y)));
+						}
 				}
 		}
 	}

@@ -1,10 +1,19 @@
 #include "Item.h"
 
 
-Item::Item(Item_type t,sf::Vector2<int> Pos)
+Item::Item(int t,sf::Vector2<int> Pos)
 {
-	type = t;
+	switch(t)
+	{
+	case 0:
+		type = SWORD;
+		break;
+	case 1:
+		type = ARMOR_1;
+		break;
+	}
 	Position = Pos;
+	Open = false;
 }
 
 

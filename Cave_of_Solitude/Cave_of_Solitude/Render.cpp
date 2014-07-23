@@ -93,6 +93,7 @@ void Render::Update()
 	window.clear();
 
 	std::vector<Enemy*> temp = scene->enemies;
+	std::vector<Item*> temp2 = scene->items;
 
 	Player.setPosition(scene->player->Position.x*64,scene->player->Position.y*64);
 	view.reset(sf::FloatRect(0,0,800,600));
@@ -140,8 +141,8 @@ void Render::Update()
 				window.draw(Floor);
 				break;
 			case TILE_SPAWNER_T:
-				Treasure.setPosition(x*64,y*64+16);
-				window.draw(Treasure);
+				Floor.setPosition(x*64,y*64+16);
+				window.draw(Floor);
 				break;
 			case TILE_PILLAR:
 				Pillar.setPosition(x*64,y*64+16);
@@ -195,6 +196,16 @@ void Render::Update()
 			window.draw(Dead);
 		}
 
+	}
+
+	for(unsigned int i = 0; i < temp2.size(); i++)
+	{
+		if(temp2.at(i)->Open == true)
+		{
+			Treasure.setTexture();
+		}
+		Treasure.setPosition(temp2.at(i)->Position.x*64,temp2.at(i)->Position.y*64);
+		window.draw(Treasure);
 	}
 
 	//Player.setPosition(scene->player->Position.x*64,scene->player->Position.y*64);
