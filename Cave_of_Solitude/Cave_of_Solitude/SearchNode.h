@@ -41,6 +41,15 @@ struct SearchNode
 		TILE_WALL_H:
 			T = INT_MAX;
 			break;
+		TILE_PILLAR:
+			T = INT_MAX;
+			break;
+		TILE_BEGIN:
+			T = 1.0;
+			break;
+		TILE_END:
+			T = 1.0;
+			break;
 		}
 	}
 

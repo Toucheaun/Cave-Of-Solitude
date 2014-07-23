@@ -33,18 +33,18 @@ Map::Map(int x, int y, int t)
 	{
 	case 0:
 		blocks[0][0].tiles[1][1] = TILE_BEGIN;
-		blocks[Width-1][Height-1].tiles[1][1] = TILE_END;
+		blocks[Width-1][Height-1].tiles[19][19] = TILE_END;
 		break;
 	case 1:
-		blocks[0][Height-1].tiles[1][1] = TILE_BEGIN;
-		blocks[Width-1][0].tiles[1][1] = TILE_END;
+		blocks[0][Height-1].tiles[1][19] = TILE_BEGIN;
+		blocks[Width-1][0].tiles[19][1] = TILE_END;
 		break;
 	case 2:
-		blocks[Width-1][0].tiles[1][1] = TILE_BEGIN;
-		blocks[0][Height-1].tiles[1][1] = TILE_END;
+		blocks[Width-1][0].tiles[19][1] = TILE_BEGIN;
+		blocks[0][Height-1].tiles[1][19] = TILE_END;
 		break;
 	case 3:
-		blocks[Width-1][Height-1].tiles[1][1] = TILE_BEGIN;
+		blocks[Width-1][Height-1].tiles[19][19] = TILE_BEGIN;
 		blocks[0][0].tiles[1][1] = TILE_END;
 		break;
 	}

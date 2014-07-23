@@ -397,7 +397,8 @@ void Game::pathOpened(sf::Vector2<int> Position, float newCost,SearchNode* nextN
 	if(Position.x < 0 || Position.x > TILEMAP_WIDTH ||
 		Position.y < 0 || Position.y > TILEMAP_HEIGHT ||
 		scene->GetTileByPos(Position) == TILE_WALL ||
-		scene->GetTileByPos(Position) == TILE_WALL_H)
+		scene->GetTileByPos(Position) == TILE_WALL_H ||
+		scene->GetTileByPos(Position) == TILE_PILLAR)
 	return;
 
 	//Checkki otusten paikoille

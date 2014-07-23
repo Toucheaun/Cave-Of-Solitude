@@ -5,6 +5,7 @@ TileMap::TileMap(int w, int h,int t)
 {
 	Width = w;
 	Height = h;
+	Type = t;
 
 	//Everything is wall
 	for(int x = 0; x < TILEMAP_WIDTH; ++x)

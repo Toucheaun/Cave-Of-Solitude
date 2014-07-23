@@ -3,7 +3,7 @@
 
 Scene::Scene()
 {
-	tilemap = TileMap(2,2,1);
+	tilemap = TileMap(2,2,0);
 	player = new Player(sf::Vector2<int>(1,1));
 	//enemies.push_back(new Enemy(ZOMBIE,sf::Vector2<int>(2,2)));
 	//enemies.push_back(new Enemy(SKELETON,sf::Vector2<int>(4,4)));
@@ -58,23 +58,53 @@ void Scene::Spawn()
 		{
 			if(tilemap.tiles[x][y] == TILE_SPAWNER_S)
 				{
-					if(std::rand() % 100+1 > 50)
+					if(tilemap.Type == 0)
 					{
-						enemies.push_back(new Enemy(GOBLIN,sf::Vector2<int>(x,y)));
+						if(std::rand() % 100+1 > 50)
+						{
+							enemies.push_back(new Enemy(GOBLIN,sf::Vector2<int>(x,y)));
+						}
+					}
+					else
+					{
+						if(std::rand() % 100+1 > 50)
+						{
+							enemies.push_back(new Enemy(ZOMBIE,sf::Vector2<int>(x,y)));
+						}
 					}
 				}
 			if(tilemap.tiles[x][y] == TILE_SPAWNER_M)
 				{
-					if(std::rand() % 100+1 > 50)
+					if(tilemap.Type == 0)
 					{
-						enemies.push_back(new Enemy(ORC,sf::Vector2<int>(x,y)));
+						if(std::rand() % 100+1 > 50)
+						{
+							enemies.push_back(new Enemy(ORC,sf::Vector2<int>(x,y)));
+						}
+					}
+					else
+					{
+						if(std::rand() % 100+1 > 50)
+						{
+							enemies.push_back(new Enemy(SKELETON,sf::Vector2<int>(x,y)));
+						}
 					}
 				}
 			if(tilemap.tiles[x][y] == TILE_SPAWNER_L)
 				{
-					if(std::rand() % 100+1 > 50)
+					if(tilemap.Type == 0)
 					{
-						enemies.push_back(new Enemy(TROLL,sf::Vector2<int>(x,y)));
+						if(std::rand() % 100+1 > 50)
+						{
+							enemies.push_back(new Enemy(TROLL,sf::Vector2<int>(x,y)));
+						}
+					}
+					else
+					{
+						if(std::rand() % 100+1 > 50)
+						{
+							enemies.push_back(new Enemy(WRAITH,sf::Vector2<int>(x,y)));
+						}
 					}
 				}
 			if(tilemap.tiles[x][y] == TILE_SPAWNER_T)
@@ -98,7 +128,8 @@ void Scene::NewLevel()
 
 	int size = tilemap.Height;
 
-	tilemap = TileMap(size+1,size+1,1);
+	int type = std::rand() % 2;
+	tilemap = TileMap(size+1,size+1,type);
 	
 	for(int x = 0; x < TILEMAP_WIDTH; ++x)
 	{
@@ -106,7 +137,7 @@ void Scene::NewLevel()
 		{
 			if(tilemap.tiles[x][y] == TILE_BEGIN)
 			{
-				player->Position = sf::Vector2<int>(x,y);
+			player->Position = sf::Vector2<int>(x,y);
 			}
 			if(tilemap.tiles[x][y] == TILE_END)
 			{
