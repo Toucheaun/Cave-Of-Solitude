@@ -64,6 +64,8 @@ private:
 	sf::Text text;
 	sf::Text HP;
 	sf::Text EXP;
+	sf::Text TextLines;
+	sf::Text TextLines2;
 
 	//Enemy assets
 	sf::Texture zombie;

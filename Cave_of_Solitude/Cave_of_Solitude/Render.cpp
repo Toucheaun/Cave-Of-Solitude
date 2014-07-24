@@ -67,8 +67,13 @@ Render::Render(Scene* s)
 	ui2.loadFromFile("../Resources/FrameExample.png");
 	UI2.setTexture(ui2);
 
-	playerMenu.loadFromFile("../Resources/MenuBase.png");
+	playerMenu.loadFromFile("../Resources/Frame256x384.png");
 	PlayerMenu.setTexture(playerMenu);
+	PlayerMenu.setScale(1.07f,1.0f);
+
+	pointAlloc.loadFromFile("../Resources/+.png");
+	PointAlloc.setTexture(pointAlloc);
+	PointAlloc.setScale(0.5f,0.5f);
 
 	startMenu.loadFromFile("../Resources/StartMenu.png");
 	StartMenu.setTexture(startMenu);
@@ -83,6 +88,13 @@ Render::Render(Scene* s)
 
 	EXP.setFont(font);
 	EXP.setColor(sf::Color::Green);
+
+	TextLines.setFont(font);
+	TextLines.setColor(sf::Color::White);
+
+	TextLines2.setFont(font);
+	TextLines2.setColor(sf::Color::White);
+	TextLines2.setScale(0.5f,0.5f);
 }
 
 Render::~Render()
@@ -253,6 +265,47 @@ void Render::Update()
 	exp<<"Exp: "<<scene->player->Exp;
 	EXP.setString(exp.str());
 	window.draw(EXP);
+
+	if(1>0)
+	{
+		PlayerMenu.setPosition(Player.getPosition().x-400, Player.getPosition().y-250);
+		window.draw(PlayerMenu);
+
+		std::stringstream Text;
+		Text<<"Strength: "<< scene->player->Str;
+		TextLines.setPosition(Player.getPosition().x-380,Player.getPosition().y-200);
+		TextLines.setString(Text.str());
+		window.draw(TextLines);
+
+		TextLines2.setPosition(Player.getPosition().x-380,Player.getPosition().y-150);
+		TextLines2.setString("Strength increases your damage.");
+		window.draw(TextLines2);
+
+		std::stringstream Text1;
+		Text1<<"Dexterity: "<< scene->player->Dex;
+		TextLines.setPosition(Player.getPosition().x-380,Player.getPosition().y-100);
+		TextLines.setString(Text1.str());
+		window.draw(TextLines);
+		TextLines2.setPosition(Player.getPosition().x-380,Player.getPosition().y-50);
+		TextLines2.setString("Dexterity makes you faster.");
+		window.draw(TextLines2);
+		
+		std::stringstream Text2;
+		Text2<<"Vitality: "<< scene->player->Vit;
+		TextLines.setPosition(Player.getPosition().x-380,Player.getPosition().y);
+		TextLines.setString(Text2.str());
+		window.draw(TextLines);
+		TextLines2.setPosition(Player.getPosition().x-380,Player.getPosition().y+50);
+		TextLines2.setString("Vitality increases your health.");
+		window.draw(TextLines2);
+
+		PointAlloc.setPosition(Player.getPosition().x-185, Player.getPosition().y-200);
+		window.draw(PointAlloc);
+		PointAlloc.setPosition(Player.getPosition().x-185, Player.getPosition().y-100);
+		window.draw(PointAlloc);
+		PointAlloc.setPosition(Player.getPosition().x-185, Player.getPosition().y);
+		window.draw(PointAlloc);
+	}
 
 	if(scene->state == START_SCREEN)
 	{

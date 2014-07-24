@@ -11,13 +11,13 @@ Enemy::Enemy(Enemy_Type t,sf::Vector2<int> Pos)
 		HP = 25;
 		DAM = 2;
 		ATTACK_CD = 1.5f;
-		EXP = 2;
+		EXP = 5;
 		break;
 	case SKELETON:
 		HP = 40;
 		DAM = 3;
 		ATTACK_CD = 1.2f;
-		EXP = 5;
+		EXP = 10;
 		break;
 	case WRAITH:
 		HP = 55;
@@ -29,13 +29,13 @@ Enemy::Enemy(Enemy_Type t,sf::Vector2<int> Pos)
 		HP = 20;
 		DAM = 1;
 		ATTACK_CD = 0.8f;
-		EXP = 2;
+		EXP = 5;
 		break;
 	case ORC:
 		HP = 35;
 		DAM = 3;
 		ATTACK_CD = 1.5f;
-		EXP = 5;
+		EXP = 10;
 		break;
 	case TROLL:
 		HP = 70;
