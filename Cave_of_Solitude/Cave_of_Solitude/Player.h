@@ -21,7 +21,7 @@ public:
 	void Update();
 	void PickItem(Item* t);
 
-	float Vit, Str, Dex, Dam, Exp;
+	float Vit, Str, Dex, Dam, Exp, AttackCD, MovementCD;
 	int Hp, Hp_Max;
 	Direction Facing;
 	sf::Vector2<int> Position;

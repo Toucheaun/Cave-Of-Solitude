@@ -12,6 +12,8 @@ Player::Player(sf::Vector2<int> pos)
 	Hp = 100;
 	Hp_Max = 100;
 	Facing = DOWN;
+	AttackCD = 1;
+	MovementCD =1;
 }
 
 
@@ -28,4 +30,6 @@ void Player::Update()
 {
 	Hp_Max = 10 * Vit;
 	Dam = 1 * Str;
+	AttackCD = 10 / Dex;
+	MovementCD = 10 / Dex;
 }
