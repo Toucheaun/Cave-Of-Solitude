@@ -56,6 +56,9 @@ private:
 	sf::Texture startMenu;
 	sf::Sprite StartMenu;
 
+	sf::Texture pointAlloc;
+	sf::Sprite PointAlloc;
+
 	//Text assets
 	sf::Font font;
 	sf::Text text;
