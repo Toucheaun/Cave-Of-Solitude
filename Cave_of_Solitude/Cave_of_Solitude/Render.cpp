@@ -64,7 +64,7 @@ Render::Render(Scene* s)
 	ui1.loadFromFile("../Resources/Frame256x128.png");
 	UI1.setTexture(ui1);
 
-	ui2.loadFromFile("../Resources/FrameExample.png");
+	ui2.loadFromFile("../Resources/FrameExample2.png");
 	UI2.setTexture(ui2);
 
 	playerMenu.loadFromFile("../Resources/Frame256x384.png");
@@ -273,29 +273,29 @@ void Render::Update()
 
 		std::stringstream Text;
 		Text<<"Strength: "<< scene->player->Str;
-		TextLines.setPosition(Player.getPosition().x-380,Player.getPosition().y-200);
+		TextLines.setPosition(Player.getPosition().x-380,Player.getPosition().y-205);
 		TextLines.setString(Text.str());
 		window.draw(TextLines);
 
-		TextLines2.setPosition(Player.getPosition().x-380,Player.getPosition().y-150);
+		TextLines2.setPosition(Player.getPosition().x-380,Player.getPosition().y-160);
 		TextLines2.setString("Strength increases your damage.");
 		window.draw(TextLines2);
 
 		std::stringstream Text1;
 		Text1<<"Dexterity: "<< scene->player->Dex;
-		TextLines.setPosition(Player.getPosition().x-380,Player.getPosition().y-100);
+		TextLines.setPosition(Player.getPosition().x-380,Player.getPosition().y-105);
 		TextLines.setString(Text1.str());
 		window.draw(TextLines);
-		TextLines2.setPosition(Player.getPosition().x-380,Player.getPosition().y-50);
+		TextLines2.setPosition(Player.getPosition().x-380,Player.getPosition().y-60);
 		TextLines2.setString("Dexterity makes you faster.");
 		window.draw(TextLines2);
 		
 		std::stringstream Text2;
 		Text2<<"Vitality: "<< scene->player->Vit;
-		TextLines.setPosition(Player.getPosition().x-380,Player.getPosition().y);
+		TextLines.setPosition(Player.getPosition().x-380,Player.getPosition().y-5);
 		TextLines.setString(Text2.str());
 		window.draw(TextLines);
-		TextLines2.setPosition(Player.getPosition().x-380,Player.getPosition().y+50);
+		TextLines2.setPosition(Player.getPosition().x-380,Player.getPosition().y+40);
 		TextLines2.setString("Vitality increases your health.");
 		window.draw(TextLines2);
 
