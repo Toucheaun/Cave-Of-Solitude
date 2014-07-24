@@ -19,10 +19,6 @@ Game::Game(Scene *s, sf::RenderWindow *win, SoundSystem *ss)
 			Temp.at(i)->CurrentState.SetNewState(CHASE);
 		}
 	}
-
-
-	// Äänen play esimerkki
-	soundSystem->coin.play();
 }
 
 
@@ -126,6 +122,11 @@ void Game::EnemyAttack(Enemy* e)
 {
 	player->Hp -= e->DAM;
 	e->ATTACK_CD_TIMER = 0;
+	soundSystem->playerGetHit.play();
+	if(player->Hp <= 0)
+	{
+		soundSystem->playerDeath.play();
+	}
 }
 
 float Game::GetDistance(sf::Vector2<int> Playa,sf::Vector2<int> Beast)
@@ -158,6 +159,7 @@ void Game::Move()
 				if(walkable == true)
 				{
 				player->Position.y--;
+				soundSystem->playerStep.play();
 				}
 			}
 		}
@@ -178,6 +180,7 @@ void Game::Move()
 				if(walkable == true)
 				{
 				player->Position.y++;
+				soundSystem->playerStep.play();
 				}
 			}	
 
@@ -198,6 +201,7 @@ void Game::Move()
 				if(walkable == true)
 				{
 				player->Position.x--;
+				soundSystem->playerStep.play();
 				}
 			}
 
@@ -218,6 +222,7 @@ void Game::Move()
 				if(walkable == true)
 				{
 				player->Position.x++;
+				soundSystem->playerStep.play();
 				}
 			}
 		}
@@ -229,6 +234,7 @@ void Game::Move()
 		if(Temp2.at(i)->Position == Pos)
 		{
 			scene->player->PickItem(Temp2.at(i));
+			Temp2.at(i)->Position = sf::Vector2<int>(-500,-500);
 		}
 	}
 }
@@ -243,14 +249,70 @@ void Game::Attack()
 		std::cout<<"X: "<<WinPos.x/64<<"Y: "<<WinPos.y/64<<std::endl;
 		if(scene->GetEnemyByPos(sf::Vector2<int>(WinPos.x/64-6+P.x,WinPos.y/64-5+P.y)) != NULL)
 		{
-			if(GetDistance(P,scene->GetEnemyByPos(sf::Vector2<int>(WinPos.x/64-6+P.x,WinPos.y/64-5+P.y))->Position) < 2)
+			Enemy* Target = scene->GetEnemyByPos(sf::Vector2<int>(WinPos.x/64-6+P.x,WinPos.y/64-5+P.y));
+			if(GetDistance(P,Target->Position) < 2)
 			{
-				std::cout<<scene->player->Dam<<std::endl;
-				scene->GetEnemyByPos(sf::Vector2<int>(WinPos.x/64-6+P.x,WinPos.y/64-5+P.y))->HP -= scene->player->Dam;
-				if(scene->GetEnemyByPos(sf::Vector2<int>(WinPos.x/64-6+P.x,WinPos.y/64-5+P.y))->Alive &&
-					scene->GetEnemyByPos(sf::Vector2<int>(WinPos.x/64-6+P.x,WinPos.y/64-5+P.y))->HP <= 0)
+				if(player->AttackCDTimer > player->AttackCD)
 				{
-					scene->player->Exp += scene->GetEnemyByPos(sf::Vector2<int>(WinPos.x/64-6+P.x,WinPos.y/64-5+P.y))->EXP;
+					Target->HP -= player->Dam;
+					switch(Target->type)
+					{
+					case ZOMBIE: 
+						soundSystem->zombieGetHit.play();
+						if(Target->Alive &&
+							Target->HP <= 0)
+						{
+							player->Exp += Target->EXP;
+							soundSystem->zombieDeath.play();
+						}
+						break;
+						case SKELETON: 
+						//soundSystem->skeletonGetHit.play();
+						if(Target->Alive &&
+							Target->HP <= 0)
+						{
+							player->Exp += Target->EXP;
+							//soundSystem->skeletonDeath.play();
+						}
+						break;
+						case WRAITH: 
+						soundSystem->wraithGetHit.play();
+						if(Target->Alive &&
+							Target->HP <= 0)
+						{
+							player->Exp += Target->EXP;
+							soundSystem->wraithDeath.play();
+						}
+						break;
+						case GOBLIN: 
+						soundSystem->goblinGetHit.play();
+						if(Target->Alive &&
+							Target->HP <= 0)
+						{
+							player->Exp += Target->EXP;
+							soundSystem->goblinDeath.play();
+						}
+						break;
+						case ORC: 
+						soundSystem->orcGetHit.play();
+						if(Target->Alive &&
+							Target->HP <= 0)
+						{
+							player->Exp += Target->EXP;
+							soundSystem->orcDeath.play();
+						}
+						break;
+						case TROLL: 
+						soundSystem->trollGetHit.play();
+						if(Target->Alive &&
+							Target->HP <= 0)
+						{
+							player->Exp += Target->EXP;
+							soundSystem->trollDeath.play();
+						}
+						break;
+					}
+					player->AttackCDTimer = 0;
 				}
 			}
 				//std::cout<<"HP: "<<scene->GetEnemyByPos(sf::Vector2<int>(WinPos.x/64-6+P.x,WinPos.y/64-5+P.y))->HP<<std::endl;

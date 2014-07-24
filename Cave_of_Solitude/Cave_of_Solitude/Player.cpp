@@ -59,7 +59,7 @@ void Player::Update()
 	MovementCD = 10 / Dex;
 	if(Exp >= ExpToLevel)
 	{
-		Points += 3;
+		Points += 2;
 		Exp = 0;
 		ExpToLevel = ExpToLevel*1.5f;
 	}
