@@ -8,8 +8,6 @@ Game::Game(Scene *s, sf::RenderWindow *win, SoundSystem *ss)
 {
 	soundSystem = ss;
 	scene = s;
-	MovementCDTimer = 1.0f;
-	MovementCD = 1.0f;
 	Pos = scene->player->Position;
 	window = win;
 	level = 1;
@@ -34,17 +32,12 @@ Game::~Game(void)
 
 void Game::Update()
 {
-
-	soundSystem->coin.setVolume(100.0f);
-	soundSystem->coin.play();
+	player = scene->player;
 
 
-
-	if(scene->state == INFO)
+	if(scene->state == GAME)
 	{
-	DeltaTime = clock.restart();
-
-	Pos = scene->player->Position;
+	Pos = player->Position;
 
 	if(scene->End == Pos)
 	{
@@ -64,7 +57,7 @@ void Game::Update()
 		switch(Temp.at(i)->CurrentState.state)
 		{
 		case GUARD:
-			if(GetDistance(scene->player->Position,Temp.at(i)->Position) < 10)
+			if(GetDistance(player->Position,Temp.at(i)->Position) < 10)
 			{
 				Temp.at(i)->CurrentState.SetNewState(CHASE);
 			}
@@ -73,7 +66,7 @@ void Game::Update()
 		case CHASE:
 			if(Temp.at(i)->Alive != false)
 			{
-				if(GetDistance(scene->player->Position,Temp.at(i)->Position) < 2)
+				if(GetDistance(player->Position,Temp.at(i)->Position) < 2)
 				{
 					if(Temp.at(i)->HP >= 0)
 					{
@@ -103,7 +96,6 @@ void Game::Update()
 		}
 	}
 
-	MovementCDTimer += DeltaTime.asSeconds();
 	//std::cout<<MovementCDTimer<<std::endl;
 	}
 	else
@@ -111,7 +103,7 @@ void Game::Update()
 
 	if(sf::Keyboard::isKeyPressed(sf::Keyboard::Space))
 	{
-		scene->SetNewState(INFO);
+		scene->SetNewState(GAME);
 	}
 
 	if(sf::Keyboard::isKeyPressed(sf::Keyboard::Escape))
@@ -125,14 +117,14 @@ void Game::Attack(Enemy* e)
 {
 	if(e != NULL)
 	{
-		e->HP -= scene->player->Dam;
+		e->HP -= player->Dam;
 		std::cout<<e->HP<<std::endl;
 	}
 }
 
 void Game::EnemyAttack(Enemy* e)
 {
-	scene->player->Hp -= e->DAM;
+	player->Hp -= e->DAM;
 	e->ATTACK_CD_TIMER = 0;
 }
 
@@ -148,7 +140,7 @@ void Game::Move()
 	std::vector<Item*> Temp2 = scene->items;
 	bool walkable = true;
 
-	//if(MovementCDTimer > MovementCD)
+	//if(player->MovementCDTimer > player->MovementCD)
 	{
 		if(sf::Keyboard::isKeyPressed(sf::Keyboard::Up) == true)
 		{
@@ -165,7 +157,7 @@ void Game::Move()
 				}
 				if(walkable == true)
 				{
-				scene->player->Position.y--;
+				player->Position.y--;
 				}
 			}
 		}
@@ -185,7 +177,7 @@ void Game::Move()
 				}
 				if(walkable == true)
 				{
-				scene->player->Position.y++;
+				player->Position.y++;
 				}
 			}	
 
@@ -205,7 +197,7 @@ void Game::Move()
 				}
 				if(walkable == true)
 				{
-				scene->player->Position.x--;
+				player->Position.x--;
 				}
 			}
 
@@ -225,11 +217,11 @@ void Game::Move()
 				}
 				if(walkable == true)
 				{
-				scene->player->Position.x++;
+				player->Position.x++;
 				}
 			}
 		}
-		MovementCDTimer = 0;
+		player->MovementCDTimer = 0;
 	}
 
 	for(unsigned int i = 0; i < Temp2.size(); i++)

@@ -10,7 +10,7 @@
 enum Scene_State
 {
 	START_SCREEN,
-	INFO,
+	GAME,
 };
 
 class Scene

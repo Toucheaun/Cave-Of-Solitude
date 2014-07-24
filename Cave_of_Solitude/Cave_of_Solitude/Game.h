@@ -39,14 +39,14 @@ public:
 	void pathOpened(sf::Vector2<int> Position, float newCost,SearchNode* nextNode, SearchNode* goalNode);
 
 	Scene *scene;
+	Player *player;
 
 	sf::RenderWindow *window;
 
-	sf::Clock clock;
-	sf::Time DeltaTime;
-	float MovementCD,MovementCDTimer;
 	sf::Vector2<int> Pos;
 	int level;
+
+
 
 	//Components for pahtfinding
 	std::vector<SearchNode*> openList;

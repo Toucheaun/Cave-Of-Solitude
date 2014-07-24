@@ -12,8 +12,12 @@ Player::Player(sf::Vector2<int> pos)
 	Hp = 100;
 	Hp_Max = 100;
 	Facing = DOWN;
-	AttackCD = 1;
-	MovementCD =1;
+	MovementCDTimer = 1.0f;
+	MovementCD = 1.0f;
+	AttackCD = 1.0f;
+	AttackCDTimer = 1.0f;
+	ExpToLevel = 100;
+	Level = 1;
 }
 
 
@@ -44,8 +48,19 @@ void Player::PickItem(Item* t)
 
 void Player::Update()
 {
+	DeltaTime = clock.restart();
+
+	MovementCDTimer += DeltaTime.asSeconds();
+	AttackCDTimer += DeltaTime.asSeconds();
+
 	Hp_Max = 10 * Vit;
 	Dam = 1 * Str;
 	AttackCD = 10 / Dex;
 	MovementCD = 10 / Dex;
+	if(Exp >= ExpToLevel)
+	{
+		Points += 3;
+		Exp = 0;
+		ExpToLevel = ExpToLevel*1,5;
+	}
 }
