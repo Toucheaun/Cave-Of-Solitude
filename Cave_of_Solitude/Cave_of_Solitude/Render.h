@@ -43,6 +43,9 @@ private:
 	sf::Texture treasureOpened;
 	sf::Sprite TreasureOpened;
 
+	sf::Texture apple;
+	sf::Sprite Apple;
+
 	//UI assets
 	sf::Texture ui1;
 	sf::Sprite UI1;

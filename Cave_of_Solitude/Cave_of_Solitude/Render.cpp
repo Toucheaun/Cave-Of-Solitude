@@ -28,6 +28,8 @@ Render::Render(Scene* s)
 	Start.setTexture(start);
 	Start.setScale(0.5f,0.5f);
 
+	apple.loadFromFile("../Resources/Graphics/Apple.png");
+	Apple.setTexture(apple);
 
 	player.loadFromFile("../Resources/Graphics/Player128.png");
 	Player.setTexture(player);
@@ -237,6 +239,8 @@ void Render::Update()
 		case ARMOR_1:
 			break;
 		case FOOD:
+			Apple.setPosition(temp3.at(i)->Position.x*64+16, temp3.at(i)->Position.y*64+48);
+			window.draw(Apple);
 			break;
 		}
 	}
