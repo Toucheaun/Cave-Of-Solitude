@@ -111,11 +111,16 @@ void Scene::Spawn()
 				{
 						if(std::rand() % 100+1 > 50)
 						{
-							items.push_back(new Item(std::rand()%2,sf::Vector2<int>(x,y)));
+							chests.push_back(new Chest(2,sf::Vector2<int>(x,y)));
 						}
 				}
 		}
 	}
+}
+
+void Scene::SpawnItem(Item_type T, sf::Vector2<int> Pos)
+{
+	items.push_back(new Item(T,Pos));
 }
 
 void Scene::NewLevel()
@@ -125,6 +130,18 @@ void Scene::NewLevel()
 		delete enemies[i];
 	}
 	enemies.clear();
+
+	for (unsigned int i = 0; i < chests.size(); i++)
+	{
+		delete chests[i];
+	}
+	chests.clear();
+
+	for (unsigned int i = 0; i < items.size(); i++)
+	{
+		delete items[i];
+	}
+	items.clear();
 
 	int size = tilemap.Height;
 
@@ -174,6 +191,18 @@ Enemy* Scene::GetEnemyByPos(sf::Vector2<int> Pos)
 		if(enemies.at(i)->Position == Pos)
 		{
 			return enemies.at(i);
+		}
+	}
+	return NULL;
+}
+
+Chest* Scene::GetChestByPos(sf::Vector2<int> Pos)
+{
+	for(unsigned int i = 0; i < chests.size();i++)
+	{
+		if(chests.at(i)->Position == Pos)
+		{
+			return chests.at(i);
 		}
 	}
 	return NULL;

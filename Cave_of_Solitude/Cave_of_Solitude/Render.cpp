@@ -94,7 +94,8 @@ void Render::Update()
 	window.clear();
 
 	std::vector<Enemy*> temp = scene->enemies;
-	std::vector<Item*> temp2 = scene->items;
+	std::vector<Chest*> temp2 = scene->chests;
+	std::vector<Item*> temp3 = scene->items;
 
 	Player.setPosition(scene->player->Position.x*64,scene->player->Position.y*64);
 	view.reset(sf::FloatRect(0,0,800,600));
@@ -213,6 +214,19 @@ void Render::Update()
 		}
 		Treasure.setPosition(temp2.at(i)->Position.x*64,temp2.at(i)->Position.y*64);
 		window.draw(Treasure);
+	}
+
+	for(unsigned int i = 0; i < temp3.size(); i++)
+	{
+		switch(temp3.at(i)->type)
+		{
+		case SWORD:
+			break;
+		case ARMOR_1:
+			break;
+		case FOOD:
+			break;
+		}
 	}
 
 	//Player.setPosition(scene->player->Position.x*64,scene->player->Position.y*64);

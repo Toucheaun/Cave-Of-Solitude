@@ -23,7 +23,23 @@ Player::~Player(void)
 
 void Player::PickItem(Item* t)
 {
-	//lots of checks
+	switch(t->type)
+	{
+		case SWORD:
+			break;
+		case ARMOR_1:
+			break;
+		case FOOD:
+			if(Hp+25 > Hp_Max)
+			{
+				Hp = Hp_Max;
+			}
+			else
+			{
+				Hp += 25;
+			}
+			break;
+	}
 }
 
 void Player::Update()

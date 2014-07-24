@@ -1,22 +1,15 @@
 #ifndef Item_H
 #define Item_h
 
-#include <SFML\System.hpp>
-
-enum Item_type
-{
-	SWORD = 0,
-	ARMOR_1,
-};
+#include "Chest.h"
 
 class Item
 {
 public:
-	Item(int t,sf::Vector2<int> Pos);
+	Item(Item_type t,sf::Vector2<int> Pos);
 	~Item(void);
 
 	Item_type type;
 	sf::Vector2<int> Position;
-	bool Open;
 };
 #endif

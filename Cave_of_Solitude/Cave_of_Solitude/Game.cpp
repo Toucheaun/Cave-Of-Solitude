@@ -22,9 +22,9 @@ Game::Game(Scene *s, sf::RenderWindow *win, SoundSystem *ss)
 		}
 	}
 
+
 	// Äänen play esimerkki
 	soundSystem->coin.play();
-
 }
 
 
@@ -34,6 +34,12 @@ Game::~Game(void)
 
 void Game::Update()
 {
+
+	soundSystem->coin.setVolume(100.0f);
+	soundSystem->coin.play();
+
+
+
 	if(scene->state == INFO)
 	{
 	DeltaTime = clock.restart();
@@ -139,6 +145,7 @@ float Game::GetDistance(sf::Vector2<int> Playa,sf::Vector2<int> Beast)
 void Game::Move()
 {
 	std::vector<Enemy*> Temp = scene->enemies;
+	std::vector<Item*> Temp2 = scene->items;
 	bool walkable = true;
 
 	//if(MovementCDTimer > MovementCD)
@@ -224,6 +231,14 @@ void Game::Move()
 		}
 		MovementCDTimer = 0;
 	}
+
+	for(unsigned int i = 0; i < Temp2.size(); i++)
+	{
+		if(Temp2.at(i)->Position == Pos)
+		{
+			scene->player->PickItem(Temp2.at(i));
+		}
+	}
 }
 
 void Game::Attack()
@@ -250,14 +265,14 @@ void Game::Attack()
 				//std::cout<<"X: "<<scene->GetEnemyByPos(sf::Vector2<int>(WinPos.x/64-6+P.x,WinPos.y/64-5+P.y))->Position.x<<std::endl;
 				//std::cout<<"Y: "<<scene->GetEnemyByPos(sf::Vector2<int>(WinPos.x/64-6+P.x,WinPos.y/64-5+P.y))->Position.y<<std::endl;
 		}
-		if(scene->GetItemByPos(sf::Vector2<int>(WinPos.x/64-6+P.x,WinPos.y/64-5+P.y)) != NULL)
+		if(scene->GetChestByPos(sf::Vector2<int>(WinPos.x/64-6+P.x,WinPos.y/64-5+P.y)) != NULL)
 		{
-			if(GetDistance(P,scene->GetItemByPos(sf::Vector2<int>(WinPos.x/64-6+P.x,WinPos.y/64-5+P.y))->Position) < 2)
+			if(GetDistance(P,scene->GetChestByPos(sf::Vector2<int>(WinPos.x/64-6+P.x,WinPos.y/64-5+P.y))->Position) < 2)
 			{
-				if(scene->GetItemByPos(sf::Vector2<int>(WinPos.x/64-6+P.x,WinPos.y/64-5+P.y))->Open == false)
+				if(scene->GetChestByPos(sf::Vector2<int>(WinPos.x/64-6+P.x,WinPos.y/64-5+P.y))->Open == false)
 				{
-					scene->player->PickItem(scene->GetItemByPos(sf::Vector2<int>(WinPos.x/64-6+P.x,WinPos.y/64-5+P.y)));
-					scene->GetItemByPos(sf::Vector2<int>(WinPos.x/64-6+P.x,WinPos.y/64-5+P.y))->Open = true;
+					scene->SpawnItem(scene->GetChestByPos(sf::Vector2<int>(WinPos.x/64-6+P.x,WinPos.y/64-5+P.y))->type,scene->GetChestByPos(sf::Vector2<int>(WinPos.x/64-6+P.x,WinPos.y/64-5+P.y))->Position);
+					scene->GetChestByPos(sf::Vector2<int>(WinPos.x/64-6+P.x,WinPos.y/64-5+P.y))->Open = true;
 				}
 			}
 

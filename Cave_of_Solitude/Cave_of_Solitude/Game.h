@@ -7,8 +7,9 @@
 #include <SFML\Graphics.hpp>
 #include "Scene.h"
 #include "SearchNode.h"
+#include "SoundSystem.h"
 
-class SoundSystem;
+//class SoundSystem;
 
 class Game
 {

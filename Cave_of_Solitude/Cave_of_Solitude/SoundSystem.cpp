@@ -5,7 +5,7 @@ SoundSystem::SoundSystem()
 {
 	coinBuffer.loadFromFile("../Resources/Sound/Coin.wav");
 
-	if(!coinBuffer.loadFromFile("../Resources/Sound/coin.wav"));
+	if(!coinBuffer.loadFromFile("../Resources/Sound/Coin.wav"))
 	{
 		printf("SOUND load failed ");
 	}

@@ -29,13 +29,16 @@ public:
 
 	TileMap* getTileMap();
 	void NewLevel();
+	void SpawnItem(Item_type T,sf::Vector2<int> Pos);
 
 	TileType GetTileByPos(sf::Vector2<int> Pos);
 	bool CheckWalkable(sf::Vector2<int> Pos);
 
 	Enemy* GetEnemyByPos(sf::Vector2<int> Pos);
+	Chest* GetChestByPos(sf::Vector2<int> Pos);
 	Item* GetItemByPos(sf::Vector2<int> Pos);
 	std::vector<Enemy*> enemies;
+	std::vector<Chest*> chests;
 	std::vector<Item*> items;
 
 	void SetNewState(Scene_State s);
