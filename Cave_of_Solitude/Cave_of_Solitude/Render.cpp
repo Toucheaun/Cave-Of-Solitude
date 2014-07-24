@@ -7,79 +7,79 @@ Render::Render(Scene* s)
 {
 	window.create(sf::VideoMode(800,600),"Cave of Solitude");
 	scene = s;
-	floor.loadFromFile("../Resources/StoneFloor64.png");
+	floor.loadFromFile("../Resources/Graphics/StoneFloor64.png");
 	Floor.setTexture(floor);
-	wall.loadFromFile("../Resources/StoneWall64.png");
+	wall.loadFromFile("../Resources/Graphics/StoneWall64.png");
 	Wall.setTexture(wall);
-	wall_H.loadFromFile("../Resources/StoneWallHorizontal.png");
+	wall_H.loadFromFile("../Resources/Graphics/StoneWallHorizontal.png");
 	Wall_H.setTexture(wall_H);
 	//Wall_H.scale(0.5f,0.5f);
-	pillar.loadFromFile("../Resources/Pillar128.png");
+	pillar.loadFromFile("../Resources/Graphics/Pillar128.png");
 	Pillar.setTexture(pillar);
 	Pillar.setScale(0.5f,0.5f);
-	treasure.loadFromFile("../Resources/TreasureChest128.png");
+	treasure.loadFromFile("../Resources/Graphics/TreasureChest128.png");
 	Treasure.setTexture(treasure);
 	Treasure.setScale(0.5f,0.5f);
-	treasureOpened.loadFromFile("../Resources/TreasureChestOpened128.png");
-	end.loadFromFile("../Resources/StairsDown128.png");
+	treasureOpened.loadFromFile("../Resources/Graphics/TreasureChestOpened128.png");
+	end.loadFromFile("../Resources/Graphics/StairsDown128.png");
 	End.setTexture(end);
 	End.setScale(0.5f,0.5f);
-	start.loadFromFile("../Resources/StairsUp128.png");
+	start.loadFromFile("../Resources/Graphics/StairsUp128.png");
 	Start.setTexture(start);
 	Start.setScale(0.5f,0.5f);
 
 
-	player.loadFromFile("../Resources/Player128.png");
+	player.loadFromFile("../Resources/Graphics/Player128.png");
 	Player.setTexture(player);
 	Player.setScale(0.5f,0.5f);
 
-	zombie.loadFromFile("../Resources/zombie128.png");
+	zombie.loadFromFile("../Resources/Graphics/zombie128.png");
 	Zombie.setTexture(zombie);
 	Zombie.setScale(0.5f,0.5f);
 
-	skeleton.loadFromFile("../Resources/Skeleton128.png");
+	skeleton.loadFromFile("../Resources/Graphics/Skeleton128.png");
 	Skeleton.setTexture(skeleton);
 	Skeleton.setScale(0.5f,0.5f);
 
-	wraith.loadFromFile("../Resources/Wraith128.png");
+	wraith.loadFromFile("../Resources/Graphics/Wraith128.png");
 	Wraith.setTexture(wraith);
 	Wraith.setScale(0.5f,0.5f);
 
-	goblin.loadFromFile("../Resources/ScaledGoblinWithWeapon128.png");
+	goblin.loadFromFile("../Resources/Graphics/Goblin128.png");
 	Goblin.setTexture(goblin);
 	Goblin.setScale(0.5f,0.5f);
 
-	orc.loadFromFile("../Resources/orc128.png");
+	orc.loadFromFile("../Resources/Graphics/orc128.png");
 	Orc.setTexture(orc);
 	Orc.setScale(0.5f,0.5f);
 
-	troll.loadFromFile("../Resources/TrollUnarmed128.png");
+	troll.loadFromFile("../Resources/Graphics/TrollUnarmed128.png");
 	Troll.setTexture(troll);
 	Troll.setScale(0.5f,0.5f);
 
-	dead.loadFromFile("../Resources/Grave128.png");
+	dead.loadFromFile("../Resources/Graphics/Grave128.png");
 	Dead.setTexture(dead);
 	Dead.scale(0.5f, 0.5f);
 
-	ui1.loadFromFile("../Resources/Frame256x128.png");
+	ui1.loadFromFile("../Resources/Graphics/Frame256x128.png");
 	UI1.setTexture(ui1);
 
-	ui2.loadFromFile("../Resources/FrameExample2.png");
+	ui2.loadFromFile("../Resources/Graphics/FrameExample2.png");
 	UI2.setTexture(ui2);
 
-	playerMenu.loadFromFile("../Resources/Frame256x384.png");
+	playerMenu.loadFromFile("../Resources/Graphics/Frame256x384.png");
 	PlayerMenu.setTexture(playerMenu);
 	PlayerMenu.setScale(1.07f,1.0f);
 
-	pointAlloc.loadFromFile("../Resources/+.png");
+	pointAlloc.loadFromFile("../Resources/Graphics/+.png");
 	PointAlloc.setTexture(pointAlloc);
 	PointAlloc.setScale(0.5f,0.5f);
 
-	startMenu.loadFromFile("../Resources/StartMenu.png");
+	startMenu.loadFromFile("../Resources/Graphics/StartMenu.png");
 	StartMenu.setTexture(startMenu);
 
 	//Text
-	font.loadFromFile("../Resources/Gabriela-Regular.ttf");
+	font.loadFromFile("../Resources/Graphics/Gabriela-Regular.ttf");
 	text.setFont(font);
 	text.setColor(sf::Color::Red);
 
