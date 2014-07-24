@@ -254,17 +254,23 @@ void Render::Update()
 	window.draw(UI1);
 
 	//Texts writen on top
-	HP.setPosition(Player.getPosition().x-380,Player.getPosition().y+195);
+	HP.setPosition(Player.getPosition().x-380,Player.getPosition().y+185);
 	std::stringstream ss;
 	ss<<"Hp: "<<scene->player->Hp;
 	HP.setString(ss.str());
 	window.draw(HP);
 
-	EXP.setPosition(Player.getPosition().x-380,Player.getPosition().y+235);
+	EXP.setPosition(Player.getPosition().x-380,Player.getPosition().y+220);
 	std::stringstream exp;
 	exp<<"Exp: "<<scene->player->Exp;
 	EXP.setString(exp.str());
 	window.draw(EXP);
+	
+	TextLines.setPosition(Player.getPosition().x-380,Player.getPosition().y+255);
+	std::stringstream Text1;
+	Text1<<"To level: "<< scene->player->ExpToLevel;
+	TextLines.setString(Text1.str());
+	window.draw(TextLines);
 
 	if(1>0)
 	{
@@ -298,6 +304,12 @@ void Render::Update()
 		TextLines2.setPosition(Player.getPosition().x-380,Player.getPosition().y+40);
 		TextLines2.setString("Vitality increases your health.");
 		window.draw(TextLines2);
+
+		std::stringstream Text3;
+		Text3<<"Points: "<< scene->player->Points;
+		TextLines.setPosition(Player.getPosition().x-325,Player.getPosition().y+80);
+		TextLines.setString(Text3.str());
+		window.draw(TextLines);
 
 		PointAlloc.setPosition(Player.getPosition().x-185, Player.getPosition().y-200);
 		window.draw(PointAlloc);

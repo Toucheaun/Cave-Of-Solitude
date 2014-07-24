@@ -17,7 +17,7 @@ Player::Player(sf::Vector2<int> pos)
 	AttackCD = 1.0f;
 	AttackCDTimer = 1.0f;
 	ExpToLevel = 100;
-	Level = 1;
+	Points = 0;
 }
 
 
@@ -61,6 +61,6 @@ void Player::Update()
 	{
 		Points += 3;
 		Exp = 0;
-		ExpToLevel = ExpToLevel*1,5;
+		ExpToLevel = ExpToLevel*1.5f;
 	}
 }
