@@ -147,37 +147,37 @@ SoundSystem::SoundSystem()
 	}
 	orcDeath.setBuffer(orcDeathBuffer);
 
-	//// Skeleton
-	//skeletonBuffer.loadFromFile("../Resources/Sound/Skeleton.wav");
-	//if(!skeletonBuffer.loadFromFile("../Resources/Sound/Skeleton.wav"))
-	//{
-	//	printf("SOUND load failed ");
-	//}
-	//skeleton.setBuffer(skeletonBuffer);
+	// Skeleton
+	skeletonBuffer.loadFromFile("../Resources/Sound/Skeleton.wav");
+	if(!skeletonBuffer.loadFromFile("../Resources/Sound/Skeleton.wav"))
+	{
+		printf("SOUND load failed ");
+	}
+	skeleton.setBuffer(skeletonBuffer);
 
-	//// Skeleton Hit
-	//skeletonHitBuffer.loadFromFile("../Resources/Sound/Skeleton_Hit.wav");
-	//if(!skeletonHitBuffer.loadFromFile("../Resources/Sound/Skeleton_Hit.wav"))
-	//{
-	//	printf("SOUND load failed ");
-	//}
-	//skeletonHit.setBuffer(skeletonHitBuffer);
+	// Skeleton Hit
+	skeletonHitBuffer.loadFromFile("../Resources/Sound/Skeleton_Hit.wav");
+	if(!skeletonHitBuffer.loadFromFile("../Resources/Sound/Skeleton_Hit.wav"))
+	{
+		printf("SOUND load failed ");
+	}
+	skeletonHit.setBuffer(skeletonHitBuffer);
 
-	//// Skeleton GetHit
-	//skeletonGetHitBuffer.loadFromFile("../Resources/Sound/Skeleton_GetHit.wav");
-	//if(!skeletonGetHitBuffer.loadFromFile("../Resources/Sound/Skeleton_GetHit.wav"))
-	//{
-	//	printf("SOUND load failed ");
-	//}
-	//skeletonGetHit.setBuffer(skeletonGetHitBuffer);
+	// Skeleton GetHit
+	skeletonGetHitBuffer.loadFromFile("../Resources/Sound/Skeleton_GetHit.wav");
+	if(!skeletonGetHitBuffer.loadFromFile("../Resources/Sound/Skeleton_GetHit.wav"))
+	{
+		printf("SOUND load failed ");
+	}
+	skeletonGetHit.setBuffer(skeletonGetHitBuffer);
 
-	//// Skeleton Death
-	//skeletonDeathBuffer.loadFromFile("../Resources/Sound/Skeleton_Death.wav");
-	//if(!skeletonDeathBuffer.loadFromFile("../Resources/Sound/Skeleton_Death.wav"))
-	//{
-	//	printf("SOUND load failed ");
-	//}
-	//skeletonDeath.setBuffer(skeletonDeathBuffer);
+	// Skeleton Death
+	skeletonDeathBuffer.loadFromFile("../Resources/Sound/Skeleton_Death.wav");
+	if(!skeletonDeathBuffer.loadFromFile("../Resources/Sound/Skeleton_Death.wav"))
+	{
+		printf("SOUND load failed ");
+	}
+	skeletonDeath.setBuffer(skeletonDeathBuffer);
 
 	// Troll
 	trollBuffer.loadFromFile("../Resources/Sound/Troll.wav");
