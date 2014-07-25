@@ -19,6 +19,17 @@ Game::Game(Scene *s, sf::RenderWindow *win, SoundSystem *ss)
 			Temp.at(i)->CurrentState.SetNewState(CHASE);
 		}
 	}
+
+	sf::Vector2<int> WinPos = win->getPosition();
+
+	Start = sf::Rect<int>(WinPos.x+300,WinPos.y+250,200,100);
+	Info = sf::Rect<int>(WinPos.x+300,WinPos.y+350,200,100);
+	Exit = sf::Rect<int>(WinPos.x+300,WinPos.y+450,200,100);
+
+	CharacterScreen = sf::Rect<int>(WinPos.x+690,WinPos.y+500,110,82);
+	Strength = sf::Rect<int>(WinPos.x+223,WinPos.y+127,33,33);
+	Dexterity = sf::Rect<int>(WinPos.x+223,WinPos.y+225,33,33);
+	Vitality = sf::Rect<int>(WinPos.x+223,WinPos.y+325,33,33);
 }
 
 
@@ -43,7 +54,6 @@ void Game::Update()
 	Move();
 
 	Attack();
-
 
 	std::vector<Enemy*> Temp = scene->enemies;
 	std::vector<Item*> Temp2 = scene->items;
@@ -84,29 +94,19 @@ void Game::Update()
 		Temp.at(i)->Update();
 	}
 
-	for(unsigned int i = 0; i<Temp2.size(); i++)
-	{
-		if(Temp2.at(i)->Position == Pos)
-		{
-			//
-		}
-	}
-
 	//std::cout<<MovementCDTimer<<std::endl;
 	}
 	else
 	{}
-
-	if(sf::Keyboard::isKeyPressed(sf::Keyboard::Space))
-	{
-		scene->SetNewState(GAME);
-	}
 
 	if(sf::Keyboard::isKeyPressed(sf::Keyboard::Escape))
 	{
 		scene->SetNewState(START_SCREEN);
 	}
 	scene->player->Update();
+
+	MouseControl();
+
 }
 
 void Game::Attack(Enemy* e)
@@ -330,6 +330,88 @@ void Game::Attack()
 				}
 			}
 
+		}
+	}
+}
+
+void Game::MouseControl()
+{
+	if(scene->state == START_SCREEN)
+	{
+		if(Start.contains(sf::Mouse::getPosition()) == true)
+			{
+				if(sf::Mouse::isButtonPressed(sf::Mouse::Left))
+				{
+					scene->state = GAME;
+				}
+			}
+			if(Info.contains(sf::Mouse::getPosition()) == true)
+			{
+				if(sf::Mouse::isButtonPressed(sf::Mouse::Left))
+				{
+					scene->state = INFO_SCREEN;
+				}
+			}
+			if(Exit.contains(sf::Mouse::getPosition()) == true)
+			{
+				if(sf::Mouse::isButtonPressed(sf::Mouse::Left))
+				{
+					//needs thinking
+					printf("I hit Exit");
+				}
+			}
+	}
+	else if(scene->state == GAME || scene->state == CHARACTER_SCREEN)
+	{
+		if(scene->state == CHARACTER_SCREEN)
+		{
+			if(CharacterScreen.contains(sf::Mouse::getPosition()) == true)
+				{
+					if(sf::Mouse::isButtonPressed(sf::Mouse::Left))
+					{
+						scene->state = GAME;
+					}
+				}
+			if(player->Points > 0)
+			{
+				if(Strength.contains(sf::Mouse::getPosition()) == true)
+					{
+						if(sf::Mouse::isButtonPressed(sf::Mouse::Left))
+						{
+							player->Str++;
+							player->Points--;
+							printf("I hit Strength");
+						}
+					}
+				if(Dexterity.contains(sf::Mouse::getPosition()) == true)
+					{
+						if(sf::Mouse::isButtonPressed(sf::Mouse::Left))
+						{
+							player->Dex++;
+							player->Points--;
+							printf("I hit Dexterity");
+						}
+					}
+				if(Vitality.contains(sf::Mouse::getPosition()) == true)
+					{
+						if(sf::Mouse::isButtonPressed(sf::Mouse::Left))
+						{
+							player->Vit++;
+							player->Points--;
+							printf("I hit Vitality");
+						}
+					}
+			}
+		}
+		else if(scene->state == GAME)
+		{
+			if(CharacterScreen.contains(sf::Mouse::getPosition()) == true)
+			{
+				if(sf::Mouse::isButtonPressed(sf::Mouse::Left))
+				{
+					scene->state = CHARACTER_SCREEN;
+				}
+			}
 		}
 	}
 }

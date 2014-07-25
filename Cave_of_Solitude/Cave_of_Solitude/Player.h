@@ -22,6 +22,7 @@ public:
 	void PickItem(Item* t);
 
 	float Vit, Str, Dex, Dam, Exp;
+	float MovementCD, MovementCDTimer, AttackCD, AttackCDTimer, ExpToLevel;
 	int Hp, Hp_Max,Points;
 	Direction Facing;
 	sf::Vector2<int> Position;
@@ -29,6 +30,5 @@ public:
 	sf::Clock clock;
 	sf::Time DeltaTime;
 
-	float MovementCD, MovementCDTimer, AttackCD, AttackCDTimer, ExpToLevel;
 };
 #endif

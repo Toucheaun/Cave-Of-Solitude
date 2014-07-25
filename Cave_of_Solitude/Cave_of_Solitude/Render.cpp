@@ -276,7 +276,7 @@ void Render::Update()
 	TextLines.setString(Text1.str());
 	window.draw(TextLines);
 
-	if(1>0)
+	if(scene->state == CHARACTER_SCREEN)
 	{
 		PlayerMenu.setPosition(Player.getPosition().x-400, Player.getPosition().y-250);
 		window.draw(PlayerMenu);

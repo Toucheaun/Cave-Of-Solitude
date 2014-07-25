@@ -46,7 +46,17 @@ public:
 	sf::Vector2<int> Pos;
 	int level;
 
+	//Menu and point allocation
+	void MouseControl();
 
+	//Components for menu
+	sf::Rect<int> Start;
+	sf::Rect<int> Info;
+	sf::Rect<int> Exit;
+	sf::Rect<int> CharacterScreen;
+	sf::Rect<int> Strength;
+	sf::Rect<int> Dexterity;
+	sf::Rect<int> Vitality;
 
 	//Components for pahtfinding
 	std::vector<SearchNode*> openList;
