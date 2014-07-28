@@ -79,7 +79,6 @@ void Game::Update()
 				{
 					Temp.at(i)->CurrentState.SetNewState(CHASE);
 				}
-				//check if player visible
 			break;
 			case CHASE:
 				if(Temp.at(i)->Alive != false)
@@ -98,15 +97,12 @@ void Game::Update()
 					{
 						Temp.at(i)->SetPath(FindPath(Temp.at(i)->Position, Pos));
 						Temp.at(i)->Move();
-						printf("I move");
 					}
 				}
 				break;
 			}
 			Temp.at(i)->Update();
 		}
-
-		//std::cout<<MovementCDTimer<<std::endl;
 	}
 	else if(scene->state == INFO_SCREEN)
 	{
@@ -161,18 +157,16 @@ void Game::Move()
 	std::vector<Item*> Temp2 = scene->items;
 	bool walkable = true;
 
-	//if(player->MovementCDTimer > player->MovementCD)
+	if(player->MovementCDTimer > player->MovementCD)
 	{
 		if(sf::Keyboard::isKeyPressed(sf::Keyboard::Up) == true)
 		{
 			if(scene->CheckWalkable(sf::Vector2<int>(Pos.x,Pos.y-1)) == true)
 			{
-				//std::cout<<"Can walk"<<std::endl;
 				for(unsigned int i = 0; i < Temp.size(); i++)
 				{
 					if(Temp.at(i)->Position == sf::Vector2<int>(Pos.x,Pos.y-1) &&  Temp.at(i)->Alive != false)
 					{
-						std::cout<<"Enemy in way"<<std::endl;
 						walkable = false;
 					}
 				}
@@ -187,12 +181,11 @@ void Game::Move()
 		{
 			if(scene->CheckWalkable(sf::Vector2<int>(Pos.x,Pos.y+1)) == true)
 			{
-				//std::cout<<"Can walk"<<std::endl;
+
 				for(unsigned int i = 0; i < Temp.size(); i++)
 				{
 					if(Temp.at(i)->Position == sf::Vector2<int>(Pos.x,Pos.y+1) &&  Temp.at(i)->Alive != false)
 					{
-						std::cout<<"Enemy in way"<<std::endl;
 						std::cout<<Temp.at(i)->Position.x<<Temp.at(i)->Position.y;
 						walkable = false;
 					}
@@ -209,12 +202,10 @@ void Game::Move()
 		{
 			if(scene->CheckWalkable(sf::Vector2<int>(Pos.x-1,Pos.y)) == true)
 			{
-				//std::cout<<"Can walk"<<std::endl;
 				for(unsigned int i = 0; i < Temp.size(); i++)
 				{
 					if(Temp.at(i)->Position == sf::Vector2<int>(Pos.x-1,Pos.y) &&  Temp.at(i)->Alive != false)
 					{
-						std::cout<<"Enemy in way"<<std::endl;
 						walkable = false;
 					}
 				}
@@ -230,12 +221,10 @@ void Game::Move()
 		{
 			if(scene->CheckWalkable(sf::Vector2<int>(Pos.x+1,Pos.y)) == true)
 			{
-				//std::cout<<"Can walk"<<std::endl;
 				for(unsigned int i = 0; i < Temp.size(); i++)
 				{
 					if(Temp.at(i)->Position == sf::Vector2<int>(Pos.x+1,Pos.y) &&  Temp.at(i)->Alive != false)
 					{
-						std::cout<<"Enemy in way"<<std::endl;
 						walkable = false;
 					}
 				}
@@ -266,7 +255,6 @@ void Game::Attack()
 	{
 		sf::Vector2i WinPos = sf::Mouse::getPosition(*window);
 		sf::Vector2<int>P = scene->player->Position;
-		std::cout<<"X: "<<WinPos.x/64<<"Y: "<<WinPos.y/64<<std::endl;
 		if(scene->GetEnemyByPos(sf::Vector2<int>(WinPos.x/64-6+P.x,WinPos.y/64-5+P.y)) != NULL)
 		{
 			Enemy* Target = scene->GetEnemyByPos(sf::Vector2<int>(WinPos.x/64-6+P.x,WinPos.y/64-5+P.y));
@@ -275,69 +263,69 @@ void Game::Attack()
 				if(player->AttackCDTimer > player->AttackCD)
 				{
 					Target->HP -= player->Dam;
-					switch(Target->type)
+					if(Target->HP >= 0)
 					{
-					case ZOMBIE: 
-						soundSystem->zombieGetHit.play();
-						if(Target->Alive &&
-							Target->HP <= 0)
+						switch(Target->type)
 						{
-							player->Exp += Target->EXP;
-							soundSystem->zombieDeath.play();
+						case ZOMBIE: 
+							soundSystem->zombieGetHit.play();
+							if(Target->Alive &&
+								Target->HP <= 0)
+							{
+								player->Exp += Target->EXP;
+								soundSystem->zombieDeath.play();
+							}
+							break;
+							case SKELETON: 
+							//soundSystem->skeletonGetHit.play();
+							if(Target->Alive &&
+								Target->HP <= 0)
+							{
+								player->Exp += Target->EXP;
+								//soundSystem->skeletonDeath.play();
+							}
+							break;
+							case WRAITH: 
+							soundSystem->wraithGetHit.play();
+							if(Target->Alive &&
+								Target->HP <= 0)
+							{
+								player->Exp += Target->EXP;
+								soundSystem->wraithDeath.play();
+							}
+							break;
+							case GOBLIN: 
+							soundSystem->goblinGetHit.play();
+							if(Target->Alive &&
+								Target->HP <= 0)
+							{
+								player->Exp += Target->EXP;
+								soundSystem->goblinDeath.play();
+							}
+							break;
+							case ORC: 
+							soundSystem->orcGetHit.play();
+							if(Target->Alive &&
+								Target->HP <= 0)
+							{
+								player->Exp += Target->EXP;
+								soundSystem->orcDeath.play();
+							}
+							break;
+							case TROLL: 
+							soundSystem->trollGetHit.play();
+							if(Target->Alive &&
+								Target->HP <= 0)
+							{
+								player->Exp += Target->EXP;
+								soundSystem->trollDeath.play();
+							}
+							break;
 						}
-						break;
-						case SKELETON: 
-						//soundSystem->skeletonGetHit.play();
-						if(Target->Alive &&
-							Target->HP <= 0)
-						{
-							player->Exp += Target->EXP;
-							//soundSystem->skeletonDeath.play();
-						}
-						break;
-						case WRAITH: 
-						soundSystem->wraithGetHit.play();
-						if(Target->Alive &&
-							Target->HP <= 0)
-						{
-							player->Exp += Target->EXP;
-							soundSystem->wraithDeath.play();
-						}
-						break;
-						case GOBLIN: 
-						soundSystem->goblinGetHit.play();
-						if(Target->Alive &&
-							Target->HP <= 0)
-						{
-							player->Exp += Target->EXP;
-							soundSystem->goblinDeath.play();
-						}
-						break;
-						case ORC: 
-						soundSystem->orcGetHit.play();
-						if(Target->Alive &&
-							Target->HP <= 0)
-						{
-							player->Exp += Target->EXP;
-							soundSystem->orcDeath.play();
-						}
-						break;
-						case TROLL: 
-						soundSystem->trollGetHit.play();
-						if(Target->Alive &&
-							Target->HP <= 0)
-						{
-							player->Exp += Target->EXP;
-							soundSystem->trollDeath.play();
-						}
-						break;
 					}
 					player->AttackCDTimer = 0;
 				}
 			}
-				//std::cout<<"HP: "<<scene->GetEnemyByPos(sf::Vector2<int>(WinPos.x/64-6+P.x,WinPos.y/64-5+P.y))->HP<<std::endl;
-				//std::cout<<"X: "<<scene->GetEnemyByPos(sf::Vector2<int>(WinPos.x/64-6+P.x,WinPos.y/64-5+P.y))->Position.x<<std::endl;
-				//std::cout<<"Y: "<<scene->GetEnemyByPos(sf::Vector2<int>(WinPos.x/64-6+P.x,WinPos.y/64-5+P.y))->Position.y<<std::endl;
 		}
 		if(scene->GetChestByPos(sf::Vector2<int>(WinPos.x/64-6+P.x,WinPos.y/64-5+P.y)) != NULL)
 		{

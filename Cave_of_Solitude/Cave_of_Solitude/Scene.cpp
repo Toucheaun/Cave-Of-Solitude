@@ -45,8 +45,6 @@ TileMap* Scene::getTileMap()
 
 void Scene::Update()
 {
-	std::cout<<"Playerposition: "<<player->Position.x<<","<<player->Position.y<<std::endl;
-	//std::cout<<"Player HP: "<<player->Hp<<std::endl;
 }
 
 void Scene::Spawn()
@@ -218,7 +216,6 @@ TileType Scene::GetTileByPos(sf::Vector2<int> Pos)
 
 bool Scene::CheckWalkable(sf::Vector2<int> Pos)
 {
-	//return true;
 	if(tilemap.tiles[Pos.x][Pos.y] == TILE_WALL ||
 		tilemap.tiles[Pos.x][Pos.y] == TILE_WALL_H || tilemap.tiles[Pos.x][Pos.y] == TILE_PILLAR )
 	{
@@ -230,7 +227,6 @@ bool Scene::CheckWalkable(sf::Vector2<int> Pos)
 
 Enemy* Scene::GetEnemyByPos(sf::Vector2<int> Pos)
 {
-	//std::cout<<"Attack pos:"<<Pos.x<<","<<Pos.y<<std::endl;
 	for(unsigned int i = 0; i < enemies.size();i++)
 	{
 		if(enemies.at(i)->Position == Pos)
