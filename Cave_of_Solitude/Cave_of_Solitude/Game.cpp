@@ -42,62 +42,67 @@ void Game::Update()
 	player = scene->player;
 
 
-	if(scene->state == GAME)
+	if(scene->state == GAME || scene->state == CHARACTER_SCREEN)
 	{
-	Pos = player->Position;
+		Pos = player->Position;
 
-	if(scene->End == Pos)
-	{
-		scene->NewLevel();
-	}
-
-	Move();
-
-	Attack();
-
-	std::vector<Enemy*> Temp = scene->enemies;
-	std::vector<Item*> Temp2 = scene->items;
-
-	for(unsigned int i = 0; i<Temp.size(); i++)
-	{
-		switch(Temp.at(i)->CurrentState.state)
+		if(scene->End == Pos)
 		{
-		case GUARD:
-			if(GetDistance(player->Position,Temp.at(i)->Position) < 10)
+			scene->NewLevel();
+		}
+
+		Move();
+
+		Attack();
+
+		std::vector<Enemy*> Temp = scene->enemies;
+		std::vector<Item*> Temp2 = scene->items;
+
+		for(unsigned int i = 0; i<Temp.size(); i++)
+		{
+			switch(Temp.at(i)->CurrentState.state)
 			{
-				Temp.at(i)->CurrentState.SetNewState(CHASE);
-			}
-			//check if player visible
-		break;
-		case CHASE:
-			if(Temp.at(i)->Alive != false)
-			{
-				if(GetDistance(player->Position,Temp.at(i)->Position) < 2)
+			case GUARD:
+				if(GetDistance(player->Position,Temp.at(i)->Position) < 10)
 				{
-					if(Temp.at(i)->HP >= 0)
+					Temp.at(i)->CurrentState.SetNewState(CHASE);
+				}
+				//check if player visible
+			break;
+			case CHASE:
+				if(Temp.at(i)->Alive != false)
+				{
+					if(GetDistance(player->Position,Temp.at(i)->Position) < 2)
 					{
-						if(Temp.at(i)->ATTACK_CD_TIMER > Temp.at(i)->ATTACK_CD)
+						if(Temp.at(i)->HP >= 0)
 						{
-							EnemyAttack(Temp.at(i));
+							if(Temp.at(i)->ATTACK_CD_TIMER > Temp.at(i)->ATTACK_CD)
+							{
+								EnemyAttack(Temp.at(i));
+							}
 						}
 					}
+					else
+					{
+						Temp.at(i)->SetPath(FindPath(Temp.at(i)->Position, Pos));
+						Temp.at(i)->Move();
+						printf("I move");
+					}
 				}
-				else
-				{
-					Temp.at(i)->SetPath(FindPath(Temp.at(i)->Position, Pos));
-					Temp.at(i)->Move();
-					printf("I move");
-				}
+				break;
 			}
-			break;
+			Temp.at(i)->Update();
 		}
-		Temp.at(i)->Update();
-	}
 
-	//std::cout<<MovementCDTimer<<std::endl;
+		//std::cout<<MovementCDTimer<<std::endl;
 	}
-	else
-	{}
+	else if(scene->state == INFO_SCREEN)
+	{
+		if(sf::Keyboard::isKeyPressed(sf::Keyboard::Escape))
+		{
+			scene->state = START_SCREEN;
+		}
+	}
 
 	if(sf::Keyboard::isKeyPressed(sf::Keyboard::Escape))
 	{
@@ -349,6 +354,7 @@ void Game::MouseControl()
 			{
 				if(sf::Mouse::isButtonPressed(sf::Mouse::Left))
 				{
+					printf("I hit info");
 					scene->state = INFO_SCREEN;
 				}
 			}

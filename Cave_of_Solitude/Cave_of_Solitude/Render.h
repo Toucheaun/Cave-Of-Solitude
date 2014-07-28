@@ -62,6 +62,9 @@ private:
 	sf::Texture pointAlloc;
 	sf::Sprite PointAlloc;
 
+	sf::Texture infoScreen;
+	sf::Sprite InfoScreen;
+
 	//Text assets
 	sf::Font font;
 	sf::Text text;

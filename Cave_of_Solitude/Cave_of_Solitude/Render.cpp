@@ -80,6 +80,9 @@ Render::Render(Scene* s)
 	startMenu.loadFromFile("../Resources/Graphics/StartMenu.png");
 	StartMenu.setTexture(startMenu);
 
+	infoScreen.loadFromFile("../Resources/Graphics/StartMenuInfo.png");
+	InfoScreen.setTexture(infoScreen);
+
 	//Text
 	font.loadFromFile("../Resources/Graphics/Gabriela-Regular.ttf");
 	text.setFont(font);
@@ -327,6 +330,12 @@ void Render::Update()
 	{
 		StartMenu.setPosition(Player.getPosition().x-400,Player.getPosition().y-300);
 		window.draw(StartMenu);
+	}
+
+	if(scene->state == INFO_SCREEN)
+	{
+		InfoScreen.setPosition(Player.getPosition().x-400,Player.getPosition().y-300);
+		window.draw(InfoScreen);
 	}
 
 	window.display();
