@@ -4,13 +4,13 @@
 SoundSystem::SoundSystem()
 {
 	// Main Menu
-	if (!menu.openFromFile("../Resources/Music/Main_Menu.mp3"))
+	if (!menu.openFromFile("../Resources/Music/Main_Menu.ogg"))
 	{
 		printf("MUSIC load failed ");
 	}
 
 	// In Game
-	if (!inGame.openFromFile("../Resources/Music/InGame.mp3"))
+	if (!inGame.openFromFile("../Resources/Music/InGame.ogg"))
 	{
 		printf("MUSIC load failed ");
 	}
