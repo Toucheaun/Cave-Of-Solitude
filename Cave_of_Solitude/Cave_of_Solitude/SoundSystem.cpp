@@ -46,6 +46,7 @@ SoundSystem::SoundSystem()
 		printf("SOUND load failed ");
 	}
 	playerStep.setBuffer(playerStepBuffer);
+	playerStep.setVolume(30);
 
 	// Player GetHit
 	playerGetHitBuffer.loadFromFile("../Resources/Sound/Player_GetHit.wav");
