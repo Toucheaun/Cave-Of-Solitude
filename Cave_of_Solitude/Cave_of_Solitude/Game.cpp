@@ -248,6 +248,10 @@ void Game::Move()
 		{
 			scene->player->PickItem(Temp2.at(i));
 			Temp2.at(i)->Position = sf::Vector2<int>(-500,-500);
+			if (Temp2[i]->type == FOOD)
+			{
+				soundSystem->food.play();
+			}
 		}
 	}
 }
@@ -267,11 +271,11 @@ void Game::Attack()
 				if(player->AttackCDTimer > player->AttackCD)
 				{
 					Target->HP -= player->Dam;
-					if(Target->HP >= 0)
 					{
 						switch(Target->type)
 						{
 						case ZOMBIE: 
+							if(Target->HP >= 0)
 							soundSystem->zombieGetHit.play();
 							if(Target->Alive &&
 								Target->HP <= 0)
@@ -281,6 +285,7 @@ void Game::Attack()
 							}
 							break;
 							case SKELETON: 
+							if(Target->HP >= 0)
 							soundSystem->skeletonGetHit.play();
 							if(Target->Alive &&
 								Target->HP <= 0)
@@ -290,6 +295,7 @@ void Game::Attack()
 							}
 							break;
 							case WRAITH: 
+							if(Target->HP >= 0)
 							soundSystem->wraithGetHit.play();
 							if(Target->Alive &&
 								Target->HP <= 0)
@@ -299,6 +305,7 @@ void Game::Attack()
 							}
 							break;
 							case GOBLIN: 
+							if(Target->HP >= 0)
 							soundSystem->goblinGetHit.play();
 							if(Target->Alive &&
 								Target->HP <= 0)
@@ -308,6 +315,7 @@ void Game::Attack()
 							}
 							break;
 							case ORC: 
+							if(Target->HP >= 0)
 							soundSystem->orcGetHit.play();
 							if(Target->Alive &&
 								Target->HP <= 0)
@@ -317,6 +325,7 @@ void Game::Attack()
 							}
 							break;
 							case TROLL: 
+							if(Target->HP >= 0)
 							soundSystem->trollGetHit.play();
 							if(Target->Alive &&
 								Target->HP <= 0)
