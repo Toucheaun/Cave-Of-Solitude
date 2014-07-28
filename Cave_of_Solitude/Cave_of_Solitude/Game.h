@@ -46,6 +46,11 @@ public:
 	sf::Vector2<int> Pos;
 	int level;
 
+	//sound play timers
+	sf::Clock clock;
+	sf::Time DeltaTime;
+	//float AmbientSound,AmbientSoundTimer;
+
 	//Menu and point allocation
 	void MouseControl();
 

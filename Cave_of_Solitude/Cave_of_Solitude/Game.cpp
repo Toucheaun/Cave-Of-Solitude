@@ -20,6 +20,12 @@ Game::Game(Scene *s, sf::RenderWindow *win, SoundSystem *ss)
 		}
 	}
 
+	soundSystem->menu.setLoop(true);
+	soundSystem->menu.play();
+
+	//AmbientSound = 0.0f;
+	//AmbientTimer = 32.0f;
+
 	sf::Vector2<int> WinPos = win->getPosition();
 
 	Start = sf::Rect<int>(WinPos.x+300,WinPos.y+250,200,100);
@@ -41,9 +47,14 @@ void Game::Update()
 {
 	player = scene->player;
 
-
 	if(scene->state == GAME || scene->state == CHARACTER_SCREEN)
 	{
+		soundSystem->menu.stop();
+		/*if(soundSystem->inGame.Playing == Playing)
+		{*/
+			soundSystem->inGame.play();
+		//}
+
 		Pos = player->Position;
 
 		if(scene->End == Pos)
@@ -102,6 +113,9 @@ void Game::Update()
 		{
 			scene->state = START_SCREEN;
 		}
+	}
+	else
+	{
 	}
 
 	if(sf::Keyboard::isKeyPressed(sf::Keyboard::Escape))
