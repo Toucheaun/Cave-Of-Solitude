@@ -11,6 +11,8 @@ Player::Player(sf::Vector2<int> pos)
 	Exp = 0;
 	Hp = 100;
 	Hp_Max = 100;
+	BaseHP = 10;
+	BaseDam = 10.0f;
 	Facing = DOWN;
 	MovementCDTimer = 1.0f;
 	MovementCD = 1.0f;
@@ -30,8 +32,10 @@ void Player::PickItem(Item* t)
 	switch(t->type)
 	{
 		case SWORD:
+			BaseDam += 1;
 			break;
 		case ARMOR_1:
+			BaseHP += 1.0f;
 			break;
 		case FOOD:
 			if(Hp+25 > Hp_Max)
@@ -53,8 +57,8 @@ void Player::Update()
 	MovementCDTimer += DeltaTime.asSeconds();
 	AttackCDTimer += DeltaTime.asSeconds();
 
-	Hp_Max = 10 * Vit;
-	Dam = 1 * Str;
+	Hp_Max = BaseHP * Vit;
+	Dam = BaseDam/10 * Str;
 	AttackCD = 10 / Dex;
 	MovementCD = 10 / Dex;
 	if(Exp >= ExpToLevel)
