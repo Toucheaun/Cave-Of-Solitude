@@ -3,6 +3,18 @@
 
 SoundSystem::SoundSystem()
 {
+	// Main Menu
+	if (!menu.openFromFile("../Resources/Music/Main_Menu.mp3"))
+	{
+		printf("MUSIC load failed ");
+	}
+
+	// In Game
+	if (!inGame.openFromFile("../Resources/Music/InGame.mp3"))
+	{
+		printf("MUSIC load failed ");
+	}
+
 	// Coin
 	coinBuffer.loadFromFile("../Resources/Sound/Coin.wav");
 	if(!coinBuffer.loadFromFile("../Resources/Sound/Coin.wav"))

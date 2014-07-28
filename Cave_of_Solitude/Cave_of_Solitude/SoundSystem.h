@@ -50,6 +50,8 @@ private:
 	sf::SoundBuffer wraithDeathBuffer;
 
 public:
+	sf::Music menu;
+	sf::Music inGame;
 
 	sf::Sound coin;
 	sf::Sound food;
