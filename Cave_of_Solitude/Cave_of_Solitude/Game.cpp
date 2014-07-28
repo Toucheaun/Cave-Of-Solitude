@@ -120,6 +120,8 @@ void Game::Update()
 	if(sf::Keyboard::isKeyPressed(sf::Keyboard::Escape))
 	{
 		scene->SetNewState(START_SCREEN);
+		soundSystem->inGame.stop();
+		soundSystem->menu.play();
 	}
 	scene->player->Update();
 
