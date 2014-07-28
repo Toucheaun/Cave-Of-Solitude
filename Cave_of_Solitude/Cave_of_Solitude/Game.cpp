@@ -19,12 +19,10 @@ Game::Game(Scene *s, sf::RenderWindow *win, SoundSystem *ss)
 			Temp.at(i)->CurrentState.SetNewState(CHASE);
 		}
 	}
-
+	
 	soundSystem->menu.setLoop(true);
 	soundSystem->menu.play();
-
-	//AmbientSound = 0.0f;
-	//AmbientTimer = 32.0f;
+	soundSystem->inGame.setLoop(true);
 
 	sf::Vector2<int> WinPos = win->getPosition();
 
@@ -50,10 +48,7 @@ void Game::Update()
 	if(scene->state == GAME || scene->state == CHARACTER_SCREEN)
 	{
 		soundSystem->menu.stop();
-		/*if(soundSystem->inGame.Playing == Playing)
-		{*/
-			soundSystem->inGame.play();
-		//}
+
 
 		Pos = player->Position;
 
@@ -368,6 +363,7 @@ void Game::MouseControl()
 				if(sf::Mouse::isButtonPressed(sf::Mouse::Left))
 				{
 					scene->state = GAME;
+					soundSystem->inGame.play();
 				}
 			}
 			if(Info.contains(sf::Mouse::getPosition()) == true)
