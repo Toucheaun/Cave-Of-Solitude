@@ -109,7 +109,16 @@ void Scene::Spawn()
 				{
 						if(std::rand() % 100+1 > 50)
 						{
-							chests.push_back(new Chest(std::rand() % 2,sf::Vector2<int>(x,y)));
+							int temprand = std::rand() % 10;
+							int chesttype = 9;
+							if(temprand == 0)
+								chesttype = 0;
+							else if (temprand == 1)
+								chesttype = 1;
+							else
+								chesttype = 2;
+
+							chests.push_back(new Chest(chesttype,sf::Vector2<int>(x,y)));
 						}
 				}
 		}

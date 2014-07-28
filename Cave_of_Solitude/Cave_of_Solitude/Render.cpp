@@ -31,6 +31,15 @@ Render::Render(Scene* s)
 	apple.loadFromFile("../Resources/Graphics/Apple.png");
 	Apple.setTexture(apple);
 
+	armorDrop.loadFromFile("../Resources/Graphics/ArmorDrop128.png");
+	ArmorDrop.setTexture(armorDrop);
+	ArmorDrop.setScale(0.5f, 0.5f);
+
+	swordDrop.loadFromFile("../Resources/Graphics/sworddrop128.png");
+	SwordDrop.setTexture(swordDrop);
+	SwordDrop.setScale(0.5f, 0.5f);
+
+
 	player.loadFromFile("../Resources/Graphics/Player128.png");
 	Player.setTexture(player);
 	Player.setScale(0.5f,0.5f);
@@ -238,8 +247,12 @@ void Render::Update()
 		switch(temp3.at(i)->type)
 		{
 		case SWORD:
+			SwordDrop.setPosition(temp3.at(i)->Position.x*64, temp3.at(i)->Position.y*64);
+			window.draw(SwordDrop);
 			break;
 		case ARMOR_1:
+			ArmorDrop.setPosition(temp3.at(i)->Position.x*64, temp3.at(i)->Position.y*64);
+			window.draw(ArmorDrop);
 			break;
 		case FOOD:
 			Apple.setPosition(temp3.at(i)->Position.x*64+16, temp3.at(i)->Position.y*64+48);

@@ -46,6 +46,12 @@ private:
 	sf::Texture apple;
 	sf::Sprite Apple;
 
+	sf::Texture armorDrop;
+	sf::Sprite ArmorDrop;
+	
+	sf::Texture swordDrop;
+	sf::Sprite SwordDrop;
+
 	//UI assets
 	sf::Texture ui1;
 	sf::Sprite UI1;
