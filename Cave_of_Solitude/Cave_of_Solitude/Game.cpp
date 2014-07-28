@@ -30,9 +30,9 @@ Game::Game(Scene *s, sf::RenderWindow *win, SoundSystem *ss)
 
 	Start = sf::Rect<int>(WinPos.x+300,WinPos.y+250,200,100);
 	Info = sf::Rect<int>(WinPos.x+300,WinPos.y+350,200,100);
-	Exit = sf::Rect<int>(WinPos.x+300,WinPos.y+450,200,100);
 
-	CharacterScreen = sf::Rect<int>(WinPos.x+690,WinPos.y+500,110,82);
+	CharacterScreen = sf::Rect<int>(WinPos.x+690,WinPos.y+500,110,72);
+	InGameExit = sf::Rect<int>(WinPos.x+690,WinPos.y+572,110,82);
 	Strength = sf::Rect<int>(WinPos.x+223,WinPos.y+127,33,33);
 	Dexterity = sf::Rect<int>(WinPos.x+223,WinPos.y+225,33,33);
 	Vitality = sf::Rect<int>(WinPos.x+223,WinPos.y+325,33,33);
@@ -60,6 +60,12 @@ void Game::Update()
 		if(scene->End == Pos)
 		{
 			scene->NewLevel();
+		}
+
+		if(player->Hp <= 0)
+		{
+			scene->state = START_SCREEN;
+			scene->NewGame();
 		}
 
 		Move();
@@ -372,14 +378,6 @@ void Game::MouseControl()
 					scene->state = INFO_SCREEN;
 				}
 			}
-			if(Exit.contains(sf::Mouse::getPosition()) == true)
-			{
-				if(sf::Mouse::isButtonPressed(sf::Mouse::Left))
-				{
-					//needs thinking
-					printf("I hit Exit");
-				}
-			}
 	}
 	else if(scene->state == GAME || scene->state == CHARACTER_SCREEN)
 	{
@@ -422,7 +420,7 @@ void Game::MouseControl()
 						}
 					}
 			}
-		}
+			}
 		else if(scene->state == GAME)
 		{
 			if(CharacterScreen.contains(sf::Mouse::getPosition()) == true)
@@ -430,7 +428,16 @@ void Game::MouseControl()
 				if(sf::Mouse::isButtonPressed(sf::Mouse::Left))
 				{
 					scene->state = CHARACTER_SCREEN;
+
 				}
+			}
+		}
+		if(InGameExit.contains(sf::Mouse::getPosition()) == true)
+		{
+			if(sf::Mouse::isButtonPressed(sf::Mouse::Left))
+			{
+				scene->state = START_SCREEN;
+				scene->NewGame();
 			}
 		}
 	}

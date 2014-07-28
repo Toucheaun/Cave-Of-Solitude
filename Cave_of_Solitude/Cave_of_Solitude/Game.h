@@ -57,8 +57,8 @@ public:
 	//Components for menu
 	sf::Rect<int> Start;
 	sf::Rect<int> Info;
-	sf::Rect<int> Exit;
 	sf::Rect<int> CharacterScreen;
+	sf::Rect<int> InGameExit;
 	sf::Rect<int> Strength;
 	sf::Rect<int> Dexterity;
 	sf::Rect<int> Vitality;

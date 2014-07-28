@@ -18,28 +18,23 @@ int main()
 	Render r(scene);
 	Game g(scene,r.GetWindow(), soundSystem);
 
+	sf::Vector2<int> WinPos = r.GetWindow()->getPosition();
+
+	sf::Rect<int> Exit = sf::Rect<int>(WinPos.x+300,WinPos.y+450,200,100);
+
 	bool pressed = false;
 
 	for(;;)
 	{
-		if(scene->state != START_SCREEN)
-		{
-			if(sf::Keyboard::isKeyPressed(sf::Keyboard::Escape))
-			{
-				pressed = true;
-			}
-		}
 		if(scene->state == START_SCREEN)
 		{
-			if(sf::Keyboard::isKeyPressed(sf::Keyboard::Escape))
+			if(Exit.contains(sf::Mouse::getPosition()) == true)
 			{
-				if(pressed == false)
-				break;
+				if(sf::Mouse::isButtonPressed(sf::Mouse::Left))
+				{
+					break;
+				}
 			}
-		}
-		if(!sf::Keyboard::isKeyPressed(sf::Keyboard::Escape))
-		{
-			pressed = false;
 		}
 
 		scene->Update();

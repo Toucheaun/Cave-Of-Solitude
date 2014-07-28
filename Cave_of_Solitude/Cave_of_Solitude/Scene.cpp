@@ -166,6 +166,51 @@ void Scene::NewLevel()
 	Spawn();
 }
 
+void Scene::NewGame()
+{
+	for (unsigned int i = 0; i < enemies.size(); i++)
+	{
+		delete enemies[i];
+	}
+	enemies.clear();
+
+	for (unsigned int i = 0; i < chests.size(); i++)
+	{
+		delete chests[i];
+	}
+	chests.clear();
+
+	for (unsigned int i = 0; i < items.size(); i++)
+	{
+		delete items[i];
+	}
+	items.clear();
+
+	delete player;
+
+	int size = tilemap.Height;
+
+	int type = std::rand() % 2;
+	tilemap = TileMap(size+1,size+1,type);
+	
+	for(int x = 0; x < TILEMAP_WIDTH; ++x)
+	{
+		for(int y = 0; y < TILEMAP_HEIGHT; ++y)
+		{
+			if(tilemap.tiles[x][y] == TILE_BEGIN)
+			{
+				player = new Player(sf::Vector2<int>(x,y));
+			}
+			if(tilemap.tiles[x][y] == TILE_END)
+			{
+				End = sf::Vector2<int>(x,y);
+			}
+		}
+	}
+
+	Spawn();
+}
+
 TileType Scene::GetTileByPos(sf::Vector2<int> Pos)
 {
 	return tilemap.tiles[Pos.x][Pos.y];

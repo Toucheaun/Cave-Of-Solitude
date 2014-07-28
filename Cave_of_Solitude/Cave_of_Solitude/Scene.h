@@ -31,6 +31,7 @@ public:
 
 	TileMap* getTileMap();
 	void NewLevel();
+	void NewGame();
 	void SpawnItem(Item_type T,sf::Vector2<int> Pos);
 
 	TileType GetTileByPos(sf::Vector2<int> Pos);
