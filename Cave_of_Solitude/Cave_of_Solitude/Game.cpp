@@ -61,6 +61,8 @@ void Game::Update()
 		{
 			scene->state = START_SCREEN;
 			scene->NewGame();
+			soundSystem->inGame.stop();
+			soundSystem->menu.play();
 		}
 
 		Move();
@@ -277,12 +279,12 @@ void Game::Attack()
 							}
 							break;
 							case SKELETON: 
-							//soundSystem->skeletonGetHit.play();
+							soundSystem->skeletonGetHit.play();
 							if(Target->Alive &&
 								Target->HP <= 0)
 							{
 								player->Exp += Target->EXP;
-								//soundSystem->skeletonDeath.play();
+								soundSystem->skeletonDeath.play();
 							}
 							break;
 							case WRAITH: 
@@ -358,7 +360,6 @@ void Game::MouseControl()
 			{
 				if(sf::Mouse::isButtonPressed(sf::Mouse::Left))
 				{
-					printf("I hit info");
 					scene->state = INFO_SCREEN;
 				}
 			}
@@ -382,7 +383,6 @@ void Game::MouseControl()
 						{
 							player->Str++;
 							player->Points--;
-							printf("I hit Strength");
 						}
 					}
 				if(Dexterity.contains(sf::Mouse::getPosition()) == true)
@@ -391,7 +391,6 @@ void Game::MouseControl()
 						{
 							player->Dex++;
 							player->Points--;
-							printf("I hit Dexterity");
 						}
 					}
 				if(Vitality.contains(sf::Mouse::getPosition()) == true)
@@ -400,7 +399,6 @@ void Game::MouseControl()
 						{
 							player->Vit++;
 							player->Points--;
-							printf("I hit Vitality");
 						}
 					}
 			}
@@ -422,6 +420,8 @@ void Game::MouseControl()
 			{
 				scene->state = START_SCREEN;
 				scene->NewGame();
+				soundSystem->inGame.stop();
+				soundSystem->menu.play();
 			}
 		}
 	}
