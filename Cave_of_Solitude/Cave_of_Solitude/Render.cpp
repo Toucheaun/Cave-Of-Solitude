@@ -5,7 +5,7 @@
 
 Render::Render(Scene* s)
 {
-	window.create(sf::VideoMode(800,600),"Cave of Solitude");
+	window.create(sf::VideoMode(800,600),"Caverns of the Lost");
 	scene = s;
 	floor.loadFromFile("../Resources/Graphics/StoneFloor64.png");
 	Floor.setTexture(floor);

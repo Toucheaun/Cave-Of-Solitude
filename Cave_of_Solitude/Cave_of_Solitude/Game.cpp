@@ -410,6 +410,7 @@ void Game::MouseControl()
 						{
 							player->Vit++;
 							player->Points--;
+							player->Hp += 10;
 						}
 					}
 			}

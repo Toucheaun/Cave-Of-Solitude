@@ -14,6 +14,7 @@
     <ProjectGuid>{261DCFE9-1AE5-452E-9804-B9155E8F9803}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
     <RootNamespace>Cave_of_Solitude</RootNamespace>
+    <ProjectName>Caverns of the Lost</ProjectName>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
